@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="enterSceneBG" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <Button fx:id="enterSceneBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="199.0" mnemonicParsing="false" onAction="#switchToLoginScene" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #000;" text="ENTER" textAlignment="CENTER" textFill="#5e02cf" textOverrun="CLIP" AnchorPane.leftAnchor="308.0" AnchorPane.rightAnchor="308.0">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="195.0" fitWidth="186.0" layoutX="257.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/logo-removebg-preview.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

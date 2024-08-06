@@ -1,0 +1,24 @@
+/* EnterScene.fxml */
+#enterSceneBG {
+	-fx-background-image: url("/application/Images/bg1b.gif");
+	-fx-background-size: cover;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
+}
+
+#enterSceneBtn {
+	-fx-text-fill: #5e02cf;
+}
+
+/* LoginScreen.fxml */
+#loginBtn, #signupBtn, #usernameLogin, #passwordLogin {
+	-fx-background-radius: 3;
+}
+
+
+#leftLoginScreen, #leftSignupScreen {
+	-fx-background-image: url("/application/Images/bg1.jpg");
+	-fx-background-size: cover;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
+}
