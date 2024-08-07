@@ -1,6 +1,6 @@
 /* EnterScene.fxml */
 #enterSceneBG {
-	-fx-background-image: url("/application/Images/bg1b.gif");
+	-fx-background-image: url("/application/resources/access/img/bg1b.gif");
 	-fx-background-size: cover;
 	-fx-background-position: center;
 	-fx-background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 
 
 #leftLoginScreen, #leftSignupScreen {
-	-fx-background-image: url("/application/Images/bg1.jpg");
+	-fx-background-image: url("/application/resources/access/img/bg1.jpg");
 	-fx-background-size: cover;
 	-fx-background-position: center;
 	-fx-background-repeat: no-repeat;

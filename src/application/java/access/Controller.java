@@ -1,4 +1,4 @@
-package application;
+package application.java.access;
 
 import java.io.IOException;
 
@@ -17,23 +17,23 @@ public class Controller {
 	public void switchScene(ActionEvent event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
 	
 	public void switchToLoginScene(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/application/Scenes/LoginScene.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/LoginScene.fxml"));
 		switchScene(event, root);
 	}
 	
 	public void switchToSignupScene(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/application/Scenes/SignupScene.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/SignupScene.fxml"));
 		switchScene(event, root);
 	}
 	
 	public void backToLogin(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/application/Scenes/LoginScene.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/LoginScene.fxml"));
 		switchScene(event, root);
 	}
 }
