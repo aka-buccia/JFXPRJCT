@@ -26,9 +26,9 @@
    <right>
       <AnchorPane fx:id="rightLoginScreen" prefHeight="430.0" prefWidth="400.0" style="-fx-background-color: #5e02cf;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="75.0" prefHeight="46.0" prefWidth="402.0" text="20G!N ?4G3" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="75.0" prefHeight="46.0" prefWidth="402.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Papyrus" size="22.0" />
+                  <Font name="SansSerif Bold" size="27.0" />
                </font>
             </Label>
             <TextField fx:id="usernameLogin" layoutX="100.0" layoutY="167.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" style="-fx-background-color: #fff;">
@@ -44,7 +44,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="signupBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToSignupScene" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #000;" text="SIGN UP" textAlignment="CENTER" textFill="#5e02cf">
+            <Button fx:id="signupBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToSignupScene" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #000;" text="REGISTRATI" textAlignment="CENTER" textFill="#5e02cf">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
