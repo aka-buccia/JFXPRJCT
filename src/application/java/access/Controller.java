@@ -2,6 +2,7 @@ package application.java.access;
 
 import java.io.IOException;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,6 +20,7 @@ public class Controller {
 		scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
 		stage.setScene(scene);
+        Platform.runLater(() -> root.requestFocus());
 		stage.show();
 	}
 	
