@@ -35,7 +35,7 @@ public class Controller {
 		scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
 		stage.setScene(scene);
-        Platform.runLater(() -> root.requestFocus());
+        Platform.runLater(() -> root.requestFocus());  //sposta il focus sulla scena
 		stage.show();
 	}
 	
