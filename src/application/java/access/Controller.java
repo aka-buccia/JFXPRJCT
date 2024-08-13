@@ -35,7 +35,7 @@ public class Controller {
 		scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
 		stage.setScene(scene);
-        Platform.runLater(() -> root.requestFocus());  //sposta il focus sulla scena
+        Platform.runLater(() -> root.requestFocus()); // sposta il focus sulla scena
 		stage.show();
 	}
 	
@@ -54,7 +54,16 @@ public class Controller {
 		switchScene(event, root);
 	}
 	
+	public void login(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
+		switchScene(event, root);
+	}
+	
 	public void signUp(ActionEvent event) throws IOException{
 		DBUtils.signUpUser(event, usernameSignup.getText(), passwordSignup.getText(), nameSignup.getText(), surnameSignup.getText());
 	}
 }
+
+
+
+
