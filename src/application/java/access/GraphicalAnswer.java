@@ -11,7 +11,7 @@ public class GraphicalAnswer {
 		
 		for (TextField d : data) {
 			if (d.getText().isEmpty()) {
-				d.setStyle("-fx-border-color: red; -fx-border-width: 2;");
+				alertMessage(d, messageLabel, "Dati mancanti");
 				 empty = true;
 			}
 			else {
@@ -19,13 +19,12 @@ public class GraphicalAnswer {
 			}
 		}
 		
-		if (empty) {
-			messageLabel.setText("Inserisci tutti i dati");
-		}
 		return empty;
 	}
 	
-	public static void writeMesssage(Label messageLabel, String message) {
+	
+	public static void alertMessage(TextField d, Label messageLabel, String message) {
+		d.setStyle("-fx-border-color: red; -fx-border-width: 2;");
 		messageLabel.setText(message);
 	}
 }

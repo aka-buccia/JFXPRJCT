@@ -71,14 +71,8 @@ public class Controller {
 		TextField [] data = {usernameSignup, passwordSignup, nameSignup, surnameSignup};
 		
 		if (! GraphicalAnswer.missingData(event, data, errorMessage)) {  //se non mancano dati si procede al signup
-			DBUtils.signUpUser(event, errorMessage, data[0].getText(), data[1].getText(), data[2].getText(), data[3].getText());
+			DBUtils.signUpUser(event, errorMessage, data);
 		}
 	}
 }
-<<<<<<< HEAD
-	
-    
-=======
 
-
->>>>>>> f71491c909e1eb6c57f2f8e747d4c16597fca068
