@@ -1,4 +1,3 @@
-/* EnterScene.fxml */
 #enterSceneBG {
 	-fx-background-image: url("/application/resources/access/img/bg1b.gif");
 	-fx-background-size: cover;
@@ -10,11 +9,9 @@
 	-fx-text-fill: #5e02cf;
 }
 
-/* LoginScreen.fxml */
 #loginBtn, #signupBtn, #usernameLogin, #passwordLogin {
 	-fx-background-radius: 3;
 }
-
 
 #leftLoginScreen, #leftSignupScreen {
 	-fx-background-image: url("/application/resources/access/img/bg1.jpg");
@@ -22,3 +19,6 @@
 	-fx-background-position: center;
 	-fx-background-repeat: no-repeat;
 }
+
+
+

@@ -1,20 +1,11 @@
 package application.java.access;
-	
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 
 public class Main extends Application {
 	@Override
@@ -24,7 +15,6 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
 			
-			//stage.initStyle(StageStyle.UNDECORATED);
 			stage.setTitle("SPT - JFXPRJCT");
 			Image logo = new Image("/application/resources/general/logo.png");
 			stage.getIcons().add(logo);
@@ -42,8 +32,8 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
-
 }
+
+
 
 
