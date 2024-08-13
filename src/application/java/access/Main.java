@@ -1,5 +1,11 @@
 package application.java.access;
 	
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -13,7 +19,7 @@ import javafx.scene.layout.Pane;
 public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
-		try {			
+		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/EnterScene.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
@@ -26,7 +32,9 @@ public class Main extends Application {
 			
 			stage.setScene(scene);
 			stage.show();
-		} catch(Exception e) {
+			
+		} 
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -34,6 +42,8 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
+
 }
 
 
