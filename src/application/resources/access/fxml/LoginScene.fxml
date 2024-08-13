@@ -36,15 +36,7 @@
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="238.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #000;" text="LOGIN" textAlignment="CENTER" textFill="#5e02cf">
-               <font>
-                  <Font name="SansSerif Bold" size="12.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="signupBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToSignupScene" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #000;" text="REGISTRATI" textAlignment="CENTER" textFill="#5e02cf">
+            <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="238.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #000;" text="LOGIN" textAlignment="CENTER" textFill="#5e02cf">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -57,6 +49,14 @@
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </PasswordField>
+            <Label layoutX="100.0" layoutY="284.0" onMouseClicked="#switchToSignupScene" prefHeight="28.0" prefWidth="200.0" text="Non hai un account? Clicca qui e registrati!" textFill="WHITE">
+               <font>
+                  <Font size="10.5" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
          </children>
       </AnchorPane>
    </right>

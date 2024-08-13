@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,10 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -39,12 +37,12 @@ public class Controller {
 	private Label errorMessage;
 	
 	
-	public void switchScene(ActionEvent event, Parent root) {
+	public void switchScene(Event event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
 		stage.setScene(scene);
-        Platform.runLater(() -> root.requestFocus());  //sposta il focus sulla scena
+        Platform.runLater(() -> root.requestFocus()); // sposta il focus sulla scena
 		stage.show();
 	}
 	
@@ -53,13 +51,18 @@ public class Controller {
 		switchScene(event, root);
 	}
 	
-	public void switchToSignupScene(ActionEvent event) throws IOException {
+	public void switchToSignupScene(MouseEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/SignupScene.fxml"));
 		switchScene(event, root);
 	}
 	
 	public void backToLogin(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/LoginScene.fxml"));
+		switchScene(event, root);
+	}
+	
+	public void login(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 		switchScene(event, root);
 	}
 	
@@ -72,5 +75,10 @@ public class Controller {
 		}
 	}
 }
+<<<<<<< HEAD
 	
     
+=======
+
+
+>>>>>>> f71491c909e1eb6c57f2f8e747d4c16597fca068
