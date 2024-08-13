@@ -9,7 +9,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -28,6 +34,9 @@ public class Controller {
 	
 	@FXML
 	private TextField surnameSignup;
+	
+	@FXML
+	private Label errorMessage;
 	
 	
 	public void switchScene(ActionEvent event, Parent root) {
@@ -55,6 +64,13 @@ public class Controller {
 	}
 	
 	public void signUp(ActionEvent event) throws IOException{
-		DBUtils.signUpUser(event, usernameSignup.getText(), passwordSignup.getText(), nameSignup.getText(), surnameSignup.getText());
+		
+		TextField [] data = {usernameSignup, passwordSignup, nameSignup, surnameSignup};
+		
+		if (! GraphicalAnswer.missingData(event, data, errorMessage)) {  //se non mancano dati si procede al signup
+			DBUtils.signUpUser(event, errorMessage, data[0].getText(), data[1].getText(), data[2].getText(), data[3].getText());
+		}
 	}
 }
+	
+    

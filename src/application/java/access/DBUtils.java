@@ -10,13 +10,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 
 public class DBUtils {
 	private final static String location = "jdbc:sqlite:database.db";
 
 	
-	public static void signUpUser(ActionEvent event, String username, String password, String name, String surname) {
+	public static void signUpUser(ActionEvent event, Label errorMessage, String username, String password, String name, String surname) {
 		
 		Connection connection = connect(location);
 		PreparedStatement psInsert = null; 
@@ -28,11 +30,11 @@ public class DBUtils {
 			psCheckUserExists.setString(1, username);
 			resultSet = psCheckUserExists.executeQuery();
 			
-			if (resultSet.isBeforeFirst()) {  //username già usato
+			//username già usato da un'altro utente
+			if (resultSet.isBeforeFirst()) {  
 				System.out.println("Questo username è già stato scelto");
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText("Questo username è già stato scelto!!");
-				alert.show();
+				GraphicalAnswer.writeMessage(errorMessage, "Username già scelto");
+				
 			}
 			else {
 				psInsert = connection.prepareStatement("INSERT INTO Utenti (username, password, nome, cognome) VALUES (? ? ? ?)");
