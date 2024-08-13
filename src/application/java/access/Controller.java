@@ -4,16 +4,31 @@ import java.io.IOException;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Controller {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	
+	@FXML
+	private TextField usernameSignup;
+	
+	@FXML
+	private TextField passwordSignup;
+	
+	@FXML
+	private TextField nameSignup;
+	
+	@FXML
+	private TextField surnameSignup;
+	
 	
 	public void switchScene(ActionEvent event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -37,5 +52,9 @@ public class Controller {
 	public void backToLogin(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/LoginScene.fxml"));
 		switchScene(event, root);
+	}
+	
+	public void signUp(ActionEvent event) throws IOException{
+		DBUtils.signUpUser(event, usernameSignup.getText(), passwordSignup.getText(), nameSignup.getText(), surnameSignup.getText());
 	}
 }
