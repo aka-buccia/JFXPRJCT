@@ -19,7 +19,7 @@ public class DBUtils {
 	private final static String location = "jdbc:sqlite:database.db";
 
 	
-	public static void signUpUser(ActionEvent event, Label errorMessage, TextField [] data) {
+	public static boolean signUpUser(ActionEvent event, Label errorMessage, TextField [] data) {
 		
 		Connection connection = connect(location);
 		PreparedStatement psInsert = null; 
@@ -35,20 +35,24 @@ public class DBUtils {
 			if (resultSet.isBeforeFirst()) {  
 				System.out.println("Questo username è già stato scelto");
 				GraphicalAnswer.alertMessage(data[0], errorMessage, "username già scelto");
+				return false;
 				
 			}
 			else {
-				psInsert = connection.prepareStatement("INSERT INTO Utenti (username, password, nome, cognome) VALUES (? ? ? ?)");
+				psInsert = connection.prepareStatement("INSERT INTO Utenti (username, password, nome, cognome) VALUES (?, ?, ?, ?)");
 				psInsert.setString(1, data[0].getText());
 				psInsert.setString(2, data[1].getText());
 				psInsert.setString(3, data[2].getText());
 				psInsert.setString(4, data[3].getText());
 				psInsert.executeUpdate();
+				System.out.println("Nuovo utente registrato");
+				return true;
 				
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
 		finally {
 			if (resultSet != null) {
