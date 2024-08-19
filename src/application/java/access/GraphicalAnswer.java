@@ -12,7 +12,7 @@ public class GraphicalAnswer {
 		for (TextField d : data) {
 			if (d.getText().isEmpty()) {
 				alertMessage(d, messageLabel, "Dati mancanti");
-				 empty = true;
+				empty = true;
 			}
 			else {
 				d.setStyle(""); //ripristina allo stato normale il bordo se il dato è stato inserito
@@ -21,7 +21,6 @@ public class GraphicalAnswer {
 		
 		return empty;
 	}
-	
 	
 	public static void alertMessage(TextField d, Label messageLabel, String message) {
 		d.setStyle("-fx-border-color: red; -fx-border-width: 2;");
