@@ -1,5 +1,6 @@
 package application.java.access;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,9 +19,74 @@ import javafx.scene.control.TextField;
 public class DBUtils {
 	private final static String location = "jdbc:sqlite:database.db";
 
+	public static void loginUser(ActionEvent event, String username, String password) throws IOException {
+		System.out.println("username inserito: " + username + "\npassword inserita: " + password);
+
+		Connection connection = connect(location);
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			preparedStatement = connection.prepareStatement("SELECT password FROM Utenti WHERE username = ?");
+			preparedStatement.setString(1, username);
+			resultSet = preparedStatement.executeQuery();
+			
+			if (!resultSet.isBeforeFirst()) { // se non è nel database
+				System.out.println("Utente non trovato nel database!");
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setContentText("Le credenziali fornite non sono corrette!");
+				alert.show();
+			}
+			else { // compariamo i dati se esiste l'username
+				while (resultSet.next()) {
+					String retrievedPassword = resultSet.getString("password");
+					if (retrievedPassword.equals(password)) {
+						//UserScraper userScraper = new UserScraper(username, password, resultSet.getString("nome"), resultSet.getString("cognome"));
+						//System.out.println("nome => " + resultSet.getString("nome"));
+						Controller controller = new Controller();
+						controller.switchToDashboardScene(event);
+					}
+					else {
+						System.out.println("La password non coincide!");
+						Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setContentText("Le credenziali fornite non sono corrette!");
+						alert.show();
+					}
+				}
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (resultSet != null) {
+				try {
+					resultSet.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (connection != null) {
+				try {
+					connection.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}	
+	}
 	
 	public static boolean signUpUser(ActionEvent event, Label errorMessage, TextField [] data) {
-		
 		Connection connection = connect(location);
 		PreparedStatement psInsert = null; 
 		PreparedStatement psCheckUserExists = null;

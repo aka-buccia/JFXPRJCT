@@ -61,13 +61,17 @@ public class Controller {
 		switchScene(event, root);
 	}
 	
+	public void switchToDashboardScene(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
+		switchScene(event, root);
+	}
+	
 	public void login(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 		switchScene(event, root);
 	}
 	
 	public void signUp(ActionEvent event) throws IOException{
-		
 		TextField [] data = {usernameSignup, passwordSignup, nameSignup, surnameSignup};
 		
 		if (! GraphicalAnswer.missingData(event, data, errorMessage)) {  //se non mancano dati si procede al signup
