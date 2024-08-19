@@ -19,7 +19,7 @@ public class ControllerDashboard {
 	private Parent root;
 	
 	@FXML
-	Label welcomeTextDashboard;
+	private Label welcomeTextDashboard;
 	
 	public void setWelcomeText(String username) {
 		welcomeTextDashboard.setText("Ciao " + username + "!");

@@ -1,49 +1,43 @@
 package application.java.dashboard;
 
 public class UserScraper {
-	private int idUtente = 0;
-	private String username = null;
-	private String name = null;
-	private String surname = null;
+	private static String idUtente = null;
+	private static String username = null;
+	private static String name = null;
+	private static String surname = null;
 	
-	public UserScraper(int idUtente, String username, String name, String surname) {
-		this.idUtente = idUtente;
-		this.username = username;
-		this.name = name;
-		this.surname = surname;
-		ControllerDashboard controllerDashboard = new ControllerDashboard();
-		controllerDashboard.setWelcomeText(username);
-		this.printInfo();
+	public static void scraper(String idUtente, String username, String name, String surname) {
+		UserScraper.idUtente = idUtente;
+		UserScraper.username = username;
+		UserScraper.name = name;
+		UserScraper.surname = surname;
+		printInfo();
 	}
 	
-	public int getIdUtente() {
-		return this.idUtente;
+	public static String getIdUtente() {
+		return idUtente;
 	}
 	
-	public String getUsername() {
-		return this.username;
+	public static String getUsername() {
+		return username;
 	}
 	
-	public String getName() {
-		return this.name;
+	public static String getName() {
+		return name;
 	}
 	
-	public String getSurname() {
-		return this.surname;
+	public static String getSurname() {
+		return surname;
 	}
 	
-	public void printInfo() {
+	public static void printInfo() {
 		System.out.println(
 			"USER INFO:" + "\n" +
-			"id utente: " + this.getIdUtente() + "\n" +
-			"username: " + this.getUsername() + "\n" +  
-			"nome: " + this.getName() + "\n" + 
-			"cognome: " + this.getSurname() 
+			"id utente: " + getIdUtente() + "\n" +  
+			"username: " + getUsername() + "\n" +  
+			"nome: " + getName() + "\n" + 
+			"cognome: " + getSurname() 
 		);
 	}
 }
-
-
-
-
 

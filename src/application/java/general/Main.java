@@ -20,10 +20,9 @@ public class Main extends Application {
 			Image logo = new Image("/application/resources/general/logo.png");
 			stage.getIcons().add(logo);
 			stage.setResizable(false);
-			
+						
 			stage.setScene(scene);
 			stage.show();
-			
 		} 
 		catch(Exception e) {
 			e.printStackTrace();

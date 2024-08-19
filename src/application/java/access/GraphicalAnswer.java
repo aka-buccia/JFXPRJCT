@@ -26,4 +26,8 @@ public class GraphicalAnswer {
 		d.setStyle("-fx-border-color: red; -fx-border-width: 2;");
 		messageLabel.setText(message);
 	}
+	
+	public static void alertMessage(Label messageLabel, String message) {
+		messageLabel.setText(message);
+	}
 }
