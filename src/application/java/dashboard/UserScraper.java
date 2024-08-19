@@ -1,44 +1,44 @@
 package application.java.dashboard;
 
 public class UserScraper {
+	private int idUtente = 0;
 	private String username = null;
-	private String password = null;
-	private String nome = null;
-	private String cognome = null;
+	private String name = null;
+	private String surname = null;
 	
-	public UserScraper(String username, String password, String nome, String cognome) {
+	public UserScraper(int idUtente, String username, String name, String surname) {
+		this.idUtente = idUtente;
 		this.username = username;
-		this.password = password;
-		this.nome = nome;
-		this.cognome = cognome;
+		this.name = name;
+		this.surname = surname;
 		ControllerDashboard controllerDashboard = new ControllerDashboard();
 		controllerDashboard.setWelcomeText(username);
 		this.printInfo();
+	}
+	
+	public int getIdUtente() {
+		return this.idUtente;
 	}
 	
 	public String getUsername() {
 		return this.username;
 	}
 	
-	public String getPassword() {
-		return this.password;
+	public String getName() {
+		return this.name;
 	}
 	
-	public String getNome() {
-		return this.nome;
-	}
-	
-	public String getCognome() {
-		return this.cognome;
+	public String getSurname() {
+		return this.surname;
 	}
 	
 	public void printInfo() {
 		System.out.println(
 			"USER INFO:" + "\n" +
-			"username: " + this.getUsername() + "\n" + 
-			"password: " + this.getPassword() + "\n" + 
-			"nome: " + this.getNome() + "\n" + 
-			"cognome: " + this.getCognome() 
+			"id utente: " + this.getIdUtente() + "\n" +
+			"username: " + this.getUsername() + "\n" +  
+			"nome: " + this.getName() + "\n" + 
+			"cognome: " + this.getSurname() 
 		);
 	}
 }
