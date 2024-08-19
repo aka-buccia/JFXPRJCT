@@ -1,4 +1,4 @@
-package application.java.access;
+package application.java.general;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -34,7 +34,6 @@ public class Main extends Application {
 		launch(args);
 	}
 }
-
 
 
 
