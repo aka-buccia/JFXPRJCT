@@ -1,5 +1,9 @@
 package application.java.general;
 
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -25,7 +29,8 @@ public class Main extends Application {
 			stage.show();
 		} 
 		catch(Exception e) {
-			e.printStackTrace();
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Errore catastrofico: applicazione non partita");
+			System.exit(0);
 		}
 	}
 	

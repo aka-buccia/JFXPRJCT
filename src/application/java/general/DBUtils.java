@@ -10,16 +10,20 @@ import java.util.logging.Logger;
 public class DBUtils {
 	public static Connection connect(String location) {
 		Connection connection;
-		checkDrivers();
-		try {
-			connection = DriverManager.getConnection(location);
+		if (checkDrivers()) {
+			try {
+				connection = DriverManager.getConnection(location);
+			}
+			catch (SQLException e) {
+				Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Connessione non riuscita al DB SQLite localizzato: " + location);
+				return null;
+			}
+			
+			return connection;
 		}
-		catch (SQLException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Could not connect to SQLite DB at " + location);
+		else {
 			return null;
 		}
-		
-		return connection;
 	}
 
 	public static boolean checkDrivers(){
@@ -29,8 +33,13 @@ public class DBUtils {
 	        return true;
 		}
 		catch (ClassNotFoundException | SQLException classNotFoundException) {
-	        Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Could not start SQLite Drivers");
+	        Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": SQLite Drivers non caricati");
 	        return false;
 	    }
+	}
+	
+	public static void showError(SQLException e) {
+		System.out.println("SQLState: " + e.getSQLState());
+		System.out.println("Message: " + e.getMessage());
 	}
 }

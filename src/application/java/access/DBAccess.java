@@ -5,11 +5,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import application.java.dashboard.UserScraper;
 import application.java.general.DBUtils;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -20,6 +22,10 @@ public class DBAccess {
 		System.out.println("username inserito: " + username + "\npassword inserita: " + password);
 
 		Connection connection = DBUtils.connect(location);
+		
+		if (connection == null)
+			return false; //se non è stata stabilita una connessione interrompe l'esecuzione del login
+		
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
@@ -49,13 +55,18 @@ public class DBAccess {
 			}
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante verifica dati");
+			DBUtils.showError(e);
 			return false;
 		}
 	}
 	
 	public static boolean signUpUser(ActionEvent event, Label errorMessage, TextField [] data) {
 		Connection connection = DBUtils.connect(location);
+		
+		if (connection == null)
+			return false; //se non è stata stabilita una connessione interrompe l'esecuzione del signup
+		
 		PreparedStatement psInsert = null; 
 		PreparedStatement psCheckUserExists = null;
 		ResultSet resultSet = null;
@@ -83,10 +94,12 @@ public class DBAccess {
 			}
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante registrazione dati");
+			DBUtils.showError(e);
 			return false;
 		}		
 	}	
+	
 }
 
 
