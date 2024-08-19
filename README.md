@@ -2,4 +2,7 @@
 JFXPRJCT è una applicazione desktop sviluppata in JAVAFX dal gruppo SPT per il progetto del corso di Programmazione Internet.
 L'obiettivo finale è creare un'applicazione multiutente per l'apprendimento e l'allenamento delle conoscenze del linguaggio Java.
 
-- Attualmente l'applicazione è in stato di sviluppo intensivo
+## Stato attuale sviluppo
+- Pagina di login e registrazione funzionanti
+- Dashboard sotto sviluppo
+- Esercizi mancanti
