@@ -18,7 +18,9 @@ import javafx.scene.control.TextField;
 public class DBAccess {
 	private final static String location = "jdbc:sqlite:database.db";
 
-	public static boolean loginUser(ActionEvent event, Label errorMessage, String username, String password) throws IOException {
+	public static boolean loginUser(ActionEvent event, Label errorMessage, TextField usernameTF, TextField passwordTF) throws IOException {
+		String username = usernameTF.getText();
+		String password = passwordTF.getText();
 		System.out.println("username inserito: " + username + "\npassword inserita: " + password);
 
 		Connection connection = DBUtils.connect(location);
@@ -36,7 +38,7 @@ public class DBAccess {
 			
 			if (!resultSet.isBeforeFirst()) { // se non è nel database
 				System.out.println("Utente non trovato nel database!");
-				GraphicalAnswer.alertMessage(errorMessage, "username o password errati");
+				GraphicalAnswer.alertMessage(usernameTF, passwordTF, errorMessage, "Username o password errati");
 				return false;
 			}
 			else { // compariamo i dati se esiste l'username
@@ -48,7 +50,7 @@ public class DBAccess {
 					}
 					else {
 						System.out.println("La password non coincide!");
-						GraphicalAnswer.alertMessage(errorMessage, "username o password errati");
+						GraphicalAnswer.alertMessage(usernameTF, passwordTF, errorMessage, "username o password errati");
 					}
 				}
 				return false;

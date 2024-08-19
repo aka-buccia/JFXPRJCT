@@ -6,12 +6,12 @@ import javafx.scene.control.TextField;
 
 public class GraphicalAnswer {
 	
-	public static boolean missingData(ActionEvent event, TextField [] data, Label messageLabel) {
+	public static boolean missingData(ActionEvent event, TextField [] data, Label messageLabel, String message) {
 		boolean empty = false;
 		
 		for (TextField d : data) {
 			if (d.getText().isEmpty()) {
-				alertMessage(d, messageLabel, "Dati mancanti");
+				alertMessage(d, messageLabel, message);
 				empty = true;
 			}
 			else {
@@ -23,11 +23,13 @@ public class GraphicalAnswer {
 	}
 	
 	public static void alertMessage(TextField d, Label messageLabel, String message) {
-		d.setStyle("-fx-border-color: red; -fx-border-width: 2;");
+		d.setStyle("-fx-border-color: #bf616a; -fx-border-width: 2;");
 		messageLabel.setText(message);
 	}
 	
-	public static void alertMessage(Label messageLabel, String message) {
+	public static void alertMessage(TextField username, TextField password, Label messageLabel, String message) {
+		username.setStyle("-fx-border-color: #bf616a; -fx-border-width: 2;");
+		password.setStyle("-fx-border-color: #bf616a; -fx-border-width: 2;");
 		messageLabel.setText(message);
 	}
 }
