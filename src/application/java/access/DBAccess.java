@@ -59,32 +59,7 @@ public class DBAccess {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		finally {
-			if (resultSet != null) {
-				try {
-					resultSet.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (connection != null) {
-				try {
-					connection.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}	
+
 	}
 	
 	public static boolean signUpUser(ActionEvent event, Label errorMessage, TextField [] data) {
@@ -119,43 +94,7 @@ public class DBAccess {
 			e.printStackTrace();
 			return false;
 		}
-		finally {
-			if (resultSet != null) {
-				try {
-					resultSet.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			if (psCheckUserExists != null) {
-				try {
-					psCheckUserExists.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			if (psInsert != null) {
-				try {
-					psInsert.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			if (connection != null) {
-				try {
-					connection.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
+		
 		
 	}	
 }

@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import application.java.general.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -19,7 +20,7 @@ public class DBExercise {
 	private final static String location = "jdbc:sqlite:database.db";
 	
 	public static void loadText(int tipologia) {
-		Connection connection = connect(location);
+		Connection connection = DBUtils.connect(location);
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
@@ -29,34 +30,12 @@ public class DBExercise {
 			resultSet = preparedStatement.executeQuery();
 			
 		}
+		catch(SQLException e) {
+			
+		}
 	}
 	
 	
-	public static Connection connect(String location) {
-		Connection connection;
-		checkDrivers();
-		try {
-			connection = DriverManager.getConnection(location);
-		}
-		catch (SQLException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Could not connect to SQLite DB at " + location);
-			return null;
-		}
-		
-		return connection;
-	}
 
-	
-	public static boolean checkDrivers(){
-		try {
-			Class.forName("org.sqlite.JDBC"); //controlla che sia presente sqlite-jdbc
-			DriverManager.registerDriver(new org.sqlite.JDBC());
-	        return true;
-		}
-		catch (ClassNotFoundException | SQLException classNotFoundException) {
-	        Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Could not start SQLite Drivers");
-	        return false;
-	    }
-	}
 	
 }
