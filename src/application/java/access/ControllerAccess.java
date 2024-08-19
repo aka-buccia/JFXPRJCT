@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class Controller {
+public class ControllerAccess {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -45,7 +45,7 @@ public class Controller {
 	private Label errorMessageLogin;
 	
 	@FXML
-	private Label errorMessage;
+	private Label errorMessageSignup;
 	
 	
 	public void switchScene(Event event, Parent root) {
@@ -96,8 +96,8 @@ public class Controller {
 	public void signUp(ActionEvent event) throws IOException{
 		TextField [] data = {usernameSignup, passwordSignup, nameSignup, surnameSignup};
 		
-		if (! GraphicalAnswer.missingData(event, data, errorMessage)) {  //se non mancano dati si procede al signup
-			if (DBAccess.signUpUser(event, errorMessage, data)) {
+		if (! GraphicalAnswer.missingData(event, data, errorMessageSignup)) {  //se non mancano dati si procede al signup
+			if (DBAccess.signUpUser(event, errorMessageSignup, data)) {
 				root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 				switchScene(event, root);
 			}
