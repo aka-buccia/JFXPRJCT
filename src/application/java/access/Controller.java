@@ -75,7 +75,7 @@ public class Controller {
 		TextField [] data = {usernameSignup, passwordSignup, nameSignup, surnameSignup};
 		
 		if (! GraphicalAnswer.missingData(event, data, errorMessage)) {  //se non mancano dati si procede al signup
-			if (DBUtils.signUpUser(event, errorMessage, data)) {
+			if (DBAccess.signUpUser(event, errorMessage, data)) {
 				root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 				switchScene(event, root);
 			}
