@@ -87,16 +87,15 @@ public class ControllerAccess {
 	}
 	
 	public void login(ActionEvent event) throws IOException {
-		if (DBAccess.loginUser(event, errorMessageLogin, usernameLogin.getText(), passwordLogin.getText())) {
+		if (DBAccess.loginUser(event, errorMessageLogin, usernameLogin, passwordLogin)) {
 			switchToDashboardScene(event);
 		}
-			
 	}
 	
 	public void signUp(ActionEvent event) throws IOException{
 		TextField [] data = {usernameSignup, passwordSignup, nameSignup, surnameSignup};
 		
-		if (! GraphicalAnswer.missingData(event, data, errorMessageSignup)) {  //se non mancano dati si procede al signup
+		if (! GraphicalAnswer.missingData(event, data, errorMessageSignup, "Dati mancanti")) {  //se non mancano dati si procede al signup
 			if (DBAccess.signUpUser(event, errorMessageSignup, data)) {
 				root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 				switchScene(event, root);
@@ -104,4 +103,7 @@ public class ControllerAccess {
 		}
 	}
 }
+
+
+
 
