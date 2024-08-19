@@ -2,6 +2,8 @@ package application.java.access;
 
 import java.io.IOException;
 
+import application.java.dashboard.ControllerDashboard;
+import application.java.dashboard.UserScraper;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -34,6 +36,15 @@ public class Controller {
 	private TextField surnameSignup;
 	
 	@FXML
+	private TextField usernameLogin;
+	
+	@FXML
+	private TextField passwordLogin;
+	
+	@FXML
+	private Label errorMessageLogin;
+	
+	@FXML
 	private Label errorMessage;
 	
 	
@@ -62,13 +73,24 @@ public class Controller {
 	}
 	
 	public void switchToDashboardScene(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
-		switchScene(event, root);
+		//root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
+		//switchScene(event, root);
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
+		Parent dashboardRoot = loader.load();
+		
+		ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
+		String username = UserScraper.getUsername();
+		cd.setWelcomeText(username);
+		
+		switchScene(event, dashboardRoot);
 	}
 	
 	public void login(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
-		switchScene(event, root);
+		if (DBAccess.loginUser(event, errorMessageLogin, usernameLogin.getText(), passwordLogin.getText())) {
+			switchToDashboardScene(event);
+		}
+			
 	}
 	
 	public void signUp(ActionEvent event) throws IOException{

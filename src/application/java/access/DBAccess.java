@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import application.java.dashboard.UserScraper;
 import application.java.general.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -15,7 +16,7 @@ import javafx.scene.control.TextField;
 public class DBAccess {
 	private final static String location = "jdbc:sqlite:database.db";
 
-	public static void loginUser(ActionEvent event, String username, String password) throws IOException {
+	public static boolean loginUser(ActionEvent event, Label errorMessage, String username, String password) throws IOException {
 		System.out.println("username inserito: " + username + "\npassword inserita: " + password);
 
 		Connection connection = DBUtils.connect(location);
@@ -23,38 +24,34 @@ public class DBAccess {
 		ResultSet resultSet = null;
 		
 		try {
-			preparedStatement = connection.prepareStatement("SELECT password FROM Utenti WHERE username = ?");
+			preparedStatement = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
 			preparedStatement.setString(1, username);
 			resultSet = preparedStatement.executeQuery();
 			
 			if (!resultSet.isBeforeFirst()) { // se non è nel database
 				System.out.println("Utente non trovato nel database!");
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText("Le credenziali fornite non sono corrette!");
-				alert.show();
+				GraphicalAnswer.alertMessage(errorMessage, "username o password errati");
+				return false;
 			}
 			else { // compariamo i dati se esiste l'username
 				while (resultSet.next()) {
 					String retrievedPassword = resultSet.getString("password");
 					if (retrievedPassword.equals(password)) {
-						//UserScraper userScraper = new UserScraper(username, password, resultSet.getString("nome"), resultSet.getString("cognome"));
-						//System.out.println("nome => " + resultSet.getString("nome"));
-						Controller controller = new Controller();
-						controller.switchToDashboardScene(event);
+						UserScraper.scraper(resultSet.getString("idUtente"), username, resultSet.getString("nome"), resultSet.getString("cognome"));
+						return true;
 					}
 					else {
 						System.out.println("La password non coincide!");
-						Alert alert = new Alert(Alert.AlertType.ERROR);
-						alert.setContentText("Le credenziali fornite non sono corrette!");
-						alert.show();
+						GraphicalAnswer.alertMessage(errorMessage, "username o password errati");
 					}
 				}
+				return false;
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
-
 	}
 	
 	public static boolean signUpUser(ActionEvent event, Label errorMessage, TextField [] data) {
@@ -68,7 +65,7 @@ public class DBAccess {
 			psCheckUserExists.setString(1, data[0].getText());
 			resultSet = psCheckUserExists.executeQuery();
 			
-			//username già usato da un'altro utente
+			// username già usato da un'altro utente
 			if (resultSet.isBeforeFirst()) {  
 				System.out.println("Questo username è già stato scelto");
 				GraphicalAnswer.alertMessage(data[0], errorMessage, "username già scelto");
@@ -88,11 +85,8 @@ public class DBAccess {
 		catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		}
-		
-		
+		}		
 	}	
 }
-
 
 
