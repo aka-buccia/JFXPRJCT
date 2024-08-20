@@ -11,7 +11,7 @@ public class UserScraper {
 		UserScraper.username = username;
 		UserScraper.name = name;
 		UserScraper.surname = surname;
-		printInfo();
+		System.out.println(printInfo());
 	}
 	
 	public static String getIdUtente() {
@@ -30,14 +30,20 @@ public class UserScraper {
 		return surname;
 	}
 	
-	public static void printInfo() {
-		System.out.println(
-			"USER INFO:" + "\n" +
-			"id utente: " + getIdUtente() + "\n" +  
-			"username: " + getUsername() + "\n" +  
-			"nome: " + getName() + "\n" + 
-			"cognome: " + getSurname() 
-		);
+	public static String printInfo() {
+		return "USER INFO:" + "\n" +
+				"id utente: " + getIdUtente() + "\n" +  
+				"username: " + getUsername() + "\n" +  
+				"nome: " + getName() + "\n" + 
+				"cognome: " + getSurname();
+	}
+	
+	public static void removeInfo() {
+		idUtente = null;
+		username = null;
+		name = null;
+		surname = null;
 	}
 }
+
 
