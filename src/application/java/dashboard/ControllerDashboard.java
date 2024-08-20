@@ -42,7 +42,7 @@ public class ControllerDashboard {
 			root = FXMLLoader.load(getClass().getResource(location));
 			switchScene(event, root);
 		}
-		catch(IOException | RuntimeException e){
+		catch (IOException | RuntimeException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
 					": Errore nel caricamento della scena" + 
 					"\n Localizzazione: " +
