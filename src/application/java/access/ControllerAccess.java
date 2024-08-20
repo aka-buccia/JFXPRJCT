@@ -97,8 +97,7 @@ public class ControllerAccess {
 		
 		if (! GraphicalAnswer.missingData(event, data, errorMessageSignup, "Dati mancanti")) {  //se non mancano dati si procede al signup
 			if (DBAccess.signUpUser(event, errorMessageSignup, data)) {
-				root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
-				switchScene(event, root);
+				switchToDashboardScene(event);
 			}
 		}
 	}

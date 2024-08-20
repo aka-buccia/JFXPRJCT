@@ -92,6 +92,7 @@ public class DBAccess {
 				psInsert.setString(4, data[3].getText());
 				psInsert.executeUpdate();
 				System.out.println("Nuovo utente registrato");
+				UserScraper.scraper(data[0].getText(), data[1].getText(), data[2].getText(), data[3].getText());
 				return true;
 			}
 		}
