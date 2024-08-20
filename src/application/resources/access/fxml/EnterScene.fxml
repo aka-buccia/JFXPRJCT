@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="enterSceneBG" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.access.ControllerAccess">
    <children>
-      <Button fx:id="enterSceneBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="199.0" mnemonicParsing="false" onAction="#switchToLoginScene" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #000;" text="ENTRA" textAlignment="CENTER" textFill="#5e02cf" textOverrun="CLIP" AnchorPane.leftAnchor="308.0" AnchorPane.rightAnchor="308.0">
+      <Button fx:id="enterSceneBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="199.0" mnemonicParsing="false" onAction="#switchToLoginScene" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #5e81ac;" text="ENTRA" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" AnchorPane.leftAnchor="308.0" AnchorPane.rightAnchor="308.0">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font>

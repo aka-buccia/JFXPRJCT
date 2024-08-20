@@ -1,12 +1,8 @@
-/*#enterSceneBG {
-	-fx-background-image: url("/application/resources/access/img/bg1b.gif");
+#enterSceneBG {
+	-fx-background-image: url("/application/resources/access/img/bg3.jpg");
 	-fx-background-size: cover;
 	-fx-background-position: center;
 	-fx-background-repeat: no-repeat;
-}*/
-
-#enterSceneBtn {
-	-fx-text-fill: #5e02cf;
 }
 
 #loginBtn, #signupBtn, #usernameLogin, #passwordLogin {
@@ -14,11 +10,10 @@
 }
 
 /*#leftLoginScreen, #leftSignupScreen {
-	-fx-background-image: url("/application/resources/access/img/bg1.jpg");
+	-fx-background-image: url("/application/resources/access/img/bg3.jpg");
 	-fx-background-size: cover;
 	-fx-background-position: center;
 	-fx-background-repeat: no-repeat;
 }*/
-
 
 
