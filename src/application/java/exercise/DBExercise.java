@@ -26,8 +26,8 @@ public class DBExercise {
 		
 		try {
 			preparedStatement = connection.prepareStatement(""); //TODO: inserire query sql
-			preparedStatement.setString();
-			resultSet = preparedStatement.executeQuery();
+			//preparedStatement.setString();
+			//resultSet = preparedStatement.executeQuery();
 			
 		}
 		catch(SQLException e) {
