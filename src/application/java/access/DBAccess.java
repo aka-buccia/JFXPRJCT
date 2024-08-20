@@ -1,6 +1,5 @@
 package application.java.access;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +17,7 @@ import javafx.scene.control.TextField;
 public class DBAccess {
 	private final static String location = "jdbc:sqlite:database.db";
 
-	public static boolean loginUser(ActionEvent event, Label errorMessage, TextField usernameTF, TextField passwordTF) throws IOException {
+	public static boolean loginUser(ActionEvent event, Label errorMessage, TextField usernameTF, TextField passwordTF){
 		String username = usernameTF.getText();
 		String password = passwordTF.getText();
 		System.out.println("username inserito: " + username + "\npassword inserita: " + password);
@@ -58,7 +57,7 @@ public class DBAccess {
 		}
 		catch (SQLException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante verifica dati");
-			DBUtils.showError(e);
+			DBUtils.showDBError(e);
 			return false;
 		}
 	}
@@ -98,7 +97,7 @@ public class DBAccess {
 		}
 		catch (SQLException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante registrazione dati");
-			DBUtils.showError(e);
+			DBUtils.showDBError(e);
 			return false;
 		}		
 	}	

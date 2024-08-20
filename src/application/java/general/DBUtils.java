@@ -32,13 +32,13 @@ public class DBUtils {
 			DriverManager.registerDriver(new org.sqlite.JDBC());
 	        return true;
 		}
-		catch (ClassNotFoundException | SQLException classNotFoundException) {
+		catch (ClassNotFoundException | SQLException e) {
 	        Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": SQLite Drivers non caricati");
 	        return false;
 	    }
 	}
 	
-	public static void showError(SQLException e) {
+	public static void showDBError(SQLException e) {
 		System.out.println("SQLState: " + e.getSQLState());
 		System.out.println("Message: " + e.getMessage());
 	}

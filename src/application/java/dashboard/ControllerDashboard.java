@@ -1,6 +1,9 @@
 package application.java.dashboard;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.application.Platform;
 import javafx.event.Event;
@@ -34,10 +37,24 @@ public class ControllerDashboard {
 		stage.show();
 	}
 	
-	public void logout(MouseEvent event) throws IOException {
+	public void loadFXML(Event event, String location) {
+		try {
+			root = FXMLLoader.load(getClass().getResource(location));
+			switchScene(event, root);
+		}
+		catch(IOException | RuntimeException e){
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
+					": Errore nel caricamento della scena" + 
+					"\n Localizzazione: " +
+					location +
+					"\nMessaggio di errore: " + 
+					e.getMessage());
+		}
+	}
+	
+	public void logout(MouseEvent event){
 		// ...
-		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/LoginScene.fxml"));
-		switchScene(event, root);
+		loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
 	}
 	
 	public void switchToUserInfo(MouseEvent event) throws IOException {

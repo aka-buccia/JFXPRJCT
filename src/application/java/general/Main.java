@@ -29,7 +29,7 @@ public class Main extends Application {
 			stage.show();
 		} 
 		catch(Exception e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Errore catastrofico: applicazione non partita");
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Errore catastrofico: applicazione non partita" + "\nMessaggio di errore: " + e.getMessage());
 			System.exit(0);
 		}
 	}

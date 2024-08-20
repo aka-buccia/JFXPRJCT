@@ -1,6 +1,9 @@
 package application.java.access;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import application.java.dashboard.ControllerDashboard;
 import application.java.dashboard.UserScraper;
@@ -57,42 +60,61 @@ public class ControllerAccess {
 		stage.show();
 	}
 	
-	public void switchToLoginScene(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/LoginScene.fxml"));
-		switchScene(event, root);
+	public void loadFXML(Event event, String location) {
+		try {
+			root = FXMLLoader.load(getClass().getResource(location));
+			switchScene(event, root);
+		}
+		catch(IOException | RuntimeException e){
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
+					": Errore nel caricamento della scena" + 
+					"\n Localizzazione: " +
+					location +
+					"\nMessaggio di errore: " + 
+					e.getMessage());
+		}
 	}
 	
-	public void switchToSignupScene(MouseEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/SignupScene.fxml"));
-		switchScene(event, root);
+	public void switchToLoginScene(ActionEvent event){
+		loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
 	}
 	
-	public void backToLogin(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/LoginScene.fxml"));
-		switchScene(event, root);
+	public void switchToSignupScene(MouseEvent event){
+		loadFXML(event, "/application/resources/access/fxml/SignupScene.fxml");
 	}
 	
-	public void switchToDashboardScene(ActionEvent event) throws IOException {
+	public void backToLogin(ActionEvent event){
+		loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
+	}
+	
+	public void switchToDashboardScene(ActionEvent event) {
 		//root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 		//switchScene(event, root);
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
+			Parent dashboardRoot = loader.load();
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
-		Parent dashboardRoot = loader.load();
+			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
+			String username = UserScraper.getUsername();
+			cd.setWelcomeText(username);
 		
-		ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
-		String username = UserScraper.getUsername();
-		cd.setWelcomeText(username);
-		
-		switchScene(event, dashboardRoot);
+			switchScene(event, dashboardRoot);
+		}
+		catch (IOException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
+					": Errore nel passaggio al ControllerDashboard" + 
+					"\nMessaggio di errore: " + 
+					e.getMessage());
+		}
 	}
 	
-	public void login(ActionEvent event) throws IOException {
+	public void login(ActionEvent event){
 		if (DBAccess.loginUser(event, errorMessageLogin, usernameLogin, passwordLogin)) {
 			switchToDashboardScene(event);
 		}
 	}
 	
-	public void signUp(ActionEvent event) throws IOException{
+	public void signUp(ActionEvent event){
 		TextField [] data = {usernameSignup, passwordSignup, nameSignup, surnameSignup};
 		
 		if (! GraphicalAnswer.missingData(event, data, errorMessageSignup, "Dati mancanti")) {  //se non mancano dati si procede al signup
