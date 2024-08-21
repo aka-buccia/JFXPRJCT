@@ -10,16 +10,21 @@ import application.java.dashboard.UserScraper;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class ControllerExercise {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	
+	@FXML
+	private TextArea codeContainer;
 	
 	public void switchScene(Event event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -64,6 +69,10 @@ public class ControllerExercise {
 					"\nMessaggio di errore: " + 
 					e.getMessage());
 		}
+	}
+	
+	public void setText(String text) {
+		codeContainer.setText(text);
 	}
 	
 	

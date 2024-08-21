@@ -42,7 +42,7 @@ public class Exercise {
 	}
 	
 	public String getText() {
-		File f = new File(this.path);
+		File f = new File("src/application/resources/exercise/text/findError/es1.txt");
 		String text = "";
 		
 		try {

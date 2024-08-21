@@ -16,16 +16,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class DBExercise {
 	private final static String location = "jdbc:sqlite:database.db";
 	
-	public static boolean loadEx(int tipologia) {
+	
+	public static Exercise loadEx(int tipologia) {
 		Connection connection = DBUtils.connect(location);
 		
 		if (connection == null)
-			return false;
+			return null;
 		
 		int idUtente = Integer.parseInt(UserScraper.getIdUtente());
 		PreparedStatement preparedStatement = null;
@@ -50,12 +52,12 @@ public class DBExercise {
 			}
 			
 			
-			return true;
+			return listExercise.getFirst();
 		}
 		catch(SQLException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante caricamento esercizi");
 			DBUtils.showDBError(e);
-			return false;
+			return null;
 		}
 	}
 	

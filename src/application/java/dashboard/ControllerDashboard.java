@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import application.java.exercise.ControllerExercise;
 import application.java.exercise.DBExercise;
+import application.java.exercise.Exercise;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -15,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -25,6 +28,7 @@ public class ControllerDashboard {
 	
 	@FXML
 	private Label welcomeTextDashboard;
+	
 	
 	public void setWelcomeText(String username) {
 		welcomeTextDashboard.setText("Ciao " + username + "!");
@@ -65,8 +69,27 @@ public class ControllerDashboard {
 	}
 	
 	public void switchToFindError(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/exercise/fxml/FindErrorScene.fxml"));
+			Parent dashboardRoot = loader.load();
+		
+			ControllerExercise ce = loader.getController(); // gli da il controller di loader che è ControllerExercise
+			
+			Exercise ex = DBExercise.loadEx(1);
+			if (ex != null) {
+				ce.setText(ex.getText());
+				switchScene(event, dashboardRoot);
+			}
+			
+		}
+		catch (IOException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
+					": Errore nel passaggio al ControllerDashboard" + 
+					"\nMessaggio di errore: " + 
+					e.getMessage());
+		}
 		loadFXML(event, "/application/resources/exercise/fxml/FindErrorScene.fxml");
-		DBExercise.loadEx(1);
+
 	}
 }
 
