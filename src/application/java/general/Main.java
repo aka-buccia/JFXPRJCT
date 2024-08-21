@@ -17,7 +17,7 @@ public class Main extends Application {
 		try {
 			//Parent root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/EnterScene.fxml"));
 			//Parent root = FXMLLoader.load(getClass().getResource("/application/resources/exercise/fxml/EsScene.fxml"));
-			Parent root = FXMLLoader.load(getClass().getResource("/application/resources/exercise/fxml/Es2Scene.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/application/resources/exercise/fxml/FindErrorScene.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
 			
