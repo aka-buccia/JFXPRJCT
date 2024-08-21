@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import application.java.exercise.DBExercise;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,8 +60,13 @@ public class ControllerDashboard {
 		loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
 	}
 	
-	public void switchToUserInfo(MouseEvent event) throws IOException {
+	public void switchToUserInfo(MouseEvent event) {
 		// ...
+	}
+	
+	public void switchToFindError(ActionEvent event) {
+		loadFXML(event, "/application/resources/exercise/fxml/FindErrorScene.fxml");
+		DBExercise.loadEx(1);
 	}
 }
 
