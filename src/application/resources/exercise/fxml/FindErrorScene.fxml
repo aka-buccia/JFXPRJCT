@@ -36,7 +36,7 @@
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="22.0" layoutY="148.0" prefHeight="30.0" prefWidth="50.0" promptText="Es. 3" style="-fx-background-color: #eceff4;">
+            <TextField layoutX="22.0" layoutY="148.0" prefHeight="30.0" prefWidth="50.0" promptText="es. 3" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
