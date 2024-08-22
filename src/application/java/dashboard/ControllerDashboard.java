@@ -73,7 +73,7 @@ public class ControllerDashboard {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/exercise/fxml/FindErrorScene.fxml"));
 			Parent dashboardRoot = loader.load();
 		
-			ControllerExercise ce = loader.getController(); // gli da il controller di loader che è ControllerExercise
+			ControllerExercise ce = loader.getController(); // gli passa il controller di loader che è ControllerExercise
 			
 			Exercise ex = DBExercise.loadEx(1);
 			if (ex != null) {

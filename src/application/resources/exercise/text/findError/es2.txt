@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class es2{
+    public static void main(String [] args{
+        System.out.println("Esercizio 2");
+        
+        Scanner scan = new Scanner(System.in);
+        int n1 = scan.nextInt();
+        int n2 = scan.nextInt();
+
+        System.out.println("la somma di n1 e n2 è: " + n1+n2);
+    }
+}

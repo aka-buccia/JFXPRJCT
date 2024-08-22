@@ -42,7 +42,7 @@ public class Exercise {
 	}
 	
 	public String getText() {
-		File f = new File("src/application/resources/exercise/text/findError/es1.txt");
+		File f = new File(this.path);
 		String text = "";
 		
 		try {
@@ -57,6 +57,18 @@ public class Exercise {
 		}
 		
 		return text;
+	}
+	
+	@Override
+	public String toString() {
+		String s = "[" + 
+				this.idEsercizio + ", " +
+				this.tipologia + ", " +
+				this.grado+ ", " +
+				this.numero + ", " +
+				this.path + "]";
+		
+		return s;
 	}
 	
 }
