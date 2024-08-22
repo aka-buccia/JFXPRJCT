@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import application.java.exercise.ControllerExercise;
 import application.java.exercise.DBExercise;
 import application.java.exercise.Exercise;
+import application.java.userInfo.ControllerUserInfo;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -65,7 +66,20 @@ public class ControllerDashboard {
 	}
 	
 	public void switchToUserInfo(MouseEvent event) {
-		// ...
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/userInfo/fxml/UserInfoScene.fxml"));
+			Parent userInfoRoot = loader.load();
+			
+			ControllerUserInfo cui = loader.getController();
+			cui.loadUserInfo(); // carichiamo le informazioni prima dello switch della scena in modo tale che l'utente non veda l'improvviso cambio di valori da quelli standard ai suoi
+			switchScene(event, userInfoRoot);
+		}
+		catch (IOException e) { // da controllare
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + 
+					": Errore nel passaggio al ControllerUserInfo" +
+					"\nMessaggio di errore: " + 
+					e.getMessage());
+		}
 	}
 	
 	public void switchToFindError(ActionEvent event) {
@@ -90,6 +104,7 @@ public class ControllerDashboard {
 		}
 	}
 }
+
 
 
 

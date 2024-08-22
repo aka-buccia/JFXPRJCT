@@ -16,6 +16,7 @@ public class Main extends Application {
 	public void start(Stage stage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/resources/access/fxml/EnterScene.fxml"));
+			//Parent root = FXMLLoader.load(getClass().getResource("/application/resources/userInfo/fxml/UserInfoScene.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
 			
@@ -37,6 +38,7 @@ public class Main extends Application {
 		launch(args);
 	}
 }
+
 
 
 
