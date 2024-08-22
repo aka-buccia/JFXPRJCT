@@ -31,26 +31,27 @@
 }*/
 
 /* Stile per la TextArea con fx:id="codeContainer" */
-#codeContainer {
+#codeContainer, #userInfoTA {
 	 -fx-background-color: #2e3440;
      -fx-font-family: Courier New;
      -fx-font-size: 12;
      -fx-text-fill: #eceff4;
      -fx-border-color: transparent;
-     -fx-padding: 10px;
+     -fx-padding: 0px;
 }
 
 /* Rimuove bordi, angoli arrotondati e ombre dal contenitore di testo */
-#codeContainer .content {
+#codeContainer .content, #userInfoTA .content {
 	-fx-background-color: #2e3440;
 }
 
 /* Rimuove ogni ombra che possa apparire sopra e sfondo */
-#codeContainer .scroll-pane .viewport {
+#codeContainer .scroll-pane .viewport, #userInfoTA .scroll-pane .viewport {
     -fx-background-color: #3b4252; /* Sfondo del viewport */
     -fx-background-radius: 0; /* Nessun arrotondamento */
     -fx-background-insets: 0; /* Rimuove inset del background */
 }
+
 
 
 

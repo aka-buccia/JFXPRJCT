@@ -50,7 +50,6 @@ public class ControllerAccess {
 	@FXML
 	private Label errorMessageSignup;
 	
-	
 	public void switchScene(Event event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
@@ -88,8 +87,6 @@ public class ControllerAccess {
 	}
 	
 	public void switchToDashboardScene(ActionEvent event) {
-		//root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
-		//switchScene(event, root);
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 			Parent dashboardRoot = loader.load();
