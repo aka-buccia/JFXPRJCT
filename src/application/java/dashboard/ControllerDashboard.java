@@ -88,8 +88,6 @@ public class ControllerDashboard {
 					"\nMessaggio di errore: " + 
 					e.getMessage());
 		}
-		loadFXML(event, "/application/resources/exercise/fxml/FindErrorScene.fxml");
-
 	}
 }
 
