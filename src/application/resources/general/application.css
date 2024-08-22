@@ -9,19 +9,17 @@
 	-fx-background-radius: 3;
 }
 
-.code-area {
-	 -fx-background-color: #2e3440;
-     -fx-font-family: Courier New;
-     -fx-font-size: 12;
-     -fx-text-fill: #eceff4;
-     -fx-border-color: transparent;
-     -fx-padding: 10px;
-     
- }
-
- .code-area .content {
-     -fx-background-color: #2e3440;
- }
+.rules-area {
+	-fx-background-color: #2e3440;
+	-fx-border-color: #eceff4;
+	-fx-border-radius: 5;
+	-fx-padding: 5px;
+	-fx-background-radius: 5; /* Rounded corners */
+	-fx-text-fill: #eceff4;
+}
+.rules-area .content {
+	-fx-background-color:  #2e3440;
+}
 
 /*#leftLoginScreen, #leftSignupScreen {
 	-fx-background-image: url("/application/resources/access/img/bg3.jpg");
@@ -46,7 +44,7 @@
 }
 
 /* Rimuove ogni ombra che possa apparire sopra e sfondo */
-#codeContainer .scroll-pane .viewport, #userInfoTA .scroll-pane .viewport {
+#codeContainer .scroll-pane .viewport, #userInfoTA .scroll-pane .viewport{
     -fx-background-color: #3b4252; /* Sfondo del viewport */
     -fx-background-radius: 0; /* Nessun arrotondamento */
     -fx-background-insets: 0; /* Rimuove inset del background */

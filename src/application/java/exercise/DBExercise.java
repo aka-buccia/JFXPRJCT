@@ -34,12 +34,8 @@ public class DBExercise {
 		
 		try {
 			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Esercizi WHERE tipologia = ?", tipologia);
-			
 			discardExercise(connection, exerciseList, idUtente);
-			
-			System.out.println(exerciseList);
-
-			
+						
 			return exerciseList.getFirst();
 		}
 		
@@ -59,17 +55,15 @@ public class DBExercise {
 		
 		while(resultSet.next()) {
 			Exercise ex = new Exercise(
-					Integer.parseInt(resultSet.getString("idEsercizio")),
-					Integer.parseInt(resultSet.getString("grado")),
-					Integer.parseInt(resultSet.getString("tipologia")),
-					Integer.parseInt(resultSet.getString("numero")),
+					resultSet.getInt("idEsercizio"),
+					resultSet.getInt("grado"),
+					resultSet.getInt("tipologia"),
+					resultSet.getInt("numero"),
 					resultSet.getString("PathTesto"),
 					resultSet.getString("risposta1"),
 					resultSet.getString("risposta2"));
 			exerciseList.add(ex);
 		}
-		
-		System.out.println(exerciseList);
 		
 		return exerciseList;
 	}
@@ -82,7 +76,7 @@ public class DBExercise {
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
 		while(resultSet.next()) {
-			idSet.add(resultSet.getInt("idEsercizio"));  //se funziona cambiare anche nella funzione extractExercise
+			idSet.add(resultSet.getInt("idEsercizio")); 
 		}
 		
 		exerciseList.removeIf(ex -> idSet.contains(ex.getIdEsercizio()));

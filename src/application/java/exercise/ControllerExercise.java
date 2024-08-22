@@ -51,8 +51,7 @@ public class ControllerExercise {
 	}
 	
 	public void switchToDashboardScene(ActionEvent event) {
-		//root = FXMLLoader.load(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
-		//switchScene(event, root);
+		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 			Parent dashboardRoot = loader.load();

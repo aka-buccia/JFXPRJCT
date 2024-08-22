@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b4252;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.exercise.ControllerExercise">
+   <top>
+      <Label alignment="CENTER" prefHeight="98.0" prefWidth="600.0" text="TROVA L'ERRORE" textFill="#eceff4" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="SansSerif Bold" size="26.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="89.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="182.0" layoutY="10.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="ANNULLA" textFill="#eceff4">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="308.0" layoutY="10.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #88c0d0;" text="AVVIA" textFill="#eceff4">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <TextArea fx:id="rulesText" editable="false" prefHeight="269.0" prefWidth="600.0" styleClass="rules-area" text="durante l’esercizio si legge un pezzo di codice contenente una riga errata, l’utente deve inserire il numero della riga in cui è presente l’errore e riscrivere per intero la riga con il codice corretto" wrapText="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="SansSerif Regular" size="14.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="100.0" right="100.0" top="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextArea>
+   </center>
+</BorderPane>
