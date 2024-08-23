@@ -39,8 +39,8 @@ public class ControllerDashboard {
 	private Label surnameLabel;
 	
 	
-	public void setWelcomeText(String username) {
-		welcomeTextDashboard.setText("Ciao " + username + "!");
+	public void setWelcomeText() {
+		welcomeTextDashboard.setText("Ciao " + UserScraper.getUsername() + "!");
 	}
 	
 	public void switchScene(Event event, Parent root) {
@@ -99,7 +99,7 @@ public class ControllerDashboard {
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
 			String username = UserScraper.getUsername();
-			cd.setWelcomeText(username);
+			cd.setWelcomeText();
 		
 			switchScene(event, dashboardRoot);
 		}

@@ -93,7 +93,7 @@ public class ControllerAccess {
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
 			String username = UserScraper.getUsername();
-			cd.setWelcomeText(username);
+			cd.setWelcomeText();
 		
 			switchScene(event, dashboardRoot);
 		}
