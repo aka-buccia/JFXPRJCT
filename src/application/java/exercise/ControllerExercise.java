@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -33,6 +34,9 @@ public class ControllerExercise {
 	
 	@FXML
 	private TextField codeResponseTF;
+	
+	@FXML 
+	private Label resultMessageLabel;
 	
 	public void switchScene(Event event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -82,9 +86,26 @@ public class ControllerExercise {
 		codeContainer.setText(text);
 	}
 	
-	public void checkResponseExercise(ActionEvent event) {
+	public void checkResponseFEExercise(ActionEvent event) {
 		System.out.println(ControllerExercise.currentExercise.getIdEsercizio());
-		// ...
+		String userResponse1 = numberResponseTF.getText().trim();
+		String userResponse2 = codeResponseTF.getText().trim();
+		String dbResponse1 = ControllerExercise.currentExercise.getRisposta1().trim();
+		String dbResponse2 = ControllerExercise.currentExercise.getRisposta2().trim();
+		
+		if (userResponse1.equals(dbResponse1) && userResponse2.equals(dbResponse2)) { // esercizio giusto
+			// aggiungere esercizio svolto nel database in "Esercizi svolti"
+			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio(), UserScraper.getIdUtente())) {
+				// cambiare testo e colore testo in verde di "resultMessageLabel"
+				resultMessageLabel.setText("ESATTO");
+				resultMessageLabel.setStyle("-fx-text-fill: #a3be8c");
+			}
+		}
+		else { // esercizio sbagliato
+			// cambiare testo e colore testo in rosso di "resultMessageLabel"
+			resultMessageLabel.setText("SBAGLIATO");
+			resultMessageLabel.setStyle("-fx-text-fill: #bf616a");
+		}
 	}
 	
 	public void switchToFindErrorScene(ActionEvent event) {

@@ -51,20 +51,12 @@
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="codeResponseTF" layoutX="22.0" layoutY="247.0" prefHeight="30.0" prefWidth="230.0" promptText="System.out.println(&quot;giusto&quot;);" style="-fx-background-color: #eceff4;">
+            <TextField fx:id="codeResponseTF" layoutX="24.0" layoutY="247.0" prefHeight="30.0" prefWidth="230.0" promptText="System.out.println(&quot;giusto&quot;);" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="respondBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="298.0" mnemonicParsing="false" onAction="#checkResponseExercise" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="RISPONDI" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Bold" size="12.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="hintBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="298.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #81a1c1;" text="CONSIGLIO" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="respondBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="300.0" mnemonicParsing="false" onAction="#checkResponseFEExercise" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="RISPONDI" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -80,6 +72,19 @@
             <Label layoutX="103.0" layoutY="110.0" prefHeight="16.0" prefWidth="81.0" text="Esercizio: x" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="300.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="AVANTI" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="resultMessageLabel" alignment="CENTER" layoutX="24.0" layoutY="362.0" prefHeight="30.0" prefWidth="230.0" text="ESITO" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
          </children>
