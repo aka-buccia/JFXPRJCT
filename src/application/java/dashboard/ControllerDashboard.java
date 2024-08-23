@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 import application.java.exercise.ControllerExercise;
 import application.java.exercise.DBExercise;
 import application.java.exercise.Exercise;
-import application.java.userInfo.ControllerUserInfo;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -65,24 +64,15 @@ public class ControllerDashboard {
 		loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
 	}
 	
-	public void switchToUserInfo(MouseEvent event) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/userInfo/fxml/UserInfoScene.fxml"));
-			Parent userInfoRoot = loader.load();
-			
-			ControllerUserInfo cui = loader.getController();
-			cui.loadUserInfo(); // carichiamo le informazioni prima dello switch della scena in modo tale che l'utente non veda l'improvviso cambio di valori da quelli standard ai suoi
-			switchScene(event, userInfoRoot);
-		}
-		catch (IOException e) { // da controllare
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + 
-					": Errore nel passaggio al ControllerUserInfo" +
-					"\nMessaggio di errore: " + 
-					e.getMessage());
-		}
+	public void switchToUserInfoScene(MouseEvent event) {
+		loadFXML(event, "/application/resources/dashboard/fxml/UserInfoScene.fxml");
 	}
 	
-	public void switchToFindError(ActionEvent event) {
+	public void switchToDashboardScene(MouseEvent event) {
+		loadFXML(event, "/application/resources/dashboard/fxml/DashboardScene.fxml");
+	}
+	
+	public void switchToFindErrorScene(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/exercise/fxml/FindErrorScene.fxml"));
 			Parent dashboardRoot = loader.load();
