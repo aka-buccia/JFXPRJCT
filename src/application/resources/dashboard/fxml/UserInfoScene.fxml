@@ -40,5 +40,20 @@
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
+      <Label layoutX="155.0" layoutY="147.0" text="Username" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="330.0" layoutY="147.0" text="Nome" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="479.0" layoutY="147.0" text="Cognome" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
