@@ -64,12 +64,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="24.0" layoutY="110.0" prefHeight="16.0" prefWidth="81.0" text="Livello: x" textFill="WHITE">
+            <Label fx:id="levelNumExFE" layoutX="24.0" layoutY="110.0" prefHeight="16.0" prefWidth="81.0" text="Livello: x" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="103.0" layoutY="110.0" prefHeight="16.0" prefWidth="81.0" text="Esercizio: x" textFill="WHITE">
+            <Label fx:id="numExFE" layoutX="103.0" layoutY="110.0" prefHeight="16.0" prefWidth="81.0" text="Esercizio: x" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
@@ -82,7 +82,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="resultMessageLabel" alignment="CENTER" layoutX="24.0" layoutY="362.0" prefHeight="30.0" prefWidth="230.0" text="ESITO" textFill="WHITE">
+            <Label fx:id="resultMessageLabelFE" alignment="CENTER" layoutX="24.0" layoutY="362.0" prefHeight="30.0" prefWidth="230.0" text="ESITO" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
