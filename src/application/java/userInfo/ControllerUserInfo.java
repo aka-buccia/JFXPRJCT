@@ -1,4 +1,4 @@
-package application.java.exercise;
+package application.java.userInfo;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -8,30 +8,29 @@ import java.util.logging.Logger;
 import application.java.dashboard.ControllerDashboard;
 import application.java.dashboard.UserScraper;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class ControllerExercise {
+public class ControllerUserInfo {
 	private Stage stage;
 	private Scene scene;
-	private Parent root;
-		
-	@FXML
-	private TextArea codeContainer;
 	
 	@FXML
-	private TextField numberResponseTF;
+	private Label usernameLabel;
 	
 	@FXML
-	private TextField codeResponseTF;
+	private Label nameLabel;
+	
+	@FXML
+	private Label surnameLabel;
+	
 	
 	public void switchScene(Event event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -42,30 +41,14 @@ public class ControllerExercise {
 		stage.show();
 	}
 	
-	public void loadFXML(Event event, String location) {
-		try {
-			root = FXMLLoader.load(getClass().getResource(location));
-			switchScene(event, root);
-		}
-		catch(IOException | RuntimeException e){
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
-					": Errore nel caricamento della scena" + 
-					"\n Localizzazione: " +
-					location +
-					"\nMessaggio di errore: " + 
-					e.getMessage());
-		}
-	}
-	
 	public void switchToDashboardScene(Event event) {
-		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 			Parent dashboardRoot = loader.load();
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
-			String username = UserScraper.getUsername();
-			cd.setWelcomeText(username);
+			String username = UserScraper.getUsername(); 
+			cd.setWelcomeText(username); // ricarica l'informazione "username" per inserirla nuovamente nella scena visualizzata
 		
 			switchScene(event, dashboardRoot);
 		}
@@ -77,17 +60,10 @@ public class ControllerExercise {
 		}
 	}
 	
-	public void setText(String text) {
-		codeContainer.setText(text);
-	}
-	
-	public void checkResponseExercise(ActionEvent event) {
-		// ...
+	public void loadUserInfo() {
+		usernameLabel.setText(UserScraper.getUsername());
+		nameLabel.setText(UserScraper.getName());
+		surnameLabel.setText(UserScraper.getSurname());
 	}
 }
-
-
-
-
-
 
