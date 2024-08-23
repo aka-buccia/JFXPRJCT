@@ -27,24 +27,24 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label fx:id="welcomeTextDashboard" alignment="CENTER" contentDisplay="CENTER" layoutY="64.0" prefHeight="42.0" prefWidth="700.0" text="Ciao Username!" textAlignment="CENTER" textFill="#eceff4">
+      <Label fx:id="welcomeTextDashboard" alignment="CENTER" contentDisplay="CENTER" layoutY="64.0" prefHeight="42.0" prefWidth="700.0" text="Ciao Username!" textAlignment="CENTER" textFill="#e5e9f0">
          <font>
             <Font name="SansSerif Regular" size="36.0" />
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3440" height="230.0" layoutX="129.0" layoutY="140.0" stroke="#eceff4" strokeType="INSIDE" width="220.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3440" height="230.0" layoutX="367.0" layoutY="140.0" stroke="#eceff4" strokeType="INSIDE" width="220.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="129.0" layoutY="155.0" prefHeight="30.0" prefWidth="220.0" text="TROVA L'ERRORE" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="129.0" layoutY="155.0" prefHeight="30.0" prefWidth="220.0" text="TROVA L'ERRORE" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="367.0" layoutY="155.0" prefHeight="30.0" prefWidth="220.0" text="PREVEDI IL RISULTATO" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="367.0" layoutY="155.0" prefHeight="30.0" prefWidth="220.0" text="PREVEDI IL RISULTATO" textAlignment="CENTER" textFill="#eceff4">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="SansSerif Bold" size="16.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToFERulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="CONTINUA" textAlignment="CENTER" textFill="WHITE">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToFERulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font>
@@ -52,7 +52,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="417.0" layoutY="238.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="CONTINUA" textAlignment="CENTER" textFill="WHITE">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="417.0" layoutY="238.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font>

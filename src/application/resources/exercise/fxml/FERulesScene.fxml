@@ -9,7 +9,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #3b4252;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.exercise.ControllerExercise">
    <top>
-      <Label alignment="BOTTOM_CENTER" prefHeight="79.0" prefWidth="600.0" text="TROVA L'ERRORE" textAlignment="CENTER" textFill="#eceff4" BorderPane.alignment="CENTER">
+      <Label alignment="BOTTOM_CENTER" prefHeight="79.0" prefWidth="600.0" text="TROVA L'ERRORE" textAlignment="CENTER" textFill="#e5e9f0" BorderPane.alignment="CENTER">
          <font>
             <Font name="SansSerif Bold" size="26.0" />
          </font>
@@ -18,7 +18,7 @@
    <bottom>
       <AnchorPane prefHeight="102.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="229.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToDashboardScene" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="ANNULLA" textFill="#eceff4">
+            <Button layoutX="229.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToDashboardScene" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #88c0d0;" text="ANNULLA" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
@@ -26,7 +26,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="356.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToFindErrorScene" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #88c0d0;" text="AVVIA" textFill="#eceff4">
+            <Button layoutX="356.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToFindErrorScene" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="AVVIA" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
@@ -38,7 +38,7 @@
       </AnchorPane>
    </bottom>
    <center>
-      <Label fx:id="rulesText" alignment="CENTER" contentDisplay="CENTER" prefHeight="137.0" prefWidth="378.0" style="-fx-background-color: #2e3440; -fx-padding: 15; -fx-background-radius: 5;" text="Durante l’esercizio si legge un pezzo di codice contenente una riga errata, l’utente deve inserire il numero della riga in cui è presente l’errore e riscrivere per intero la riga con il codice corretto." textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+      <Label fx:id="rulesText" alignment="CENTER" contentDisplay="CENTER" prefHeight="195.0" prefWidth="394.0" style="-fx-background-color: #2e3440; -fx-padding: 15; -fx-background-radius: 5;" text="Nella parte destra della schermata verrà mostrato del codice, nella parte sinistra sono presenti due caselle dove inserire le risposte. Una volta inserite le risposte premere il bottone RISPONDI e controllare il risultato. Se le risposte sono corrette premere AVANTI per passare all'esercizio successivo. In ogni momento puoi cliccare ESCI per tornare al menu." textAlignment="CENTER" textFill="#eceff4" wrapText="true" BorderPane.alignment="CENTER">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
