@@ -57,7 +57,7 @@ public class ControllerExercise {
 		}
 	}
 	
-	public void switchToDashboardScene(ActionEvent event) {
+	public void switchToDashboardScene(Event event) {
 		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
@@ -85,7 +85,6 @@ public class ControllerExercise {
 		// ...
 	}
 }
-
 
 
 

@@ -41,7 +41,7 @@ public class ControllerUserInfo {
 		stage.show();
 	}
 	
-	public void switchToDashboardScene(MouseEvent event) {
+	public void switchToDashboardScene(Event event) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 			Parent dashboardRoot = loader.load();
