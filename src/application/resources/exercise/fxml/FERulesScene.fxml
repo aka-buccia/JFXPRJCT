@@ -19,12 +19,12 @@
    <bottom>
       <AnchorPane prefHeight="89.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="182.0" layoutY="10.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="ANNULLA" textFill="#eceff4">
+            <Button layoutX="182.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToDashboardScene" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="ANNULLA" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="308.0" layoutY="10.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #88c0d0;" text="AVVIA" textFill="#eceff4">
+            <Button layoutX="308.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToFindErrorScene" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #88c0d0;" text="AVVIA" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
                </font>

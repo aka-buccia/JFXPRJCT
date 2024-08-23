@@ -29,6 +29,15 @@ public class ControllerDashboard {
 	@FXML
 	private Label welcomeTextDashboard;
 	
+	@FXML
+	private Label usernameLabel;
+	
+	@FXML
+	private Label nameLabel;
+	
+	@FXML
+	private Label surnameLabel;
+	
 	
 	public void setWelcomeText(String username) {
 		welcomeTextDashboard.setText("Ciao " + username + "!");
@@ -65,16 +74,53 @@ public class ControllerDashboard {
 	}
 	
 	public void switchToUserInfoScene(MouseEvent event) {
-		loadFXML(event, "/application/resources/dashboard/fxml/UserInfoScene.fxml");
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/UserInfoScene.fxml"));
+			Parent dashboardRoot = loader.load();
+		
+			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
+			cd.loadUserInfo();
+		
+			switchScene(event, dashboardRoot);
+		}
+		catch (IOException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
+					": Errore nel passaggio al ControllerDashboard" + 
+					"\nMessaggio di errore: " + 
+					e.getMessage());
+		}
+
 	}
 	
 	public void switchToDashboardScene(MouseEvent event) {
-		loadFXML(event, "/application/resources/dashboard/fxml/DashboardScene.fxml");
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
+			Parent dashboardRoot = loader.load();
+		
+			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
+			String username = UserScraper.getUsername();
+			cd.setWelcomeText(username);
+		
+			switchScene(event, dashboardRoot);
+		}
+		catch (IOException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
+					": Errore nel passaggio al ControllerDashboard" + 
+					"\nMessaggio di errore: " + 
+					e.getMessage());
+		}
 	}
 	
-	public void switchToFERulesScene(ActionEvent event) {s
-		loadFXML(event, "/application/resources/exercise/fxml/FEFindErrorScene.fxml");
+	public void switchToFERulesScene(ActionEvent event) {
+		loadFXML(event, "/application/resources/exercise/fxml/FERulesScene.fxml");
 	}
+	
+	public void loadUserInfo() {
+		usernameLabel.setText(UserScraper.getUsername());
+		nameLabel.setText(UserScraper.getName());
+		surnameLabel.setText(UserScraper.getSurname());
+	}
+		
 	
 }
 
