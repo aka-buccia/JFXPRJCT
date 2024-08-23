@@ -1,12 +1,15 @@
 package application.java.exercise;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import application.java.dashboard.ControllerDashboard;
 import application.java.dashboard.UserScraper;
+import application.java.general.DBUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -16,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ControllerExercise {
@@ -23,8 +27,16 @@ public class ControllerExercise {
 	private Scene scene;
 	private Parent root;
 	
+	private final static String location = "jdbc:sqlite:database.db";
+	
 	@FXML
 	private TextArea codeContainer;
+	
+	@FXML
+	private TextField numberResponseTF;
+	
+	@FXML
+	private TextField codeResponseTF;
 	
 	public void switchScene(Event event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -73,6 +85,27 @@ public class ControllerExercise {
 	public void setText(String text) {
 		codeContainer.setText(text);
 	}
+	
+	public boolean checkResponseExercise(ActionEvent event) {
+		String response1 = numberResponseTF.getText();
+		String response2 = codeResponseTF.getText();
+		
+		// confronto tra la risposta dell'utente e quella presente nel database
+		Connection connection = DBUtils.connect(location);
+		if (connection == null) 
+			return false;
+		
+		PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Esercizi WHERE tipologia = ?");
+		
+		return true;
+		
+	}
 }
+
+
+
+
+
+
 
 
