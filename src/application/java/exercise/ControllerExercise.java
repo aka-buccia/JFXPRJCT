@@ -105,9 +105,6 @@ public class ControllerExercise {
 					e.getMessage());
 		}
 
-		loadFXML(event, "/application/resources/exercise/fxml/FindErrorScene.fxml");
-		
-		
 	}
 }
 
