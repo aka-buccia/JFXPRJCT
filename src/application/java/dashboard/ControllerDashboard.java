@@ -85,14 +85,14 @@ public class ControllerDashboard {
 	public void switchToFindError(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/exercise/fxml/FindErrorScene.fxml"));
-			Parent dashboardRoot = loader.load();
+			Parent findErrorRoot = loader.load();
 		
 			ControllerExercise ce = loader.getController(); // gli passa il controller di loader che è ControllerExercise
 			
 			Exercise ex = DBExercise.loadEx(1);
 			if (ex != null) {
 				ce.setText(ex.getText());
-				switchScene(event, dashboardRoot);
+				switchScene(event, findErrorRoot);
 			}
 			
 		}

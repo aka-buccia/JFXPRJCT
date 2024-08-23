@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class es3{
+    public static void main(String [] args){
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Inserisci il primo numero: ")
+        int n1 = scan.nextInt();
+
+        System.out.print("Inserisci il secondo numero: ");
+        int n2 = scan.nextInt();
+
+        int prodotto = n1 * n2;
+
+        System.out.println("il prodotto fra i due numeri è: " + prodotto);
+    }
+}

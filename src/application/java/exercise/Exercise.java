@@ -47,8 +47,10 @@ public class Exercise {
 		
 		try {
 			Scanner scan = new Scanner(f);
+			int i = 1;
 			while (scan.hasNextLine()) {
-				text += scan.nextLine() + "\n";
+				text += i + " " +  scan.nextLine() + "\n";
+				i ++;
 			}
 			scan.close();
 		}
