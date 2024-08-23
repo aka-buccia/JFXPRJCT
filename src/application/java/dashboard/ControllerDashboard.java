@@ -72,27 +72,10 @@ public class ControllerDashboard {
 		loadFXML(event, "/application/resources/dashboard/fxml/DashboardScene.fxml");
 	}
 	
-	public void switchToFindErrorScene(ActionEvent event) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/exercise/fxml/FindErrorScene.fxml"));
-			Parent findErrorRoot = loader.load();
-		
-			ControllerExercise ce = loader.getController(); // gli passa il controller di loader che è ControllerExercise
-			
-			Exercise ex = DBExercise.loadEx(1);
-			if (ex != null) {
-				ce.setText(ex.getText());
-				switchScene(event, findErrorRoot);
-			}
-			
-		}
-		catch (IOException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
-					": Errore nel passaggio al ControllerDashboard" + 
-					"\nMessaggio di errore: " + 
-					e.getMessage());
-		}
+	public void switchToFERulesScene(ActionEvent event) {s
+		loadFXML(event, "/application/resources/exercise/fxml/FEFindErrorScene.fxml");
 	}
+	
 }
 
 
