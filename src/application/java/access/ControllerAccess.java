@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 
 import application.java.dashboard.ControllerDashboard;
 import application.java.dashboard.UserScraper;
-import application.java.general.ControllerUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;

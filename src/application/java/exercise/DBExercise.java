@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import application.java.access.GraphicalAnswer;
 import application.java.dashboard.UserScraper;
 import application.java.general.DBUtils;
 import javafx.event.ActionEvent;
@@ -30,7 +31,7 @@ public class DBExercise {
 		if (connection == null)
 			return null;
 		
-		int idUtente = Integer.parseInt(UserScraper.getIdUtente());
+		int idUtente = UserScraper.getIdUtente();
 		
 		try {
 			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Esercizi WHERE tipologia = ?", tipologia);
@@ -80,9 +81,29 @@ public class DBExercise {
 		}
 		
 		exerciseList.removeIf(ex -> idSet.contains(ex.getIdEsercizio()));
-		
-		
 	}
 	
+	public static boolean updateCompletedEx(int idEsercizio, int idUtente) {
+		Connection connection = DBUtils.connect(location);
+		
+		if (connection == null)
+			return false; 
+		
+		PreparedStatement psInsert = null; 
+		
+		try {
+			psInsert = connection.prepareStatement("INSERT INTO EserciziSvolti (idEsercizio, idUtente) VALUES (?, ?)");
+			psInsert.setInt(1, idEsercizio);
+			psInsert.setInt(2, idUtente);
+			psInsert.executeUpdate();
+			return true;
+		}
+		catch (SQLException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante registrazione dati");
+			DBUtils.showDBError(e);
+			return false;
+		}	
+	}
 	
 }
+

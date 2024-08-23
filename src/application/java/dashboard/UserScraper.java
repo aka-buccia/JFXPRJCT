@@ -1,12 +1,12 @@
 package application.java.dashboard;
 
 public class UserScraper {
-	private static String idUtente = null;
+	private static int idUtente = 0;
 	private static String username = null;
 	private static String name = null;
 	private static String surname = null;
 	
-	public static void scraper(String idUtente, String username, String name, String surname) {
+	public static void scraper(int idUtente, String username, String name, String surname) {
 		UserScraper.idUtente = idUtente;
 		UserScraper.username = username;
 		UserScraper.name = name;
@@ -14,7 +14,7 @@ public class UserScraper {
 		System.out.println(printInfo());
 	}
 	
-	public static String getIdUtente() {
+	public static int getIdUtente() {
 		return idUtente;
 	}
 	
@@ -39,7 +39,7 @@ public class UserScraper {
 	}
 	
 	public static void removeInfo() {
-		idUtente = null;
+		idUtente = 0;
 		username = null;
 		name = null;
 		surname = null;
