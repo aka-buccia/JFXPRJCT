@@ -74,6 +74,8 @@ public class ControllerDashboard {
 	}
 	
 	public void switchToUserInfoScene(MouseEvent event) {
+		
+		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/UserInfoScene.fxml"));
 			Parent dashboardRoot = loader.load();
@@ -93,12 +95,13 @@ public class ControllerDashboard {
 	}
 	
 	public void switchToDashboardScene(MouseEvent event) {
+
+		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 			Parent dashboardRoot = loader.load();
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
-			String username = UserScraper.getUsername();
 			cd.setWelcomeText();
 		
 			switchScene(event, dashboardRoot);
@@ -109,6 +112,7 @@ public class ControllerDashboard {
 					"\nMessaggio di errore: " + 
 					e.getMessage());
 		}
+		
 	}
 	
 	public void switchToFERulesScene(ActionEvent event) {

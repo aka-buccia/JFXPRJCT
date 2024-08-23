@@ -23,6 +23,7 @@ public class ControllerExercise {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	private static Exercise currentExercise;
 		
 	@FXML
 	private TextArea codeContainer;
@@ -82,6 +83,7 @@ public class ControllerExercise {
 	}
 	
 	public void checkResponseExercise(ActionEvent event) {
+		System.out.println(ControllerExercise.currentExercise.getIdEsercizio());
 		// ...
 	}
 	
@@ -93,8 +95,12 @@ public class ControllerExercise {
 			ControllerExercise ce = loader.getController(); // gli da il controller di loader che è ControllerDashboard
 			Exercise ex = DBExercise.loadEx(1);
 			
-			if (ex != null)
+			
+			if (ex != null) {
+				ControllerExercise.currentExercise = ex;
 				ce.setText(ex.getText());
+			}
+				
 		
 			switchScene(event, dashboardRoot);
 		}
