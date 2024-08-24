@@ -15,8 +15,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -115,15 +118,24 @@ public class ControllerAccess {
 		if (! GraphicalAnswer.missingData(event, data, errorMessageSignup, "Dati mancanti")) {  //se non mancano dati si procede al signup
 			if (DBAccess.signUpUser(event, errorMessageSignup, data)) {
 				backToLoginScene(event);
+				
 				Alert successSignupAlert = new Alert(Alert.AlertType.INFORMATION);
 				successSignupAlert.setTitle("Registrazione avvenuta con successo!");
 				successSignupAlert.setHeaderText(null);
 				successSignupAlert.setContentText("Ora puoi procedere con il login!");
+				successSignupAlert.setGraphic(null);
+				
+				DialogPane dialogPane = successSignupAlert.getDialogPane();
+				dialogPane.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
+				dialogPane.getStyleClass().add("custom-alert");
+				
 				successSignupAlert.showAndWait();
 			}
 		}
 	}
 }
+
+
 
 
 

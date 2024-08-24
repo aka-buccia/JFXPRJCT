@@ -50,6 +50,28 @@
     -fx-background-insets: 0; /* Rimuove inset del background */
 }
 
+/* Stile dell'Alert che appare quando ci registriamo */
+.custom-alert .content {
+    -fx-background-color: #3b4252; /* Colore di sfondo del contenuto */
+    -fx-padding: 10px;
+}
+
+.custom-alert .label {
+    -fx-text-fill: #e5e9f0; /* Colore del testo */
+    -fx-font-weight: bold;
+}
+
+.custom-alert .button-bar {
+    -fx-background-color: #3b4252; /* Colore di sfondo della barra dei pulsanti */
+}
+
+.custom-alert .button {
+	-fx-background-color: #5e81ac;
+	-fx-text-fill: #e5e9f0;
+	-fx-font-weight: bold;
+	-fx-cursor: hand;
+}
+
 
 
 
