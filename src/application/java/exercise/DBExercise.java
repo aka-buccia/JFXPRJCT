@@ -1,7 +1,6 @@
 package application.java.exercise;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,15 +10,9 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import application.java.access.GraphicalAnswer;
 import application.java.dashboard.UserScraper;
 import application.java.general.DBUtils;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+
 
 public class DBExercise {
 	private final static String location = "jdbc:sqlite:database.db";
