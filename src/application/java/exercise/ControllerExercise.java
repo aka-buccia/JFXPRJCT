@@ -36,7 +36,13 @@ public class ControllerExercise {
 	private TextField codeResponseTF;
 	
 	@FXML 
-	private Label resultMessageLabel;
+	private Label resultMessageLabelFE;
+	
+	@FXML 
+	private Label levelNumExFE;
+	
+	@FXML
+	private Label numExFE;
 	
 	public void switchScene(Event event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -63,7 +69,6 @@ public class ControllerExercise {
 	}
 	
 	public void switchToDashboardScene(Event event) {
-		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 			Parent dashboardRoot = loader.load();
@@ -86,6 +91,11 @@ public class ControllerExercise {
 		codeContainer.setText(text);
 	}
 	
+	public void setExerciseInfo(int levelEx, int numEx) {
+		levelNumExFE.setText("Livello: " + levelEx);
+		numExFE.setText("Esercizio: " + numEx);
+	}
+	
 	public void checkResponseFEExercise(ActionEvent event) {
 		System.out.println(ControllerExercise.currentExercise.getIdEsercizio());
 		String userResponse1 = numberResponseTF.getText().trim();
@@ -96,15 +106,15 @@ public class ControllerExercise {
 		if (userResponse1.equals(dbResponse1) && userResponse2.equals(dbResponse2)) { // esercizio giusto
 			// aggiungere esercizio svolto nel database in "Esercizi svolti"
 			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio(), UserScraper.getIdUtente())) {
-				// cambiare testo e colore testo in verde di "resultMessageLabel"
-				resultMessageLabel.setText("ESATTO");
-				resultMessageLabel.setStyle("-fx-text-fill: #a3be8c");
+				// cambiare testo e colore testo in verde di "resultMessageLabelFE"
+				resultMessageLabelFE.setText("ESATTO");
+				resultMessageLabelFE.setStyle("-fx-text-fill: #a3be8c");
 			}
 		}
 		else { // esercizio sbagliato
 			// cambiare testo e colore testo in rosso di "resultMessageLabel"
-			resultMessageLabel.setText("SBAGLIATO");
-			resultMessageLabel.setStyle("-fx-text-fill: #bf616a");
+			resultMessageLabelFE.setText("SBAGLIATO");
+			resultMessageLabelFE.setStyle("-fx-text-fill: #bf616a");
 		}
 	}
 	
@@ -116,13 +126,12 @@ public class ControllerExercise {
 			ControllerExercise ce = loader.getController(); // gli da il controller di loader che è ControllerDashboard
 			Exercise ex = DBExercise.loadEx(1);
 			
-			
 			if (ex != null) {
 				ControllerExercise.currentExercise = ex;
 				ce.setText(ex.getText());
+				ce.setExerciseInfo(ControllerExercise.currentExercise.getGrado(), ControllerExercise.currentExercise.getNumero());
 			}
-				
-		
+			
 			switchScene(event, dashboardRoot);
 		}
 		catch (IOException e) {
@@ -134,9 +143,6 @@ public class ControllerExercise {
 
 	}
 }
-
-
-
 
 
 

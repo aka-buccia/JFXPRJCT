@@ -30,6 +30,10 @@ public class Exercise {
 		return this.idEsercizio;
 	}
 	
+	public int getGrado() {
+		return this.grado;
+	}
+	
 	public int getNumero() {
 		return this.numero;
 	}
