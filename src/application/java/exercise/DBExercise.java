@@ -28,8 +28,11 @@ public class DBExercise {
 			int idUtente = UserScraper.getIdUtente();
 			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Esercizi WHERE tipologia = ?", tipologia);
 			discardExercise(connection, exerciseList, idUtente);
-						
-			return exerciseList.getFirst();
+			
+			if (exerciseList == null)
+				return null;
+			else
+				return exerciseList.getFirst();
 		}
 		
 		catch(SQLException e) {
