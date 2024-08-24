@@ -30,7 +30,7 @@ public class DBExercise {
 			discardExercise(connection, exerciseList, idUtente);
 			
 			if (exerciseList == null)
-				return null;
+				return null;  //tutti gli esercizi sono stati svolti
 			else
 				return exerciseList.getFirst();
 		}
