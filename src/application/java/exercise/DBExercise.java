@@ -26,14 +26,13 @@ public class DBExercise {
 	
 	
 	public static Exercise loadEx(int tipologia) {
-		Connection connection = DBUtils.connect(location);
 		
-		if (connection == null)
-			return null;
-		
-		int idUtente = UserScraper.getIdUtente();
-		
-		try {
+		try (Connection connection = DBUtils.connect(location)){
+			
+			if (connection == null)
+				return null;
+			
+			int idUtente = UserScraper.getIdUtente();
 			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Esercizi WHERE tipologia = ?", tipologia);
 			discardExercise(connection, exerciseList, idUtente);
 						
@@ -84,14 +83,13 @@ public class DBExercise {
 	}
 	
 	public static boolean updateCompletedEx(int idEsercizio, int idUtente) {
-		Connection connection = DBUtils.connect(location);
+		PreparedStatement psInsert = null;
 		
-		if (connection == null)
-			return false; 
-		
-		PreparedStatement psInsert = null; 
-		
-		try {
+		try (Connection connection = DBUtils.connect(location)) {
+			
+			if (connection == null)
+				return false; 
+			
 			psInsert = connection.prepareStatement("INSERT INTO EserciziSvolti (idEsercizio, idUtente) VALUES (?, ?)");
 			psInsert.setInt(1, idEsercizio);
 			psInsert.setInt(2, idUtente);
@@ -99,7 +97,7 @@ public class DBExercise {
 			return true;
 		}
 		catch (SQLException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante registrazione dati");
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante registrazione esercizio svolto");
 			DBUtils.showDBError(e);
 			return false;
 		}	

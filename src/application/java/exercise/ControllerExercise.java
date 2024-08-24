@@ -91,13 +91,12 @@ public class ControllerExercise {
 		codeContainer.setText(text);
 	}
 	
-	public void setExerciseInfo(int levelEx, int numEx) {
-		levelNumExFE.setText("Livello: " + levelEx);
-		numExFE.setText("Esercizio: " + numEx);
+	public void setExerciseInfo() {
+		levelNumExFE.setText("Livello: " + ControllerExercise.currentExercise.getGrado());
+		numExFE.setText("Esercizio: " + ControllerExercise.currentExercise.getNumero());
 	}
 	
 	public void checkResponseFEExercise(ActionEvent event) {
-		System.out.println(ControllerExercise.currentExercise.getIdEsercizio());
 		String userResponse1 = numberResponseTF.getText().trim();
 		String userResponse2 = codeResponseTF.getText().trim();
 		String dbResponse1 = ControllerExercise.currentExercise.getRisposta1().trim();
@@ -129,7 +128,7 @@ public class ControllerExercise {
 			if (ex != null) {
 				ControllerExercise.currentExercise = ex;
 				ce.setText(ex.getText());
-				ce.setExerciseInfo(ControllerExercise.currentExercise.getGrado(), ControllerExercise.currentExercise.getNumero());
+				ce.setExerciseInfo();
 			}
 			
 			switchScene(event, dashboardRoot);

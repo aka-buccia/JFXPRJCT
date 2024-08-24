@@ -22,15 +22,16 @@ public class DBAccess {
 		String password = passwordTF.getText();
 		System.out.println("username inserito: " + username + "\npassword inserita: " + password);
 
-		Connection connection = DBUtils.connect(location);
-		
-		if (connection == null)
-			return false; //se non è stata stabilita una connessione interrompe l'esecuzione del login
-		
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		try {
+		
+		try (Connection connection = DBUtils.connect(location)) {
+			
+			if (connection == null)
+				return false; //se non è stata stabilita una connessione interrompe l'esecuzione del login
+			
+			
 			preparedStatement = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
 			preparedStatement.setString(1, username);
 			resultSet = preparedStatement.executeQuery();
@@ -63,16 +64,15 @@ public class DBAccess {
 	}
 	
 	public static boolean signUpUser(ActionEvent event, Label errorMessage, TextField [] data) {
-		Connection connection = DBUtils.connect(location);
-		
-		if (connection == null)
-			return false; //se non è stata stabilita una connessione interrompe l'esecuzione del signup
-		
 		PreparedStatement psInsert = null; 
 		PreparedStatement psCheckUserExists = null;
 		ResultSet resultSet = null;
 		
-		try {
+		try (Connection connection = DBUtils.connect(location)) {
+			
+			if (connection == null)
+				return false; //se non è stata stabilita una connessione interrompe l'esecuzione del signup
+			
 			psCheckUserExists = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
 			psCheckUserExists.setString(1, data[0].getText());
 			resultSet = psCheckUserExists.executeQuery();

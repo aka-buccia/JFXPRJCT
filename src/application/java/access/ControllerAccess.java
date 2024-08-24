@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import application.java.dashboard.ControllerDashboard;
-import application.java.dashboard.UserScraper;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -15,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -92,7 +90,6 @@ public class ControllerAccess {
 			Parent dashboardRoot = loader.load();
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
-			String username = UserScraper.getUsername();
 			cd.setWelcomeText();
 		
 			switchScene(event, dashboardRoot);
