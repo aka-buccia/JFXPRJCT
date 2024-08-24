@@ -30,6 +30,16 @@
                   <Font name="SansSerif Bold" size="27.0" />
                </font>
             </Label>
+			<TextField fx:id="nameSignup" layoutX="101.0" layoutY="134.0" prefHeight="26.0" prefWidth="200.0" promptText="Nome" style="-fx-background-color: #eceff4;">
+               <font>
+                  <Font name="SansSerif Regular" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="surnameSignup" layoutX="101.0" layoutY="168.0" prefHeight="26.0" prefWidth="200.0" promptText="Cognome" style="-fx-background-color: #eceff4;">
+               <font>
+                  <Font name="SansSerif Regular" size="12.0" />
+               </font>
+            </TextField>
             <TextField fx:id="usernameSignup" layoutX="101.0" layoutY="202.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
@@ -48,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="272.0" mnemonicParsing="false" onAction="#backToLoginScene" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #88c0d0;" text="INDIETRO" textAlignment="CENTER" textFill="#eceff4">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="272.0" mnemonicParsing="false" onAction="#backToLoginScene" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #88c0d0;" text="INDIETRO" textAlignment="CENTER" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -56,16 +66,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField fx:id="nameSignup" layoutX="101.0" layoutY="134.0" prefHeight="26.0" prefWidth="200.0" promptText="Nome" style="-fx-background-color: #eceff4;">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="surnameSignup" layoutX="101.0" layoutY="168.0" prefHeight="26.0" prefWidth="200.0" promptText="Cognome" style="-fx-background-color: #eceff4;">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font>
-            </TextField>
             <Label fx:id="errorMessageSignup" alignment="CENTER" contentDisplay="CENTER" layoutY="322.0" prefHeight="27.0" prefWidth="401.0" textAlignment="CENTER" textFill="#bf616a">
                <font>
                   <Font name="System Bold" size="18.0" />
