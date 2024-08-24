@@ -40,7 +40,7 @@
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </PasswordField>
-            <Button fx:id="signupBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="203.0" layoutY="272.0" mnemonicParsing="false" onAction="#signUp" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #5e81ac;" text="REGISTRATI" textAlignment="CENTER" textFill="#eceff4">
+            <Button fx:id="signupBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="203.0" layoutY="272.0" mnemonicParsing="false" onAction="#signup" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #5e81ac;" text="REGISTRATI" textAlignment="CENTER" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="272.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #88c0d0;" text="INDIETRO" textAlignment="CENTER" textFill="#eceff4">
+            <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="272.0" mnemonicParsing="false" onAction="#backToLoginScene" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #88c0d0;" text="INDIETRO" textAlignment="CENTER" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
