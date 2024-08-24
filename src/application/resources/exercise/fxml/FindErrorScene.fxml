@@ -69,12 +69,12 @@
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="numExFE" layoutX="103.0" layoutY="110.0" prefHeight="16.0" prefWidth="81.0" text="Esercizio: x" textFill="WHITE">
+            <Label fx:id="numExFE" layoutX="103.0" layoutY="110.0" prefHeight="18.0" prefWidth="111.0" text="Esercizio: x" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="300.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="AVANTI" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="144.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToFindErrorScene" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="AVANTI" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>

@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -35,14 +36,21 @@ public class ControllerExercise {
 	@FXML
 	private TextField codeResponseTF;
 	
-	@FXML 
+	@FXML
 	private Label resultMessageLabelFE;
 	
-	@FXML 
+	@FXML
 	private Label levelNumExFE;
 	
 	@FXML
 	private Label numExFE;
+	
+	@FXML
+	private Button nextBtn;
+	
+	@FXML
+	private Button respondBtn;
+	
 	
 	public void switchScene(Event event, Parent root) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -107,6 +115,10 @@ public class ControllerExercise {
 				// cambiare testo e colore testo in verde di "resultMessageLabelFE"
 				resultMessageLabelFE.setText("ESATTO");
 				resultMessageLabelFE.setStyle("-fx-text-fill: #a3be8c");
+				nextBtn.setDisable(false);  //abilita il bottone AVANTI	
+				respondBtn.setDisable(true);  //disabilita il bottone RISPONDI
+				
+				
 			}
 		}
 		else { // esercizio sbagliato
