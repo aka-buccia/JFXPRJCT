@@ -49,9 +49,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="100.0" layoutY="284.0" onMouseClicked="#switchToSignupScene" prefHeight="28.0" prefWidth="200.0" text="Non hai un account? Clicca qui e registrati!" textFill="#e5e9f0">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="284.0" onMouseClicked="#switchToSignupScene" prefHeight="28.0" prefWidth="200.0" text="Non hai un account? Registrati!" textFill="#e5e9f0" wrapText="true">
                <font>
-                  <Font size="10.5" />
+                  <Font name="SansSerif Bold" size="11.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />

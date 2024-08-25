@@ -13,7 +13,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" stylesheets="@../../general/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.exercise.ControllerExercise">
    <left>
-      <AnchorPane prefHeight="450.0" prefWidth="280.0" style="-fx-background-color: #2e3440;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="450.0" prefWidth="300.0" style="-fx-background-color: #2e3440;" BorderPane.alignment="CENTER">
          <children>
             <Button alignment="BASELINE_LEFT" layoutX="42.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToDashboardScene" prefHeight="34.0" prefWidth="59.0" style="-fx-background-color: #2e3440;" text="Esci" textFill="WHITE">
                <font>
@@ -82,7 +82,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="resultMessageLabelFE" alignment="CENTER" layoutX="24.0" layoutY="362.0" prefHeight="30.0" prefWidth="230.0" text="ESITO" textFill="WHITE">
+            <Label fx:id="resultMessageLabelFE" alignment="CENTER" layoutX="24.0" layoutY="362.0" prefHeight="30.0" prefWidth="230.0" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
@@ -91,11 +91,11 @@
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="450.0" prefWidth="520.0" style="-fx-background-color: #3b4252;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #3b4252;" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="codeContainer" editable="false" layoutX="20.0" layoutY="20.0" prefHeight="410.0" prefWidth="480.0" wrapText="true">
+            <TextArea fx:id="codeContainer" editable="false" layoutX="27.0" layoutY="20.0" prefHeight="410.0" prefWidth="445.0" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="SansSerif Regular" size="20.0" />
                </font></TextArea>
          </children></AnchorPane>
    </right>
