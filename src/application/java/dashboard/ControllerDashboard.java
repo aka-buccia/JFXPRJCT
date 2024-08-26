@@ -71,8 +71,6 @@ public class ControllerDashboard {
 	}
 	
 	public void switchToUserInfoScene(MouseEvent event) {
-		
-		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/UserInfoScene.fxml"));
 			Parent dashboardRoot = loader.load();
@@ -88,12 +86,9 @@ public class ControllerDashboard {
 					"\nMessaggio di errore: " + 
 					e.getMessage());
 		}
-
 	}
 	
 	public void switchToDashboardScene(MouseEvent event) {
-
-		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
 			Parent dashboardRoot = loader.load();
@@ -109,11 +104,14 @@ public class ControllerDashboard {
 					"\nMessaggio di errore: " + 
 					e.getMessage());
 		}
-		
 	}
 	
 	public void switchToFERulesScene(ActionEvent event) {
 		loadFXML(event, "/application/resources/exercise/fxml/FERulesScene.fxml");
+	}
+	
+	public void switchToPRRulesScene(ActionEvent event) {
+		loadFXML(event, "/application/resources/exercise/fxml/PRRulesScene.fxml");
 	}
 	
 	public void loadUserInfo() {
@@ -121,10 +119,7 @@ public class ControllerDashboard {
 		nameLabel.setText(UserScraper.getName());
 		surnameLabel.setText(UserScraper.getSurname());
 	}
-		
-	
 }
-
 
 
 

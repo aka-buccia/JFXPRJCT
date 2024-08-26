@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #3b4252;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.exercise.ControllerExercise">
+   <top>
+      <Label alignment="BOTTOM_CENTER" prefHeight="79.0" prefWidth="600.0" text="PREVEDI IL RISULTATO" textAlignment="CENTER" textFill="#e5e9f0" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="SansSerif Bold" size="26.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="102.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="229.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToDashboardScene" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #88c0d0;" text="ANNULLA" textFill="#eceff4">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="356.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToPredictResultScene" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #5e81ac;" text="AVVIA" textFill="#eceff4">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <Label fx:id="rulesText" alignment="CENTER" contentDisplay="CENTER" prefHeight="195.0" prefWidth="394.0" style="-fx-background-color: #2e3440; -fx-padding: 15; -fx-background-radius: 5;" text="Nella parte destra della schermata verrà mostrato del codice, nella parte sinistra sono presenti due caselle dove inserire le risposte. Una volta inserite le risposte premere il bottone RISPONDI e controllare il risultato. Se le risposte sono corrette premere AVANTI per passare all'esercizio successivo. In ogni momento puoi cliccare ESCI per tornare al menu." textAlignment="CENTER" textFill="#eceff4" wrapText="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>
