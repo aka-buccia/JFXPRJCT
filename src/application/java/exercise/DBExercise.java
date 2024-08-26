@@ -19,8 +19,7 @@ public class DBExercise {
 	
 	
 	public static Exercise loadEx(int tipologia) {
-		
-		try (Connection connection = DBUtils.connect(location)){
+		try (Connection connection = DBUtils.connect(location)) {
 			
 			if (connection == null)
 				return null;
@@ -30,12 +29,11 @@ public class DBExercise {
 			discardExercise(connection, exerciseList, idUtente);
 			
 			if (exerciseList == null)
-				return null;  //tutti gli esercizi sono stati svolti
+				return null;  // tutti gli esercizi sono stati svolti
 			else
 				return exerciseList.getFirst();
 		}
-		
-		catch(SQLException e) {
+		catch (SQLException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante caricamento esercizi");
 			DBUtils.showDBError(e);
 			return null;
@@ -64,8 +62,7 @@ public class DBExercise {
 		return exerciseList;
 	}
 	
-	public static void discardExercise(Connection connection, ArrayList<Exercise> exerciseList, int idUtente) throws SQLException{
-		
+	public static void discardExercise(Connection connection, ArrayList<Exercise> exerciseList, int idUtente) throws SQLException {
 		TreeSet<Integer> idSet = new TreeSet<Integer>();
 		PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM EserciziSvolti WHERE idUtente = ?");
 		preparedStatement.setInt(1, idUtente);
@@ -82,7 +79,6 @@ public class DBExercise {
 		PreparedStatement psInsert = null;
 		
 		try (Connection connection = DBUtils.connect(location)) {
-			
 			if (connection == null)
 				return false; 
 			
@@ -90,6 +86,7 @@ public class DBExercise {
 			psInsert.setInt(1, idEsercizio);
 			psInsert.setInt(2, idUtente);
 			psInsert.executeUpdate();
+			
 			return true;
 		}
 		catch (SQLException e) {
@@ -98,6 +95,10 @@ public class DBExercise {
 			return false;
 		}	
 	}
-	
 }
+
+
+
+
+
 

@@ -31,10 +31,10 @@ public class ControllerExercise {
 	private TextArea codeContainer;
 	
 	@FXML
-	private TextField numberResponseTF;
+	private TextField numberResponseFE;
 	
 	@FXML
-	private TextField codeResponseTF;
+	private TextField codeResponseFE;
 	
 	@FXML
 	private Label resultMessageLabelFE;
@@ -104,8 +104,8 @@ public class ControllerExercise {
 	}
 	
 	public void checkResponseFEExercise(ActionEvent event) {
-		String userResponse1 = numberResponseTF.getText().trim();
-		String userResponse2 = codeResponseTF.getText().trim();
+		String userResponse1 = numberResponseFE.getText().trim();
+		String userResponse2 = codeResponseFE.getText().trim();
 		String dbResponse1 = ControllerExercise.currentExercise.getRisposta1().trim();
 		String dbResponse2 = ControllerExercise.currentExercise.getRisposta2().trim();
 		
@@ -150,9 +150,35 @@ public class ControllerExercise {
 					"\nMessaggio di errore: " + 
 					e.getMessage());
 		}
-
+	}
+	
+	public void switchToPredictResultScene(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/exercise/fxml/PredictResultScene.fxml"));
+			Parent dashboardRoot = loader.load();
+		
+			ControllerExercise ce = loader.getController(); 
+			/*Exercise ex = DBExercise.loadEx(1);
+			
+			if (ex != null) {
+				ControllerExercise.currentExercise = ex;
+				ce.setText(ex.getText());
+				ce.setExerciseInfo();
+			}*/
+			
+			switchScene(event, dashboardRoot);
+		}
+		catch (IOException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
+					": Errore nel passaggio al ControllerDashboard" + 
+					"\nMessaggio di errore: " + 
+					e.getMessage());
+		}
 	}
 }
+
+
+
 
 
 
