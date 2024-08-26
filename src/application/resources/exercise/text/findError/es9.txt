@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class es9{
+    public static void main(String [] args){
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("numeratore: ");
+        int n1 = scan.nextInt();
+        System.out.print("denominatore: ");
+        int n2 = scan.nextInt();
+
+        try{
+            double frazione = n1 / n2;
+            System.out.println("risultato: " + frazione);
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("impossibile effettuare divisione per 0");
+        }
+
+
+
+    }
+}
