@@ -4,5 +4,5 @@ L'obiettivo finale è creare un'applicazione multiutente per l'apprendimento e l
 
 ## Stato attuale sviluppo
 - Pagina di login e registrazione funzionanti
-- Dashboard parzialmente funzionante
-- Esercizi sotto sviluppo
+- Dashboard funzionante ma con parti mancanti
+- Esercizi funzionanti ma con parti mancanti
