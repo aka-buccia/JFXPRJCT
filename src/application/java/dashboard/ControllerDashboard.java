@@ -1,11 +1,8 @@
 package application.java.dashboard;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-
+import application.java.general.ControllerUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -55,12 +52,7 @@ public class ControllerDashboard {
 			switchScene(event, root);
 		}
 		catch (IOException | RuntimeException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
-					": Errore nel caricamento della scena" + 
-					"\n Localizzazione: " +
-					location +
-					"\nMessaggio di errore: " + 
-					e.getMessage());
+			ControllerUtils.showControllerError(e, location);
 		}
 	}
 	
@@ -71,8 +63,10 @@ public class ControllerDashboard {
 	}
 	
 	public void switchToUserInfoScene(MouseEvent event) {
+		String location = "/application/resources/dashboard/fxml/UserInfoScene.fxml";
+		
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/UserInfoScene.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
 			Parent dashboardRoot = loader.load();
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
@@ -80,17 +74,16 @@ public class ControllerDashboard {
 		
 			switchScene(event, dashboardRoot);
 		}
-		catch (IOException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
-					": Errore nel passaggio al ControllerDashboard" + 
-					"\nMessaggio di errore: " + 
-					e.getMessage());
+		catch (IOException | RuntimeException e) {
+			ControllerUtils.showControllerError(e, location);
 		}
 	}
 	
 	public void switchToDashboardScene(MouseEvent event) {
+		String location = "/application/resources/dashboard/fxml/DashboardScene.fxml";
+		
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
 			Parent dashboardRoot = loader.load();
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
@@ -98,11 +91,8 @@ public class ControllerDashboard {
 		
 			switchScene(event, dashboardRoot);
 		}
-		catch (IOException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
-					": Errore nel passaggio al ControllerDashboard" + 
-					"\nMessaggio di errore: " + 
-					e.getMessage());
+		catch (IOException | RuntimeException e) {
+			ControllerUtils.showControllerError(e, location);
 		}
 	}
 	

@@ -1,11 +1,9 @@
 package application.java.access;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import application.java.dashboard.ControllerDashboard;
+import application.java.general.ControllerUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -18,8 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -67,12 +64,7 @@ public class ControllerAccess {
 			switchScene(event, root);
 		}
 		catch(IOException | RuntimeException e){
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
-					": Errore nel caricamento della scena" + 
-					"\n Localizzazione: " +
-					location +
-					"\nMessaggio di errore: " + 
-					e.getMessage());
+			ControllerUtils.showControllerError(e, location);
 		}
 	}
 	
@@ -89,8 +81,10 @@ public class ControllerAccess {
 	}
 	
 	public void switchToDashboardScene(ActionEvent event) {
+		String location = "/application/resources/dashboard/fxml/DashboardScene.fxml";
+		
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/resources/dashboard/fxml/DashboardScene.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
 			Parent dashboardRoot = loader.load();
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
@@ -98,11 +92,8 @@ public class ControllerAccess {
 		
 			switchScene(event, dashboardRoot);
 		}
-		catch (IOException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() +
-					": Errore nel passaggio al ControllerDashboard" + 
-					"\nMessaggio di errore: " + 
-					e.getMessage());
+		catch (IOException | RuntimeException e) {
+			ControllerUtils.showControllerError(e, location);
 		}
 	}
 	
