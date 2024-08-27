@@ -1,6 +1,8 @@
 package application.java.access;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import application.java.dashboard.ControllerDashboard;
 import application.java.general.ControllerUtils;
@@ -98,15 +100,25 @@ public class ControllerAccess {
 	}
 	
 	public void login(ActionEvent event){
-		if (DBAccess.loginUser(event, errorMessageLogin, usernameLogin, passwordLogin)) {
-			switchToDashboardScene(event);
+		ArrayList<TextField> data = new ArrayList<TextField>(Arrays.asList(usernameLogin, passwordLogin));
+		ArrayList<TextField> empty = GraphicalAnswer.missingData(event, data);
+		
+		if (empty.isEmpty()) {
+			if (DBAccess.loginUser(event, errorMessageLogin, data)) {
+				switchToDashboardScene(event);
+			}
 		}
+		else {
+			GraphicalAnswer.alertMessage(empty, errorMessageLogin, "Dati mancanti");
+		}
+
 	}
 	
 	public void signup(ActionEvent event){
-		TextField [] data = {usernameSignup, passwordSignup, nameSignup, surnameSignup};
+		ArrayList<TextField> data = new ArrayList<TextField>(Arrays.asList(usernameSignup, passwordSignup, nameSignup, surnameSignup));
+		ArrayList<TextField> empty = GraphicalAnswer.missingData(event, data);
 		
-		if (! GraphicalAnswer.missingData(event, data, errorMessageSignup, "Dati mancanti")) {  //se non mancano dati si procede al signup
+		if (empty.isEmpty()) {  //se non mancano dati si procede al signup
 			if (DBAccess.signUpUser(event, errorMessageSignup, data)) {
 				backToLoginScene(event);
 				
@@ -122,6 +134,9 @@ public class ControllerAccess {
 				
 				successSignupAlert.showAndWait();
 			}
+		}
+		else {
+			GraphicalAnswer.alertMessage(empty, errorMessageSignup, "Dati mancanti");
 		}
 	}
 }

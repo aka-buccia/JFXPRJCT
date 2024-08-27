@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,9 +18,9 @@ import javafx.scene.control.TextField;
 public class DBAccess {
 	private final static String location = "jdbc:sqlite:database.db";
 
-	public static boolean loginUser(ActionEvent event, Label errorMessage, TextField usernameTF, TextField passwordTF){
-		String username = usernameTF.getText();
-		String password = passwordTF.getText();
+	public static boolean loginUser(ActionEvent event, Label errorMessage, ArrayList<TextField> data){
+		String username = data.get(0).getText();
+		String password = data.get(1).getText();
 		System.out.println("username inserito: " + username + "\npassword inserita: " + password);
 
 		PreparedStatement preparedStatement = null;
@@ -38,7 +39,7 @@ public class DBAccess {
 			
 			if (!resultSet.isBeforeFirst()) { // se non è nel database
 				System.out.println("Utente non trovato nel database!");
-				GraphicalAnswer.alertMessage(usernameTF, passwordTF, errorMessage, "Username o password errati");
+				GraphicalAnswer.alertMessage(data, errorMessage, "Username o password errati");
 				return false;
 			}
 			else { // compariamo i dati se esiste l'username
@@ -50,7 +51,7 @@ public class DBAccess {
 					}
 					else {
 						System.out.println("La password non coincide!");
-						GraphicalAnswer.alertMessage(usernameTF, passwordTF, errorMessage, "username o password errati");
+						GraphicalAnswer.alertMessage(data, errorMessage, "username o password errati");
 					}
 				}
 				return false;
@@ -63,7 +64,12 @@ public class DBAccess {
 		}
 	}
 	
-	public static boolean signUpUser(ActionEvent event, Label errorMessage, TextField [] data) {
+	public static boolean signUpUser(ActionEvent event, Label errorMessage, ArrayList<TextField> data) {
+		String username = data.get(0).getText();
+		String password = data.get(1).getText();
+		String name = data.get(2).getText();
+		String surname = data.get(3).getText();
+		
 		PreparedStatement psInsert = null; 
 		PreparedStatement psCheckUserExists = null;
 		ResultSet resultSet = null;
@@ -74,24 +80,23 @@ public class DBAccess {
 				return false; //se non è stata stabilita una connessione interrompe l'esecuzione del signup
 			
 			psCheckUserExists = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
-			psCheckUserExists.setString(1, data[0].getText());
+			psCheckUserExists.setString(1, username);
 			resultSet = psCheckUserExists.executeQuery();
 			
 			// username già usato da un'altro utente
 			if (resultSet.isBeforeFirst()) {  
 				System.out.println("Questo username è già stato scelto");
-				GraphicalAnswer.alertMessage(data[0], errorMessage, "username già scelto");
+				GraphicalAnswer.alertMessage(new ArrayList<TextField>(data.subList(0, 1)), errorMessage, "username già scelto");
 				return false;
 			}
 			else {
 				psInsert = connection.prepareStatement("INSERT INTO Utenti (username, password, nome, cognome) VALUES (?, ?, ?, ?)");
-				psInsert.setString(1, data[0].getText());
-				psInsert.setString(2, data[1].getText());
-				psInsert.setString(3, data[2].getText());
-				psInsert.setString(4, data[3].getText());
+				psInsert.setString(1, username);
+				psInsert.setString(2, password);
+				psInsert.setString(3, name);
+				psInsert.setString(4, surname);
 				psInsert.executeUpdate();
 				System.out.println("Nuovo utente registrato");
-				UserScraper.scraper(0, data[0].getText(), data[2].getText(), data[3].getText());
 				return true;
 			}
 		}
