@@ -77,6 +77,7 @@ public class ControllerExercise {
 			Parent dashboardRoot = loader.load();
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
+			cd.updateDashboardData();
 			cd.setWelcomeText();
 		
 			switchScene(event, dashboardRoot);

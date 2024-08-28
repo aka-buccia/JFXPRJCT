@@ -20,6 +20,11 @@ public class ControllerDashboard {
 	private Scene scene;
 	private Parent root;
 	
+	private static int [] FEresult = {0, 9};
+	private static int [] PRresult = {0, 9};
+	private static int FElevel = 0; 
+	private static int PRlevel = 0;
+	
 	@FXML
 	private Label welcomeTextDashboard;
 	
@@ -32,9 +37,29 @@ public class ControllerDashboard {
 	@FXML
 	private Label surnameLabel;
 	
+	@FXML
+	private Label levelFELabel;
+	
+	@FXML
+	private Label levelPRLabel;
+	
+	@FXML
+	private Label progressFELabel;
+	
+	@FXML
+	private Label progressPRLabel;
 	
 	public void setWelcomeText() {
 		welcomeTextDashboard.setText("Ciao " + UserScraper.getUsername() + "!");
+		levelFELabel.setText("LIVELLO: " + String.valueOf(FElevel));
+		//levelPRLabel.setText("LIVELLO: " + String.valueOf(PRlevel));
+		progressFELabel.setText(String.valueOf(FEresult[0] * 100 / FEresult[1]) + "%");
+		//progressPRLabel.setText(String.valueOf(PRresult[0] * 100 / PRresult[1]));
+	}
+	
+	public void updateDashboardData() {
+		FElevel = DBDashboard.loadProgress(UserScraper.getIdUtente(), 1, FEresult, FElevel);
+		//PRlevel = DBDashboard.loadProgress(UserScraper.getIdUtente(), 2, PRresult, PRlevel);
 	}
 	
 	public void switchScene(Event event, Parent root) {

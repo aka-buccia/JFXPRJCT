@@ -60,5 +60,25 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label fx:id="levelFELabel" alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="195.0" prefHeight="32.0" prefWidth="102.0" text="LIVELLO: 1" textAlignment="CENTER" textFill="#eceff4">
+         <font>
+            <Font name="SansSerif Regular" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="levelPRLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="426.0" layoutY="195.0" prefHeight="32.0" prefWidth="102.0" text="LIVELLO: 1" textAlignment="CENTER" textFill="#eceff4">
+         <font>
+            <Font name="SansSerif Regular" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="progressFELabel" alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="288.0" prefHeight="56.0" prefWidth="102.0" text="0%" textAlignment="CENTER" textFill="#eceff4">
+         <font>
+            <Font name="SansSerif Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="progressPRLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="426.0" layoutY="288.0" prefHeight="56.0" prefWidth="102.0" text="0%" textAlignment="CENTER" textFill="#eceff4">
+         <font>
+            <Font name="SansSerif Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
