@@ -58,8 +58,8 @@ public class ControllerDashboard {
 	}
 	
 	public void updateDashboardData() {
-		FElevel = DBDashboard.loadProgress(UserScraper.getIdUtente(), 1, FEresult, FElevel);
-		//PRlevel = DBDashboard.loadProgress(UserScraper.getIdUtente(), 2, PRresult, PRlevel);
+		FElevel = DBDashboard.loadProgress(1, FEresult, FElevel);
+		//PRlevel = DBDashboard.loadProgress(2, PRresult, PRlevel);
 	}
 	
 	public void switchScene(Event event, Parent root) {
@@ -131,8 +131,8 @@ public class ControllerDashboard {
 	
 	public void loadUserInfo() {
 		usernameLabel.setText(UserScraper.getUsername());
-		nameLabel.setText(UserScraper.getName());
-		surnameLabel.setText(UserScraper.getSurname());
+		nameLabel.setText(UserScraper.getNome());
+		surnameLabel.setText(UserScraper.getCognome());
 	}
 }
 

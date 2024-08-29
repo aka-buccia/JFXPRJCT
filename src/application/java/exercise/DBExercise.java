@@ -75,7 +75,8 @@ public class DBExercise {
 		exerciseList.removeIf(ex -> idSet.contains(ex.getIdEsercizio()));
 	}
 	
-	public static boolean updateCompletedEx(int idEsercizio, int idUtente) {
+	public static boolean updateCompletedEx(int idEsercizio) {
+		int idUtente = UserScraper.getIdUtente();
 		PreparedStatement psInsert = null;
 		
 		try (Connection connection = DBUtils.connect(location)) {

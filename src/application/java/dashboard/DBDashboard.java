@@ -15,13 +15,14 @@ import application.java.general.DBUtils;
 public class DBDashboard {
 	private final static String location = "jdbc:sqlite:database.db";
 	
-	public static int loadProgress(int idUtente, int tipologia, int [] progress, int level) {
+	public static int loadProgress(int tipologia, int [] progress, int level) {
 		
 		try (Connection connection = DBUtils.connect(location)){
 			
 			if (connection == null)
 				return 0;
 			
+			int idUtente = UserScraper.getIdUtente();
 			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Esercizi WHERE tipologia = ?");
 			preparedStatement.setInt(1, tipologia);
 			ResultSet allExerciseResult = preparedStatement.executeQuery();

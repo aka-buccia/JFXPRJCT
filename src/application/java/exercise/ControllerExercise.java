@@ -104,7 +104,7 @@ public class ControllerExercise {
 		
 		if (userResponse1.equals(dbResponse1) && userResponse2.equals(dbResponse2)) { // esercizio giusto
 			// aggiungere esercizio svolto nel database in "Esercizi svolti"
-			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio(), UserScraper.getIdUtente())) {
+			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio())) {
 				// cambiare testo e colore testo in verde di "resultMessageLabelFE"
 				resultMessageLabelFE.setText("ESATTO");
 				resultMessageLabelFE.setStyle("-fx-text-fill: #a3be8c");

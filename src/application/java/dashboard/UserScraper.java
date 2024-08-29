@@ -3,14 +3,14 @@ package application.java.dashboard;
 public class UserScraper {
 	private static int idUtente = 0;
 	private static String username = null;
-	private static String name = null;
-	private static String surname = null;
+	private static String nome = null;
+	private static String cognome = null;
 	
-	public static void scraper(int idUtente, String username, String name, String surname) {
+	public static void scraper(int idUtente, String username, String nome, String cognome) {
 		UserScraper.idUtente = idUtente;
 		UserScraper.username = username;
-		UserScraper.name = name;
-		UserScraper.surname = surname;
+		UserScraper.nome = nome;
+		UserScraper.cognome = cognome;
 		System.out.println(printInfo());
 	}
 	
@@ -22,27 +22,27 @@ public class UserScraper {
 		return username;
 	}
 	
-	public static String getName() {
-		return name;
+	public static String getNome() {
+		return nome;
 	}
 	
-	public static String getSurname() {
-		return surname;
+	public static String getCognome() {
+		return cognome;
 	}
 	
 	public static String printInfo() {
 		return "USER INFO:" + "\n" +
 				"id utente: " + getIdUtente() + "\n" +  
 				"username: " + getUsername() + "\n" +  
-				"nome: " + getName() + "\n" + 
-				"cognome: " + getSurname();
+				"nome: " + getNome() + "\n" + 
+				"cognome: " + getCognome();
 	}
 	
 	public static void removeInfo() {
 		idUtente = 0;
 		username = null;
-		name = null;
-		surname = null;
+		nome = null;
+		cognome = null;
 	}
 }
 
