@@ -38,7 +38,7 @@
       </AnchorPane>
    </bottom>
    <center>
-      <Label fx:id="rulesText" alignment="CENTER" contentDisplay="CENTER" prefHeight="195.0" prefWidth="394.0" style="-fx-background-color: #2e3440; -fx-padding: 15; -fx-background-radius: 5;" text="Nella parte destra della schermata verrà mostrato del codice, nella parte sinistra sono presenti due caselle dove inserire le risposte. Una volta inserite le risposte premere il bottone RISPONDI e controllare il risultato. Se le risposte sono corrette premere AVANTI per passare all'esercizio successivo. In ogni momento puoi cliccare ESCI per tornare al menu." textAlignment="CENTER" textFill="#eceff4" wrapText="true" BorderPane.alignment="CENTER">
+      <Label fx:id="rulesText" alignment="CENTER" contentDisplay="CENTER" prefHeight="195.0" prefWidth="394.0" style="-fx-background-color: #2e3440; -fx-padding: 15; -fx-background-radius: 5;" text="Nella parte destra della schermata viene mostrato del codice contenente un errore, nella parte sinistra sono presenti due caselle dove inserire rispettivamente il numero della riga errata e riscrivere la riga di codice correttamente. In ogni momento è possibile cliccare ESCI per tornare al menu." textAlignment="CENTER" textFill="#eceff4" wrapText="true" BorderPane.alignment="CENTER">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
