@@ -28,7 +28,7 @@ public class DBExercise {
 			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Esercizi WHERE tipologia = ?", tipologia);
 			discardExercise(connection, exerciseList, idUtente);
 			
-			if (exerciseList == null)
+			if (exerciseList.isEmpty()) //prova con isEmpty()
 				return null;  // tutti gli esercizi sono stati svolti
 			else
 				return exerciseList.getFirst();

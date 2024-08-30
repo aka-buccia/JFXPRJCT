@@ -20,7 +20,5 @@ public class es8{
         catch (InputMismatchException e){
             System.out.println("Errore nella scrittura del codice");
         }
-
-
     }
 }

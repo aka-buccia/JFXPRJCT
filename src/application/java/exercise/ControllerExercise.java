@@ -3,7 +3,6 @@ package application.java.exercise;
 import java.io.IOException;
 
 import application.java.dashboard.ControllerDashboard;
-import application.java.dashboard.UserScraper;
 import application.java.general.ControllerUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -125,19 +124,24 @@ public class ControllerExercise {
 		String location = "/application/resources/exercise/fxml/FindErrorScene.fxml";
 		
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
-			Parent dashboardRoot = loader.load();
-		
-			ControllerExercise ce = loader.getController(); 
 			Exercise ex = DBExercise.loadEx(1);
 			
 			if (ex != null) {
+				System.out.println("sono dentro");
+				FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
+				Parent controllerRoot = loader.load();
+			
+				ControllerExercise ce = loader.getController(); 
 				ControllerExercise.currentExercise = ex;
 				ce.setText(ex.getText());
 				ce.setExerciseInfo();
+				switchScene(event, controllerRoot);
+			}
+			else { //esercizi da svolgere finiti
+				switchToDashboardScene(event);
+				ControllerUtils.showAlertWindow("TROVA L'ERRORE completato", "Hai terminato gli esercizi da svolgere");
 			}
 			
-			switchScene(event, dashboardRoot);
 		}
 		catch (IOException | RuntimeException e) {
 			ControllerUtils.showControllerError(e, location);

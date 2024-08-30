@@ -122,18 +122,7 @@ public class ControllerAccess {
 		if (empty.isEmpty()) {  //se non mancano dati si procede al signup
 			if (DBAccess.signUpUser(event, errorMessageSignup, data)) {
 				backToLoginScene(event);
-				
-				Alert successSignupAlert = new Alert(Alert.AlertType.INFORMATION);
-				successSignupAlert.setTitle("Registrazione avvenuta con successo!");
-				successSignupAlert.setHeaderText(null);
-				successSignupAlert.setContentText("Ora puoi procedere con il login!");
-				successSignupAlert.setGraphic(null);
-				
-				DialogPane dialogPane = successSignupAlert.getDialogPane();
-				dialogPane.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
-				dialogPane.getStyleClass().add("custom-alert");
-				
-				successSignupAlert.showAndWait();
+				ControllerUtils.showAlertWindow("Registrazione avvenuta con successo!", "Ora puoi procedere con il login");
 			}
 		}
 		else {

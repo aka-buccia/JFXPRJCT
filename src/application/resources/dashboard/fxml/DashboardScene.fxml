@@ -44,7 +44,7 @@
             <Font name="SansSerif Bold" size="16.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToFERulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="openFEButton" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToFERulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font>
@@ -52,7 +52,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="417.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToPRRulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="#eceff4">
+      <Button fx:id="openPRButton" alignment="CENTER" contentDisplay="CENTER" layoutX="417.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToPRRulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font>

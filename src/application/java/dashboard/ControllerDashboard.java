@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -22,8 +23,8 @@ public class ControllerDashboard {
 	
 	private static int [] FEresult = {0, 9};
 	private static int [] PRresult = {0, 9};
-	private static int FElevel = 0; 
-	private static int PRlevel = 0;
+	private static int FElevel = 1; 
+	private static int PRlevel = 1;
 	
 	@FXML
 	private Label welcomeTextDashboard;
@@ -49,6 +50,12 @@ public class ControllerDashboard {
 	@FXML
 	private Label progressPRLabel;
 	
+	@FXML
+	private Button openFEButton;
+	
+	@FXML
+	private Button openPRBUtton;
+	
 	public void setWelcomeText() {
 		welcomeTextDashboard.setText("Ciao " + UserScraper.getUsername() + "!");
 		levelFELabel.setText("LIVELLO: " + String.valueOf(FElevel));
@@ -60,6 +67,13 @@ public class ControllerDashboard {
 	public void updateDashboardData() {
 		FElevel = DBDashboard.loadProgress(1, FEresult, FElevel);
 		//PRlevel = DBDashboard.loadProgress(2, PRresult, PRlevel);
+		
+		//disattiva bottoni per avviare gli esercizi se tutti gli esercizi sono stati svolti
+		if (FEresult[0] == FEresult[1])  
+			openFEButton.setDisable(true);
+		
+		if (FEresult[0] == FEresult[1])
+			openFEButton.setDisable(true);
 	}
 	
 	public void switchScene(Event event, Parent root) {
