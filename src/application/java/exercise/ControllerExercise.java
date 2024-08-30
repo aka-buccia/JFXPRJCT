@@ -150,25 +150,31 @@ public class ControllerExercise {
 	
 	public void switchToPredictResultScene(ActionEvent event) {
 		String location = "/application/resources/exercise/fxml/PredictResultScene.fxml";
-		
+		/*
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
-			Parent dashboardRoot = loader.load();
-		
-			ControllerExercise ce = loader.getController(); 
-			/*Exercise ex = DBExercise.loadEx(1);
+			Exercise ex = DBExercise.loadEx(2);
 			
 			if (ex != null) {
+				System.out.println("sono dentro");
+				FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
+				Parent controllerRoot = loader.load();
+			
+				ControllerExercise ce = loader.getController(); 
 				ControllerExercise.currentExercise = ex;
 				ce.setText(ex.getText());
 				ce.setExerciseInfo();
-			}*/
-			
-			switchScene(event, dashboardRoot);
+				switchScene(event, controllerRoot);
+			}
+			else { //esercizi da svolgere finiti
+				switchToDashboardScene(event);
+				ControllerUtils.showAlertWindow("PREVEDI RISULTATO completato", "Hai terminato gli esercizi da svolgere");
+			}
+
 		}
 		catch (IOException | RuntimeException e) {
 			ControllerUtils.showControllerError(e, location);
 		}
+		*/
 	}
 }
 

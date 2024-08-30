@@ -54,7 +54,7 @@ public class ControllerDashboard {
 	private Button openFEButton;
 	
 	@FXML
-	private Button openPRBUtton;
+	private Button openPRButton;
 	
 	public void setWelcomeText() {
 		welcomeTextDashboard.setText("Ciao " + UserScraper.getUsername() + "!");
@@ -73,7 +73,7 @@ public class ControllerDashboard {
 			openFEButton.setDisable(true);
 		
 		if (FEresult[0] == FEresult[1])
-			openFEButton.setDisable(true);
+			openPRButton.setDisable(true);
 	}
 	
 	public void switchScene(Event event, Parent root) {
