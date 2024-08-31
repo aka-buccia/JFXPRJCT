@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #3b4252;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.dashboard.ControllerDashboard">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #3b4252;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.dashboard.ControllerDashboard">
    <children>
       <ImageView fitHeight="82.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,7 +19,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="82.0" fitWidth="40.0" layoutX="646.0" layoutY="14.0" onMouseClicked="#switchToUserInfoScene" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="82.0" fitWidth="40.0" layoutX="746.0" layoutY="15.0" onMouseClicked="#switchToUserInfoScene" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/user.png" />
          </image>
@@ -27,24 +27,24 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label fx:id="welcomeTextDashboard" alignment="CENTER" contentDisplay="CENTER" layoutY="64.0" prefHeight="42.0" prefWidth="700.0" text="Ciao Username!" textAlignment="CENTER" textFill="#e5e9f0">
+      <Label fx:id="welcomeTextDashboard" alignment="CENTER" contentDisplay="CENTER" layoutY="67.0" prefHeight="42.0" prefWidth="800.0" text="Ciao Username!" textAlignment="CENTER" textFill="#e5e9f0">
          <font>
             <Font name="SansSerif Regular" size="36.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3440" height="230.0" layoutX="129.0" layoutY="140.0" stroke="#eceff4" strokeType="INSIDE" width="220.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3440" height="230.0" layoutX="367.0" layoutY="140.0" stroke="#eceff4" strokeType="INSIDE" width="220.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="129.0" layoutY="155.0" prefHeight="30.0" prefWidth="220.0" text="TROVA L'ERRORE" textAlignment="CENTER" textFill="#eceff4">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3440" height="230.0" layoutX="160.0" layoutY="157.0" stroke="#eceff4" strokeType="INSIDE" width="220.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2e3440" height="230.0" layoutX="418.0" layoutY="157.0" stroke="#eceff4" strokeType="INSIDE" width="220.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="160.0" layoutY="170.0" prefHeight="30.0" prefWidth="220.0" text="TROVA L'ERRORE" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="367.0" layoutY="155.0" prefHeight="30.0" prefWidth="220.0" text="PREVEDI IL RISULTATO" textAlignment="CENTER" textFill="#eceff4">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="418.0" layoutY="170.0" prefHeight="30.0" prefWidth="220.0" text="PREVEDI IL RISULTATO" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="openFEButton" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToFERulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="openFEButton" alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="255.0" mnemonicParsing="false" onAction="#switchToFERulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font>
@@ -52,7 +52,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="openPRButton" alignment="CENTER" contentDisplay="CENTER" layoutX="417.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToPRRulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="#eceff4">
+      <Button fx:id="openPRButton" alignment="CENTER" contentDisplay="CENTER" layoutX="468.0" layoutY="255.0" mnemonicParsing="false" onAction="#switchToPRRulesScene" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #5e81ac;" text="APRI" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Bold" size="12.0" />
          </font>
@@ -60,22 +60,22 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="levelFELabel" alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="195.0" prefHeight="32.0" prefWidth="102.0" text="LIVELLO: 1" textAlignment="CENTER" textFill="#eceff4">
+      <Label fx:id="levelFELabel" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="209.0" prefHeight="32.0" prefWidth="102.0" text="LIVELLO: 1" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Regular" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="levelPRLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="426.0" layoutY="195.0" prefHeight="32.0" prefWidth="102.0" text="LIVELLO: 1" textAlignment="CENTER" textFill="#eceff4">
+      <Label fx:id="levelPRLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="477.0" layoutY="209.0" prefHeight="32.0" prefWidth="102.0" text="LIVELLO: 1" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Regular" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="progressFELabel" alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="288.0" prefHeight="56.0" prefWidth="102.0" text="0%" textAlignment="CENTER" textFill="#eceff4">
+      <Label fx:id="progressFELabel" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="304.0" prefHeight="56.0" prefWidth="102.0" text="0%" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="progressPRLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="426.0" layoutY="288.0" prefHeight="56.0" prefWidth="102.0" text="0%" textAlignment="CENTER" textFill="#eceff4">
+      <Label fx:id="progressPRLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="477.0" layoutY="304.0" prefHeight="56.0" prefWidth="102.0" text="0%" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>

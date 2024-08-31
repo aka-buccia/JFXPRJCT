@@ -11,46 +11,46 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.access.ControllerAccess">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.access.ControllerAccess">
    <left>
-      <AnchorPane fx:id="leftSignupScreen" prefHeight="430.0" prefWidth="300.0" style="-fx-background-color: #2e3440;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="leftSignupScreen" prefHeight="450.0" prefWidth="350.0" style="-fx-background-color: #2e3440;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../general/logo-removebg-preview.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
    </left>
-   <center>
-      <AnchorPane fx:id="rightSignupScreen" prefHeight="430.0" prefWidth="400.0" style="-fx-background-color: #3b4252;" BorderPane.alignment="CENTER">
+   <right>
+      <AnchorPane fx:id="rightSignupScreen" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: #3b4252;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="75.0" prefHeight="46.0" prefWidth="402.0" text="REGISTRATI" textAlignment="CENTER" textFill="#e5e9f0">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="74.0" prefHeight="46.0" prefWidth="450.0" text="REGISTRATI" textAlignment="CENTER" textFill="#e5e9f0">
                <font>
                   <Font name="SansSerif Bold" size="27.0" />
                </font>
             </Label>
-			<TextField fx:id="nameSignup" layoutX="101.0" layoutY="134.0" prefHeight="26.0" prefWidth="200.0" promptText="Nome" style="-fx-background-color: #eceff4;">
+			<TextField fx:id="nameSignup" layoutX="132.0" layoutY="136.0" prefHeight="26.0" prefWidth="200.0" promptText="Nome" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="surnameSignup" layoutX="101.0" layoutY="168.0" prefHeight="26.0" prefWidth="200.0" promptText="Cognome" style="-fx-background-color: #eceff4;">
+            <TextField fx:id="surnameSignup" layoutX="132.0" layoutY="170.0" prefHeight="26.0" prefWidth="200.0" promptText="Cognome" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="usernameSignup" layoutX="101.0" layoutY="202.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" style="-fx-background-color: #eceff4;">
+            <TextField fx:id="usernameSignup" layoutX="132.0" layoutY="205.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="passwordSignup" layoutX="101.0" layoutY="236.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: #eceff4;">
+            <PasswordField fx:id="passwordSignup" layoutX="132.0" layoutY="239.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </PasswordField>
-            <Button fx:id="signupBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="203.0" layoutY="272.0" mnemonicParsing="false" onAction="#signup" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #5e81ac;" text="REGISTRATI" textAlignment="CENTER" textFill="#eceff4">
+            <Button fx:id="signupBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="279.0" mnemonicParsing="false" onAction="#signup" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #5e81ac;" text="REGISTRATI" textAlignment="CENTER" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -58,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="272.0" mnemonicParsing="false" onAction="#backToLoginScene" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #88c0d0;" text="INDIETRO" textAlignment="CENTER" textFill="#eceff4">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="279.0" mnemonicParsing="false" onAction="#backToLoginScene" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #88c0d0;" text="INDIETRO" textAlignment="CENTER" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -72,5 +72,5 @@
                </font>
             </Label>
          </children></AnchorPane>
-   </center>
+   </right>
 </BorderPane>

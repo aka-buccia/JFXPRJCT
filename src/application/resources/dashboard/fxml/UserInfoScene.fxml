@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #3b4252;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.dashboard.ControllerDashboard">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #3b4252;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.dashboard.ControllerDashboard">
    <children>
       <ImageView fitHeight="82.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#switchToDashboardScene" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,7 +17,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="153.0" fitWidth="120.0" layoutX="290.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="153.0" fitWidth="120.0" layoutX="340.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../dashboard/img/user.png" />
          </image>
@@ -25,32 +25,32 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="171.0" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #2e3440; -fx-background-radius: 3; -fx-border-radius: 3;" text="Nome" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="325.0" layoutY="171.0" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #2e3440; -fx-background-radius: 3; -fx-border-radius: 3;" text="Nome" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="surnameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="436.0" layoutY="171.0" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #2e3440; -fx-background-radius: 3; -fx-border-radius: 3;" text="Cognome" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="surnameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="495.0" layoutY="171.0" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #2e3440; -fx-background-radius: 3; -fx-border-radius: 3;" text="Cognome" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="171.0" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #2e3440; -fx-background-radius: 3; -fx-border-radius: 3;" text="Username" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="171.0" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #2e3440; -fx-background-radius: 3; -fx-border-radius: 3;" text="Username" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="155.0" layoutY="147.0" text="Username" textFill="WHITE">
+      <Label layoutX="196.0" layoutY="147.0" text="Username" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="330.0" layoutY="147.0" text="Nome" textFill="WHITE">
+      <Label layoutX="381.0" layoutY="147.0" text="Nome" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="479.0" layoutY="147.0" text="Cognome" textFill="WHITE">
+      <Label layoutX="538.0" layoutY="147.0" text="Cognome" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="14.0" />
          </font>
