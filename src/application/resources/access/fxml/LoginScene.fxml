@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.access.ControllerAccess">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.java.access.ControllerAccess">
    <left>
-      <AnchorPane fx:id="leftLoginScreen" prefHeight="430.0" prefWidth="300.0" style="-fx-background-color: #2e3440;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="leftLoginScreen" prefHeight="450.0" prefWidth="350.0" style="-fx-background-color: #2e3440;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../general/logo-removebg-preview.png" />
                </image>
@@ -23,25 +23,25 @@
          </children>
       </AnchorPane>
    </left>
-   <right>
-      <AnchorPane fx:id="rightLoginScreen" prefHeight="430.0" prefWidth="400.0" style="-fx-background-color: #3b4252;" BorderPane.alignment="CENTER">
+   <center>
+      <AnchorPane fx:id="rightLoginScreen" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: #3b4252;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="75.0" prefHeight="46.0" prefWidth="402.0" text="LOGIN" textAlignment="CENTER" textFill="#e5e9f0">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="74.0" prefHeight="46.0" prefWidth="450.0" text="LOGIN" textAlignment="CENTER" textFill="#e5e9f0">
                <font>
                   <Font name="SansSerif Bold" size="27.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameLogin" layoutX="100.0" layoutY="167.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" style="-fx-background-color: #eceff4;">
+            <TextField fx:id="usernameLogin" layoutX="137.0" layoutY="167.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="passwordLogin" layoutX="100.0" layoutY="202.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: #eceff4;">
+            <PasswordField fx:id="passwordLogin" layoutX="137.0" layoutY="199.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </PasswordField>
-			<Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="238.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #5e81ac;" text="LOGIN" textAlignment="CENTER" textFill="#eceff4">
+			<Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="234.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #5e81ac;" text="LOGIN" textAlignment="CENTER" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -49,7 +49,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="284.0" onMouseClicked="#switchToSignupScene" prefHeight="28.0" prefWidth="200.0" text="Non hai un account? Registrati!" textFill="#e5e9f0" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="284.0" onMouseClicked="#switchToSignupScene" prefHeight="28.0" prefWidth="200.0" text="Non hai un account? Registrati!" textFill="#e5e9f0" wrapText="true">
                <font>
                   <Font name="SansSerif Bold" size="11.0" />
                </font>
@@ -64,5 +64,5 @@
             </Label>
          </children>
       </AnchorPane>
-   </right>
+   </center>
 </BorderPane>
