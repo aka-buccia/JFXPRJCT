@@ -4,24 +4,19 @@ import java.io.IOException;
 
 import application.java.dashboard.ControllerDashboard;
 import application.java.general.ControllerUtils;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class ControllerExercise {
-	private Stage stage;
-	private Scene scene;
-	private Parent root;
+
 	private static Exercise currentExercise;
 		
 	@FXML
@@ -48,25 +43,7 @@ public class ControllerExercise {
 	@FXML
 	private Button respondBtn;
 	
-	
-	public void switchScene(Event event, Parent root) {
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
-		stage.setScene(scene);
-        Platform.runLater(() -> root.requestFocus()); // sposta il focus sulla scena
-		stage.show();
-	}
-	
-	public void loadFXML(Event event, String location) {
-		try {
-			root = FXMLLoader.load(getClass().getResource(location));
-			switchScene(event, root);
-		}
-		catch(IOException | RuntimeException e){
-			ControllerUtils.showControllerError(e, location);
-		}
-	}
+
 	
 	public void switchToDashboardScene(Event event) {
 		String location = "/application/resources/dashboard/fxml/DashboardScene.fxml";
@@ -79,7 +56,7 @@ public class ControllerExercise {
 			cd.updateDashboardData();
 			cd.setWelcomeText();
 		
-			switchScene(event, dashboardRoot);
+			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot);
 		}
 		catch (IOException |RuntimeException e) {
 			ControllerUtils.showControllerError(e, location);
@@ -134,7 +111,7 @@ public class ControllerExercise {
 				ControllerExercise.currentExercise = ex;
 				ce.setText(ex.getText());
 				ce.setExerciseInfo();
-				switchScene(event, controllerRoot);
+				ControllerUtils.switchScene((Node) event.getSource(), controllerRoot);
 			}
 			else { //esercizi da svolgere finiti
 				switchToDashboardScene(event);

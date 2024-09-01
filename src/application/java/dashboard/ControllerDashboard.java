@@ -3,23 +3,16 @@ package application.java.dashboard;
 import java.io.IOException;
 
 import application.java.general.ControllerUtils;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 public class ControllerDashboard {
-	private Stage stage;
-	private Scene scene;
-	private Parent root;
 	
 	private static int [] FEresult = {0, 9};
 	private static int [] PRresult = {0, 9};
@@ -76,29 +69,11 @@ public class ControllerDashboard {
 			openPRButton.setDisable(true);
 	}
 	
-	public void switchScene(Event event, Parent root) {
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/application/resources/general/application.css").toExternalForm());
-		stage.setScene(scene);
-        Platform.runLater(() -> root.requestFocus());
-		stage.show();
-	}
-	
-	public void loadFXML(Event event, String location) {
-		try {
-			root = FXMLLoader.load(getClass().getResource(location));
-			switchScene(event, root);
-		}
-		catch (IOException | RuntimeException e) {
-			ControllerUtils.showControllerError(e, location);
-		}
-	}
 	
 	public void logout(MouseEvent event){
 		UserScraper.removeInfo();
 		System.out.println(UserScraper.printInfo()); // non necessario ma utile per capire se è andato tutto a buon fine
-		loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
+		ControllerUtils.loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
 	}
 	
 	public void switchToUserInfoScene(MouseEvent event) {
@@ -111,7 +86,7 @@ public class ControllerDashboard {
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
 			cd.loadUserInfo();
 		
-			switchScene(event, dashboardRoot);
+			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot);
 		}
 		catch (IOException | RuntimeException e) {
 			ControllerUtils.showControllerError(e, location);
@@ -128,7 +103,7 @@ public class ControllerDashboard {
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
 			cd.setWelcomeText();
 		
-			switchScene(event, dashboardRoot);
+			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot);
 		}
 		catch (IOException | RuntimeException e) {
 			ControllerUtils.showControllerError(e, location);
@@ -136,11 +111,11 @@ public class ControllerDashboard {
 	}
 	
 	public void switchToFERulesScene(ActionEvent event) {
-		loadFXML(event, "/application/resources/exercise/fxml/FERulesScene.fxml");
+		ControllerUtils.loadFXML(event, "/application/resources/exercise/fxml/FERulesScene.fxml");
 	}
 	
 	public void switchToPRRulesScene(ActionEvent event) {
-		loadFXML(event, "/application/resources/exercise/fxml/PRRulesScene.fxml");
+		ControllerUtils.loadFXML(event, "/application/resources/exercise/fxml/PRRulesScene.fxml");
 	}
 	
 	public void loadUserInfo() {
