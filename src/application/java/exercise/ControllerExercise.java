@@ -127,7 +127,6 @@ public class ControllerExercise {
 			Exercise ex = DBExercise.loadEx(1);
 			
 			if (ex != null) {
-				System.out.println("sono dentro");
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
 				Parent controllerRoot = loader.load();
 			
