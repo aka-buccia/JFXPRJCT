@@ -1,0 +1,9 @@
+public class es8 {
+	public static int es(int n) {
+	    if (n < 10) {
+	        return 1;
+	    } else {
+	        return 1 + es(n / 10);
+	    }
+	}
+}

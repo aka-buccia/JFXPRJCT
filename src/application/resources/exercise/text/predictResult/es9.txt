@@ -1,0 +1,9 @@
+public class es9 {
+	public static int es(int n) {
+	    if (n == 0) {
+	        return 1;
+	    } else {
+	        return 2 * es(n - 1);
+	    }
+	}
+}

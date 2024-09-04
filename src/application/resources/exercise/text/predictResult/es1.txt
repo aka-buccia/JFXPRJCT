@@ -1,0 +1,9 @@
+public class es1 {
+	public static int es(int n) {
+	    int somma = 0;
+	    for (int i = 2; i <= n; i += 2) {
+	        somma += i;
+	    }
+	    return somma;
+	}
+}
