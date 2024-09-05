@@ -29,7 +29,16 @@ public class ControllerExercise {
 	private TextField codeResponseFE;
 	
 	@FXML
+	private TextField numberResponsePR1;
+	
+	@FXML
+	private TextField numberResponsePR2;
+	
+	@FXML
 	private Label resultMessageLabelFE;
+	
+	@FXML
+	private Label resultMessageLabelPR;
 	
 	@FXML
 	private Label levelNumExFE;
@@ -38,12 +47,22 @@ public class ControllerExercise {
 	private Label numExFE;
 	
 	@FXML
+	private Label levelNumExPR;
+	
+	@FXML
+	private Label numExPR;
+	
+	@FXML
+	private Label n1TextPR;
+
+	@FXML
+	private Label n2TextPR;
+	
+	@FXML
 	private Button nextBtn;
 	
 	@FXML
 	private Button respondBtn;
-	
-
 	
 	public void switchToDashboardScene(Event event) {
 		String location = "/application/resources/dashboard/fxml/DashboardScene.fxml";
@@ -67,9 +86,19 @@ public class ControllerExercise {
 		codeContainer.setText(text);
 	}
 	
-	public void setExerciseInfo() {
+	public void setExerciseInfoFE() {
 		levelNumExFE.setText("Livello: " + ControllerExercise.currentExercise.getGrado());
 		numExFE.setText("Esercizio: " + ControllerExercise.currentExercise.getNumero());
+	}
+	
+	public void setExerciseInfoPR() {
+		levelNumExPR.setText("Livello: " + ControllerExercise.currentExercise.getGrado());
+		numExPR.setText("Esercizio: " + ControllerExercise.currentExercise.getNumero());
+	}
+	
+	public void setNValuesPRExercise() {
+		n1TextPR.setText("Risultato con n = " + ControllerExercise.currentExercise.getN1());
+		n2TextPR.setText("Risultato con n = " + ControllerExercise.currentExercise.getN2());
 	}
 	
 	public void checkResponseFEExercise(ActionEvent event) {
@@ -86,14 +115,37 @@ public class ControllerExercise {
 				resultMessageLabelFE.setStyle("-fx-text-fill: #a3be8c");
 				nextBtn.setDisable(false);  //abilita il bottone AVANTI	
 				respondBtn.setDisable(true);  //disabilita il bottone RISPONDI
-				
-				
 			}
 		}
 		else { // esercizio sbagliato
 			// cambiare testo e colore testo in rosso di "resultMessageLabel"
 			resultMessageLabelFE.setText("SBAGLIATO");
 			resultMessageLabelFE.setStyle("-fx-text-fill: #bf616a");
+		}
+	}
+	
+	public void checkResponsePRExercise(ActionEvent event) {
+		int userResponse1 = Integer.parseInt(numberResponsePR1.getText().trim());
+		int userResponse2 = Integer.parseInt(numberResponsePR2.getText().trim());
+		int dbResponse1 = Integer.parseInt(ControllerExercise.currentExercise.getRisposta1());
+		int dbResponse2 = Integer.parseInt(ControllerExercise.currentExercise.getRisposta2());
+		
+		if (userResponse1 == dbResponse1 && userResponse2 == dbResponse2) { // esercizio giusto
+			// aggiungere esercizio svolto nel database in "Esercizi svolti"
+			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio())) {
+				// cambiare testo e colore testo in verde di "resultMessageLabelFE"
+				resultMessageLabelPR.setText("ESATTO");
+				resultMessageLabelPR.setStyle("-fx-text-fill: #a3be8c");
+				nextBtn.setDisable(false);  //abilita il bottone AVANTI	
+				respondBtn.setDisable(true);  //disabilita il bottone RISPONDI
+			}
+		}
+		else { // esercizio sbagliato
+			// cambiare testo e colore testo in rosso di "resultMessageLabel"
+			resultMessageLabelPR.setText("SBAGLIATO");
+			System.out.println("risultati inseriti: " + userResponse1 + ", " + userResponse2);
+			System.out.println("risultati esatti: " + dbResponse1 + ", " + dbResponse2);
+			resultMessageLabelPR.setStyle("-fx-text-fill: #bf616a");
 		}
 	}
 	
@@ -110,7 +162,7 @@ public class ControllerExercise {
 				ControllerExercise ce = loader.getController(); 
 				ControllerExercise.currentExercise = ex;
 				ce.setText(ex.getText());
-				ce.setExerciseInfo();
+				ce.setExerciseInfoFE();
 				ControllerUtils.switchScene((Node) event.getSource(), controllerRoot);
 			}
 			else { //esercizi da svolgere finiti
@@ -126,20 +178,19 @@ public class ControllerExercise {
 	
 	public void switchToPredictResultScene(ActionEvent event) {
 		String location = "/application/resources/exercise/fxml/PredictResultScene.fxml";
-		/*
 		try {
 			Exercise ex = DBExercise.loadEx(2);
 			
 			if (ex != null) {
-				System.out.println("sono dentro");
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
 				Parent controllerRoot = loader.load();
 			
 				ControllerExercise ce = loader.getController(); 
 				ControllerExercise.currentExercise = ex;
 				ce.setText(ex.getText());
-				ce.setExerciseInfo();
-				switchScene(event, controllerRoot);
+				ce.setExerciseInfoPR();
+				ce.setNValuesPRExercise();
+				ControllerUtils.switchScene((Node) event.getSource(), controllerRoot);
 			}
 			else { //esercizi da svolgere finiti
 				switchToDashboardScene(event);
@@ -150,7 +201,6 @@ public class ControllerExercise {
 		catch (IOException | RuntimeException e) {
 			ControllerUtils.showControllerError(e, location);
 		}
-		*/
 	}
 }
 

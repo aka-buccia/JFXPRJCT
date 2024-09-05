@@ -55,7 +55,9 @@ public class DBExercise {
 					resultSet.getInt("numero"),
 					resultSet.getString("PathTesto"),
 					resultSet.getString("risposta1"),
-					resultSet.getString("risposta2"));
+					resultSet.getString("risposta2"),
+					resultSet.getInt("N1"),
+					resultSet.getInt("N2"));
 			exerciseList.add(ex);
 		}
 		

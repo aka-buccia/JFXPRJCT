@@ -6,6 +6,6 @@ public class es3 {
 	        somma += i;
 	        count++;
 	    }
-	    return (double) somma / count;
+	    return somma / count;
 	}
 }

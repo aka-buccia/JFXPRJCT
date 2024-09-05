@@ -52,14 +52,14 @@ public class ControllerDashboard {
 	public void setWelcomeText() {
 		welcomeTextDashboard.setText("Ciao " + UserScraper.getUsername() + "!");
 		levelFELabel.setText("LIVELLO: " + String.valueOf(FElevel));
-		//levelPRLabel.setText("LIVELLO: " + String.valueOf(PRlevel));
+		levelPRLabel.setText("LIVELLO: " + String.valueOf(PRlevel));
 		progressFELabel.setText(String.valueOf(FEresult[0] * 100 / FEresult[1]) + "%");
-		//progressPRLabel.setText(String.valueOf(PRresult[0] * 100 / PRresult[1]));
+		progressPRLabel.setText(String.valueOf(PRresult[0] * 100 / PRresult[1]) + "%");
 	}
 	
 	public void updateDashboardData() {
 		FElevel = DBDashboard.loadProgress(1, FEresult, FElevel);
-		//PRlevel = DBDashboard.loadProgress(2, PRresult, PRlevel);
+		PRlevel = DBDashboard.loadProgress(2, PRresult, PRlevel);
 		
 		//disattiva bottoni per avviare gli esercizi se tutti gli esercizi sono stati svolti
 		if (FEresult[0] == FEresult[1])  
