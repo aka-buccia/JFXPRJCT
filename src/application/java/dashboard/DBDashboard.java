@@ -39,7 +39,6 @@ public class DBDashboard {
                 idEserciziSvolti.add(doneExerciseResult.getInt("idEsercizio"));
             }
             
-            
             while (allExerciseResult.next()) {
             	progress[1] ++;
             	if (idEserciziSvolti.contains(allExerciseResult.getInt("idEsercizio"))) {

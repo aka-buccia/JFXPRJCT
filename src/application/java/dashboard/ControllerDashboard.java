@@ -61,15 +61,14 @@ public class ControllerDashboard {
 		FElevel = DBDashboard.loadProgress(1, FEresult, FElevel);
 		PRlevel = DBDashboard.loadProgress(2, PRresult, PRlevel);
 		
-		//disattiva bottoni per avviare gli esercizi se tutti gli esercizi sono stati svolti
+		// disattiva bottoni per avviare gli esercizi se tutti gli esercizi sono stati svolti
 		if (FEresult[0] == FEresult[1])  
 			openFEButton.setDisable(true);
 		
-		if (FEresult[0] == FEresult[1])
+		if (PRresult[0] == PRresult[1])
 			openPRButton.setDisable(true);
 	}
-	
-	
+
 	public void logout(MouseEvent event){
 		UserScraper.removeInfo();
 		System.out.println(UserScraper.printInfo()); // non necessario ma utile per capire se è andato tutto a buon fine
@@ -85,7 +84,7 @@ public class ControllerDashboard {
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
 			cd.loadUserInfo();
-		
+			
 			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot);
 		}
 		catch (IOException | RuntimeException e) {
@@ -102,6 +101,7 @@ public class ControllerDashboard {
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
 			cd.setWelcomeText();
+			cd.updateDashboardData();
 		
 			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot);
 		}

@@ -81,7 +81,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="resultMessageLabelPR" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="384.0" prefHeight="30.0" prefWidth="230.0" text="ESITO" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="resultMessageLabelPR" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="384.0" prefHeight="30.0" prefWidth="230.0" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
