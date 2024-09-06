@@ -16,7 +16,6 @@ public class DBDashboard {
 	private final static String location = "jdbc:sqlite:database.db";
 	
 	public static int loadProgress(int tipologia, int [] progress, int level) {
-		
 		try (Connection connection = DBUtils.connect(location)){
 			
 			if (connection == null)
@@ -49,7 +48,6 @@ public class DBDashboard {
 			}
             
             return level;
-
 		}
 		catch (SQLException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante caricamento progressi");

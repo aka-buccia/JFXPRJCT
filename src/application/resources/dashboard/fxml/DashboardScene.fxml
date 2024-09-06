@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -75,10 +76,12 @@
             <Font name="SansSerif Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="progressPRLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="477.0" layoutY="304.0" prefHeight="56.0" prefWidth="102.0" text="0%" textAlignment="CENTER" textFill="#eceff4">
+      <Label fx:id="progressPRLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="477.0" layoutY="304.0" prefHeight="56.0" prefWidth="102.0" style="-fx-accent: #a3be8c;" text="0%" textAlignment="CENTER" textFill="#eceff4">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
       </Label>
+      <ProgressBar fx:id="FEProgressBar" layoutX="170.0" layoutY="350.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #a3be8c;" />
+      <ProgressBar fx:id="PRProgressBar" layoutX="428.0" layoutY="350.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #a3be8c;" />
    </children>
 </AnchorPane>

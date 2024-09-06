@@ -1,7 +1,6 @@
 package application.java.dashboard;
 
 import java.io.IOException;
-
 import application.java.general.ControllerUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,10 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerDashboard {
-	
 	private static int [] FEresult = {0, 9};
 	private static int [] PRresult = {0, 9};
 	private static int FElevel = 1; 
@@ -49,12 +48,26 @@ public class ControllerDashboard {
 	@FXML
 	private Button openPRButton;
 	
+	@FXML 
+	private ProgressBar FEProgressBar;
+	
+	@FXML 
+	private ProgressBar PRProgressBar;
+	
+	@FXML
+	private ProgressBar progressBarUserInfo;
+	
+	@FXML
+	private Label percentageUserInfo;
+
 	public void setWelcomeText() {
 		welcomeTextDashboard.setText("Ciao " + UserScraper.getUsername() + "!");
 		levelFELabel.setText("LIVELLO: " + String.valueOf(FElevel));
 		levelPRLabel.setText("LIVELLO: " + String.valueOf(PRlevel));
 		progressFELabel.setText(String.valueOf(FEresult[0] * 100 / FEresult[1]) + "%");
 		progressPRLabel.setText(String.valueOf(PRresult[0] * 100 / PRresult[1]) + "%");
+		FEProgressBar.setProgress((double)FEresult[0] / FEresult[1]);
+		PRProgressBar.setProgress((double)PRresult[0] / PRresult[1]);
 	}
 	
 	public void updateDashboardData() {
@@ -100,9 +113,9 @@ public class ControllerDashboard {
 			Parent dashboardRoot = loader.load();
 		
 			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
-			cd.setWelcomeText();
 			cd.updateDashboardData();
-		
+			cd.setWelcomeText();
+			
 			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot);
 		}
 		catch (IOException | RuntimeException e) {
@@ -122,6 +135,15 @@ public class ControllerDashboard {
 		usernameLabel.setText(UserScraper.getUsername());
 		nameLabel.setText(UserScraper.getNome());
 		surnameLabel.setText(UserScraper.getCognome());
+		updateProgressBar();
+	}
+	
+	public void updateProgressBar() {
+		int totalCompleted = FEresult[0] + PRresult[0];
+		int totalEx = FEresult[1] + PRresult[1];
+		percentageUserInfo.setText(totalCompleted + " su " + totalEx);
+		System.out.println((double)totalCompleted / totalEx);
+		progressBarUserInfo.setProgress((double)totalCompleted / totalEx);
 	}
 }
 
