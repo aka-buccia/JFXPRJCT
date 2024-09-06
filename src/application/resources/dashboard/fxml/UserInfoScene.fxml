@@ -56,8 +56,13 @@
             <Font name="SansSerif Bold" size="14.0" />
          </font>
       </Label>
-      <ProgressBar fx:id="progressBarUserInfo" layoutX="264.0" layoutY="285.0" prefHeight="35.0" prefWidth="270.0" progress="0.0" style="-fx-accent: #a3be8c;" />
-      <Label fx:id="percentageUserInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="265.0" layoutY="334.0" prefHeight="27.0" prefWidth="270.0" text="N su N" textAlignment="CENTER" textFill="WHITE">
+      <ProgressBar fx:id="progressBarUserInfo" layoutX="265.0" layoutY="325.0" prefHeight="35.0" prefWidth="270.0" progress="0.66" style="-fx-accent: #a3be8c;" />
+      <Label fx:id="percentageUserInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="265.0" layoutY="247.0" prefHeight="27.0" prefWidth="270.0" text="N su N" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="274.0" prefHeight="27.0" prefWidth="270.0" text="esercizi completati" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="24.0" />
          </font>
