@@ -1,0 +1,11 @@
+public class es3 {
+	public static double es(int n) {
+	    int somma = 0;
+	    int count = 0;
+	    for (int i = 1; i <= n; i += 2) {
+	        somma += i;
+	        count++;
+	    }
+	    return somma / count;
+	}
+}

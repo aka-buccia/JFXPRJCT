@@ -15,8 +15,10 @@ public class Exercise {
 	private String path;
 	private String risposta1;
 	private String risposta2;
+	private int n1;
+	private int n2;
 	
-	public Exercise(int idEsercizio, int grado, int tipologia, int numero, String path, String risposta1, String risposta2) {
+	public Exercise(int idEsercizio, int grado, int tipologia, int numero, String path, String risposta1, String risposta2, int n1, int n2) {
 		this.idEsercizio = idEsercizio;
 		this.grado = grado;
 		this.tipologia = tipologia;
@@ -24,6 +26,8 @@ public class Exercise {
 		this.path = path;
 		this.risposta1 = risposta1;
 		this.risposta2 = risposta2;
+		this.n1 = n1;
+		this.n2 = n2;
 	}
 	
 	public int getIdEsercizio() {
@@ -43,6 +47,14 @@ public class Exercise {
 	
 	public String getRisposta2() {
 		return this.risposta2;
+	}
+	
+	public int getN1() {
+		return this.n1;
+	}
+
+	public int getN2() {
+		return this.n2;
 	}
 	
 	public String getText() {

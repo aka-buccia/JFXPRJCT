@@ -15,7 +15,7 @@
    <right>
       <AnchorPane prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #3b4252;" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="codeContainer" editable="false" layoutX="27.0" layoutY="20.0" prefHeight="410.0" prefWidth="445.0" wrapText="true">
+            <TextArea fx:id="codeContainer" editable="false" layoutX="13.0" layoutY="15.0" prefHeight="420.0" prefWidth="474.0" wrapText="true">
                <font>
                   <Font name="SansSerif Regular" size="20.0" />
                </font></TextArea>
@@ -45,17 +45,17 @@
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="24.0" layoutY="146.0" text="Riscrivi la riga" textFill="WHITE">
+            <Label fx:id="n1TextPR" layoutX="24.0" layoutY="146.0" text="Risultato con n = ?" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="codeResponsePR" layoutX="24.0" layoutY="171.0" prefHeight="30.0" prefWidth="230.0" promptText="System.out.println(&quot;giusto&quot;);" style="-fx-background-color: #eceff4;">
+            <TextField fx:id="numberResponsePR1" layoutX="24.0" layoutY="171.0" prefHeight="30.0" prefWidth="59.0" promptText="es. 3" style="-fx-background-color: #eceff4;">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="respondBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="225.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #5e81ac;" text="RISPONDI" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="respondBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="284.0" mnemonicParsing="false" onAction="#checkResponsePRExercise" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #5e81ac;" text="RISPONDI" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -73,7 +73,7 @@
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="24.0" layoutY="271.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #5e81ac;" text="AVANTI" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="nextBtn" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="24.0" layoutY="330.0" mnemonicParsing="false" onAction="#switchToPredictResultScene" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #5e81ac;" text="AVANTI" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
@@ -81,11 +81,21 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="resultMessageLabelPR" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="344.0" prefHeight="30.0" prefWidth="230.0" text="ESITO" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="resultMessageLabelPR" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="384.0" prefHeight="30.0" prefWidth="230.0" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
+            <Label fx:id="n2TextPR" layoutX="24.0" layoutY="217.0" text="Risultato con n = ?" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="numberResponsePR2" layoutX="24.0" layoutY="239.0" prefHeight="30.0" prefWidth="59.0" promptText="es. 5" style="-fx-background-color: #eceff4;">
+               <font>
+                  <Font name="SansSerif Regular" size="12.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </center>

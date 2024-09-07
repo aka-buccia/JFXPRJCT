@@ -1,0 +1,9 @@
+public class es7 {
+	public static int es(int n) {
+	    if (n == 1) {
+	        return 1;
+	    } else {
+	        return n + es(n - 1);
+	    }
+	}
+}

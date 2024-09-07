@@ -93,7 +93,7 @@
    <right>
       <AnchorPane prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #3b4252;" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="codeContainer" editable="false" layoutX="27.0" layoutY="20.0" prefHeight="410.0" prefWidth="445.0" wrapText="true">
+            <TextArea fx:id="codeContainer" editable="false" layoutX="13.0" layoutY="15.0" prefHeight="420.0" prefWidth="474.0" wrapText="true">
                <font>
                   <Font name="SansSerif Regular" size="20.0" />
                </font></TextArea>

@@ -1,0 +1,11 @@
+public class es4 {
+	public static int es(int n) {
+	    int somma = 0;
+	    for (int i = 0; i < n; i++) {
+	        for (int j = i + 1; j < n; j++) {
+	            somma += j;
+	        }
+	    }
+	    return somma;
+	}
+}
