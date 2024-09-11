@@ -51,7 +51,7 @@ public class DBAccess {
 					}
 					else {
 						System.out.println("La password non coincide!");
-						GraphicalAnswer.alertMessage(data, errorMessage, "username o password errati");
+						GraphicalAnswer.alertMessage(data, errorMessage, "Username o password errati");
 					}
 				}
 				return false;
