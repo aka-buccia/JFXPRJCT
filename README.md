@@ -15,7 +15,7 @@ I file java sono divisi a loro volta per momento di esecuzione all'interno dell'
 Per ogni cartella è presente un controller, che connette backend e frontend, e un interrogatore db che si occupa delle interrogazioni al database necessarie. 
 
 ## Struttura database
-È un database relazionale con tre tabelle:
+È un database relazionale SQlite locale serverless con tre tabelle:
 - **Utenti** contenente nei record gli utente che si registrano, con chiave primaria _idUtente_
 - **Esercizi** contenente nei record gli esercizi, con chiave primaria _idEsercizio_
 - **EserciziSvolti** che riflette l'associazione M:N Utente ha svolto Esercizio, in ogni record è presente idUtente e idEsercizio 
