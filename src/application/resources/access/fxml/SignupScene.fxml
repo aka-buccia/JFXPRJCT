@@ -66,7 +66,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="errorMessageSignup" alignment="CENTER" contentDisplay="CENTER" layoutY="322.0" prefHeight="27.0" prefWidth="401.0" textAlignment="CENTER" textFill="#bf616a">
+            <Label fx:id="errorMessageSignup" alignment="CENTER" contentDisplay="CENTER" layoutY="322.0" prefHeight="27.0" prefWidth="465.0" textAlignment="CENTER" textFill="#bf616a">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

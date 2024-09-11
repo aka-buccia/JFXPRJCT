@@ -6,6 +6,6 @@ public class es4 {
 	            somma += j;
 	        }
 	    }
-	    return somma;
+	    return somma; // 5, 14
 	}
 }

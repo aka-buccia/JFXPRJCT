@@ -6,6 +6,6 @@ public class es5 {
 	            somma += i * j;
 	        }
 	    }
-	    return somma;
+	    return somma; // 11, 35
 	}
 }

@@ -57,7 +57,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label fx:id="errorMessageLogin" alignment="CENTER" contentDisplay="CENTER" layoutY="312.0" prefHeight="27.0" prefWidth="400.0" textAlignment="CENTER" textFill="#bf616a">
+            <Label fx:id="errorMessageLogin" alignment="CENTER" contentDisplay="CENTER" layoutY="312.0" prefHeight="27.0" prefWidth="462.0" textAlignment="CENTER" textFill="#bf616a">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
