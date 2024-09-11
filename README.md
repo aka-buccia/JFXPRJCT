@@ -14,12 +14,18 @@ L'obiettivo finale è creare un'applicazione multiutente per l'apprendimento e l
 
 ### Utilizzo
 
-### Struttura
+### Struttura progetto
 Il progetto è strutturato in due macropacchetti, _resources_ contenente tutte le risorse (immagini, file, scene) e _java_ contenente i file java da compilare. 
 
 I file java sono divisi a loro volta per momento di esecuzione all'interno dell'applicazione, ossia _access_, _dashboard_, _exercise_ e _general_ per quelli che gestiscono operazioni generali richiamate in più momenti dell'esecuzione.
 Per ogni cartella è presente un controller, che connette backend e frontend, e un interrogatore db che si occupa delle interrogazioni al database necessarie. 
 
+### Struttura database
+È un database relazionale con tre tabelle:
+- **Utenti** contenente nei record gli utente che si registrano, con chiave primaria _idUtente_
+- **Esercizi** contenente nei record gli esercizi, con chiave primaria _idEsercizio_
+- **EserciziSvolti** che riflette l'associazione M:N Utente ha svolto Esercizio, in ogni record è presente idUtente e idEsercizio 
+  
 ### Librerie esterne
 Per l'esecuzione dell'applicazione è richiesta l'installazione di tre pacchetti JAR:
 - _javafx_ per le componenti grafiche
