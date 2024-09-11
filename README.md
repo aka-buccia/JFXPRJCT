@@ -1,4 +1,5 @@
-<img src="src/application/resources/general/logo-redesign.png" alt="JFXPRJCT logo" width="400" height="150" align="left"/> 
+<img src="src/application/resources/general/logo-redesign.png" alt="JFXPRJCT logo" width="400" height="150"/> 
+
 
 # Descrizione
 JFXPRJCT è una applicazione desktop sviluppata in JAVAFX dal gruppo SPT per il progetto del corso di Programmazione Internet.
