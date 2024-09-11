@@ -84,7 +84,6 @@ public class ControllerDashboard {
 
 	public void logout(MouseEvent event){
 		UserScraper.removeInfo();
-		System.out.println(UserScraper.printInfo()); // non necessario ma utile per capire se è andato tutto a buon fine
 		ControllerUtils.loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
 	}
 	
@@ -142,14 +141,9 @@ public class ControllerDashboard {
 		int totalCompleted = FEresult[0] + PRresult[0];
 		int totalEx = FEresult[1] + PRresult[1];
 		percentageUserInfo.setText(totalCompleted + " su " + totalEx);
-		System.out.println((double)totalCompleted / totalEx);
 		progressBarUserInfo.setProgress((double)totalCompleted / totalEx);
 	}
 }
-
-
-
-
 
 
 
