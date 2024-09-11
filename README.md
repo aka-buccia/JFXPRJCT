@@ -1,6 +1,4 @@
-<img src="src/application/resources/general/logo.png" alt="JFXPRJCT logo" width="128" align="left"/> 
-
-# JFXPRJCT
+# <img src="src/application/resources/general/logo-redesign.png" alt="JFXPRJCT logo" width="400" height="150" align="left"/> 
 <br>
 
 **Una applicazione JavaFX fatta _da_ e pensata _per_ sviluppatori Java**
