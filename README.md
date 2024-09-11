@@ -1,8 +1,35 @@
+<img src="src/application/resources/general/logo.png" alt="JFXPRJCT logo" width="128" align="left"/> 
+
 # JFXPRJCT
+<br>
+
+**Una applicazione JavaFX fatta _da_ e pensata _per_ sviluppatori Java**
+
+
+## Descrizione
 JFXPRJCT è una applicazione desktop sviluppata in JAVAFX dal gruppo SPT per il progetto del corso di Programmazione Internet.
 L'obiettivo finale è creare un'applicazione multiutente per l'apprendimento e l'allenamento delle conoscenze del linguaggio Java.
 
-## Stato attuale sviluppo
-- Pagina di login e registrazione funzionanti
-- Dashboard funzionante ma con parti mancanti
-- Esercizi funzionanti ma con parti mancanti
+## Funzionamento
+
+### Utilizzo
+
+### Struttura
+Il progetto è strutturato in due macropacchetti, _resources_ contenente tutte le risorse (immagini, file, scene) e _java_ contenente i file java da compilare. 
+
+I file java sono divisi a loro volta per momento di esecuzione all'interno dell'applicazione, ossia _access_, _dashboard_, _exercise_ e _general_ per quelli che gestiscono operazioni generali richiamate in più momenti dell'esecuzione.
+Per ogni cartella è presente un controller, che connette backend e frontend, e un interrogatore db che si occupa delle interrogazioni al database necessarie. 
+
+### Librerie esterne
+Per l'esecuzione dell'applicazione è richiesta l'installazione di tre pacchetti JAR:
+- _javafx_ per le componenti grafiche
+- _slf4j-api_ e _slf4j-nop_ per il sistema di logging
+- _sqlite-jdbc_ per la connessione al database
+  
+## Regole di sviluppo
+- nomi variabili esclusivamente in inglese seguendo regola camelCase
+- commenti codice, commit e readme in italiano
+- gli issue, quando aperti, vanno contrassegnati con le etichette appropriate, una che distingua fra _bug_, _feature_ e _enhancement_ e una seconda che specifichi quale aspetto è coinvolto (_ux_, _ui_, _database_, _codice_).
+
+## Crediti
+All'interno del progetto ci siamo serviti della palette [NordTheme](https://www.nordtheme.com/) e dell'immagine di [Pawel Czerwinski](https://unsplash.com/it/foto/BPrk2cOoCq8)
