@@ -21,7 +21,7 @@ public class DBAccess {
 	public static boolean loginUser(ActionEvent event, Label errorMessage, ArrayList<TextField> data){
 		String username = data.get(0).getText();
 		String password = data.get(1).getText();
-		System.out.println("username inserito: " + username + "\npassword inserita: " + password);
+		
 
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -96,7 +96,6 @@ public class DBAccess {
 				psInsert.setString(3, name);
 				psInsert.setString(4, surname);
 				psInsert.executeUpdate();
-				System.out.println("Nuovo utente registrato");
 				return true;
 			}
 		}

@@ -143,8 +143,6 @@ public class ControllerExercise {
 		else { // esercizio sbagliato
 			// cambiare testo e colore testo in rosso di "resultMessageLabel"
 			resultMessageLabelPR.setText("SBAGLIATO");
-			System.out.println("risultati inseriti: " + userResponse1 + ", " + userResponse2);
-			System.out.println("risultati esatti: " + dbResponse1 + ", " + dbResponse2);
 			resultMessageLabelPR.setStyle("-fx-text-fill: #bf616a");
 		}
 	}

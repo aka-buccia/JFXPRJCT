@@ -11,7 +11,6 @@ public class UserScraper {
 		UserScraper.username = username;
 		UserScraper.nome = nome;
 		UserScraper.cognome = cognome;
-		System.out.println(printInfo());
 	}
 	
 	public static int getIdUtente() {
