@@ -9,45 +9,46 @@ import java.util.logging.Logger;
 
 // classe per salvare le informazioni degli esercizi
 public class Exercise {
-	private int idEsercizio;
-	private int grado;
-	private int tipologia;
-	private int numero;
+	private int idExercise;
+	private int level;
+	private int type;
+	private int number;
 	private String path;
-	private String risposta1;
-	private String risposta2;
+	private String answer1;
+	private String answer2;
 	private int n1;
 	private int n2;
 	
-	public Exercise(int idEsercizio, int grado, int tipologia, int numero, String path, String risposta1, String risposta2, int n1, int n2) {
-		this.idEsercizio = idEsercizio;
-		this.grado = grado;
-		this.tipologia = tipologia;
-		this.numero = numero;
+	public Exercise(int idExercise, int level, int type, int number, String path, String answer1, String answer2, int n1, int n2) {
+		this.idExercise = idExercise;
+		this.level = level;
+		this.type = type;
+		this.number = number;
 		this.path = path;
-		this.risposta1 = risposta1;
-		this.risposta2 = risposta2;
+		this.answer1 = answer1;
+		this.answer2 = answer2;
 		this.n1 = n1;
 		this.n2 = n2;
 	}
 	
-	public int getIdEsercizio() {
-		return this.idEsercizio;
+	public int getIdExercise() {
+		return this.idExercise;
 	}
 	
-	public int getGrado() {
-		return this.grado;
+	public int getLevel() {
+		return this.level;
 	}
 	
-	public int getNumero() {
-		return this.numero;
-	}
-	public String getRisposta1() {
-		return this.risposta1;
+	public int getNumber() {
+		return this.number;
 	}
 	
-	public String getRisposta2() {
-		return this.risposta2;
+	public String getAnswer1() {
+		return this.answer1;
+	}
+	
+	public String getAnswer2() {
+		return this.answer2;
 	}
 	
 	public int getN1() {

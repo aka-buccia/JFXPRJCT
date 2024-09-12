@@ -145,8 +145,8 @@ public class ControllerDashboard {
 	//metodo per impostare scritte della scena UserInfo 
 	public void loadUserInfo() {
 		usernameLabel.setText(UserScraper.getUsername()); //username
-		nameLabel.setText(UserScraper.getNome()); //nome
-		surnameLabel.setText(UserScraper.getCognome()); //cognome
+		nameLabel.setText(UserScraper.getName()); //nome
+		surnameLabel.setText(UserScraper.getSurname()); //cognome
 		updateProgressBar(); //carica barra progressiva esercizi svolti di qualsiasi tipo
 	}
 	
