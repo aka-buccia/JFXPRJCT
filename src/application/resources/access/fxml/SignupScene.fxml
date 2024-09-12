@@ -58,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="279.0" mnemonicParsing="false" onAction="#backToLoginScene" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #88c0d0;" text="INDIETRO" textAlignment="CENTER" textFill="#eceff4">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="279.0" mnemonicParsing="false" onAction="#switchToLoginScene" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #88c0d0;" text="INDIETRO" textAlignment="CENTER" textFill="#eceff4">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>

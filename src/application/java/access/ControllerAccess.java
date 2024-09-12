@@ -41,17 +41,16 @@ public class ControllerAccess {
 	
 	@FXML
 	private Label errorMessageSignup;
-		
+	
+	
+	//passaggio alla scena di login	(accesso)
 	public void switchToLoginScene(ActionEvent event){
 		ControllerUtils.loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
 	}
 	
+	//passaggio alla scena di signup (registrazione)
 	public void switchToSignupScene(MouseEvent event){
 		ControllerUtils.loadFXML(event, "/application/resources/access/fxml/SignupScene.fxml");
-	}
-	
-	public void backToLoginScene(ActionEvent event){
-		ControllerUtils.loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml");
 	}
 	
 	public void switchToDashboardScene(ActionEvent event) {
@@ -93,7 +92,7 @@ public class ControllerAccess {
 		
 		if (empty.isEmpty()) {  //se non mancano dati si procede al signup
 			if (DBAccess.signUpUser(event, errorMessageSignup, data)) {
-				backToLoginScene(event);
+				switchToLoginScene(event);
 				ControllerUtils.showAlertWindow("Registrazione avvenuta con successo!", "Ora puoi procedere con il login");
 			}
 		}
