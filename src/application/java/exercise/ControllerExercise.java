@@ -16,7 +16,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class ControllerExercise {
-
 	private static Exercise currentExercise;
 		
 	@FXML
@@ -64,43 +63,49 @@ public class ControllerExercise {
 	@FXML
 	private Button respondBtn;
 	
+	// passaggio alla scena Dashboard e relativo cambio di controller
 	public void switchToDashboardScene(Event event) {
 		String location = "/application/resources/dashboard/fxml/DashboardScene.fxml";
 		
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
-			Parent dashboardRoot = loader.load();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(location)); // nuova istanza di FXMLLoader per caricare la scena Dashboard
+			Parent dashboardRoot = loader.load(); // carica il file fxml e restituisce la radice Parent della gerarchia di nodi
 		
-			ControllerDashboard cd = loader.getController(); // gli da il controller di loader che è ControllerDashboard
-			cd.updateDashboardData();
-			cd.setWelcomeText();
+			ControllerDashboard cd = loader.getController(); // recupera l'istanza del controller associato alla DashboardScene
+			cd.updateDashboardData(); // chiama il metodo del controller per aggiornare i dati relativi alla dashboard
+			cd.setWelcomeText(); // chiama il metodo del controller per caricare i dati nella Dashboard
 		
-			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot);
+			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot); // cambia scena
 		}
 		catch (IOException |RuntimeException e) {
 			ControllerUtils.showControllerError(e, location);
 		}
 	}
 	
+	// metodo per modificare il testo contenuto all'interno di codeContainer
 	public void setText(String text) {
 		codeContainer.setText(text);
 	}
 	
+	// metodo per aggiornare le informazioni (grado e numero) dell'esercizio corrente nella scena FindError
 	public void setExerciseInfoFE() {
 		levelNumExFE.setText("Livello: " + ControllerExercise.currentExercise.getGrado());
 		numExFE.setText("Esercizio: " + ControllerExercise.currentExercise.getNumero());
 	}
 	
+	// metodo per aggiornare le informazioni (grado e numero) dell'esercizio corrente nella scena PredictResult
 	public void setExerciseInfoPR() {
 		levelNumExPR.setText("Livello: " + ControllerExercise.currentExercise.getGrado());
 		numExPR.setText("Esercizio: " + ControllerExercise.currentExercise.getNumero());
 	}
 	
+	// metodo per modificare i valori di n nella scena PredictResult
 	public void setNValuesPRExercise() {
 		n1TextPR.setText("Risultato con n = " + ControllerExercise.currentExercise.getN1());
 		n2TextPR.setText("Risultato con n = " + ControllerExercise.currentExercise.getN2());
 	}
 	
+	// metodo per controllare le risposte dell'utente con quelle presenti nel database
 	public void checkResponse(String userResponse1, String userResponse2, String dbResponse1, String dbResponse2, Label resultMessageLabel, Button nextBtn, Button respondBtn) {
 		if (userResponse1.equals(dbResponse1) && userResponse2.equals(dbResponse2)) { // esercizio giusto
 			// aggiungere esercizio svolto nel database in "Esercizi svolti"
@@ -119,6 +124,7 @@ public class ControllerExercise {
 		}
 	}
 	
+	// metodo per controllare le risposte nella scena FindError
 	public void checkResponseFEExercise(ActionEvent event) {
 		String userResponse1 = numberResponseFE.getText().trim();
 		String userResponse2 = codeResponseFE.getText().trim();
@@ -128,6 +134,7 @@ public class ControllerExercise {
 		checkResponse(userResponse1, userResponse2, dbResponse1, dbResponse2, resultMessageLabelFE, nextBtn, respondBtn);
 	}
 	
+	// metodo per controllare le risposte nella scena PredictResult
 	public void checkResponsePRExercise(ActionEvent event) {
 		String userResponse1 = numberResponsePR1.getText().trim();
 		String userResponse2 = numberResponsePR2.getText().trim();
@@ -137,11 +144,12 @@ public class ControllerExercise {
 		checkResponse(userResponse1, userResponse2, dbResponse1, dbResponse2, resultMessageLabelPR, nextBtn, respondBtn);
 	}
 	
+	// passaggio alla scena FindError e relativo cambio di controller
 	public void switchToFindErrorScene(ActionEvent event) {
 		String location = "/application/resources/exercise/fxml/FindErrorScene.fxml";
 		
 		try {
-			Exercise ex = DBExercise.loadEx(1);
+			Exercise ex = DBExercise.loadEx(1); // caricamento esercizio tipologia 1
 			
 			if (ex != null) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
@@ -149,13 +157,13 @@ public class ControllerExercise {
 			
 				ControllerExercise ce = loader.getController(); 
 				ControllerExercise.currentExercise = ex;
-				ce.setText(ex.getText());
-				ce.setExerciseInfoFE();
+				ce.setText(ex.getText()); // caricamento testo dentro codeContainer
+				ce.setExerciseInfoFE(); // caricamento info "livello" ed "esercizio"
 				ControllerUtils.switchScene((Node) event.getSource(), controllerRoot);
 			}
-			else { //esercizi da svolgere finiti
-				switchToDashboardScene(event);
-				ControllerUtils.showAlertWindow("TROVA L'ERRORE completato", "Hai terminato gli esercizi da svolgere");
+			else { // esercizi da svolgere finiti
+				switchToDashboardScene(event); // torna alla Dashboard
+				ControllerUtils.showAlertWindow("TROVA L'ERRORE completato", "Hai terminato gli esercizi da svolgere"); // mostra finestra di alert
 			}
 			
 		}
@@ -164,10 +172,11 @@ public class ControllerExercise {
 		}
 	}
 	
+	// passaggio alla scena PredictResult e relativo cambio di controller
 	public void switchToPredictResultScene(ActionEvent event) {
 		String location = "/application/resources/exercise/fxml/PredictResultScene.fxml";
 		try {
-			Exercise ex = DBExercise.loadEx(2);
+			Exercise ex = DBExercise.loadEx(2); // caricamento esercizio tipologia 2
 			
 			if (ex != null) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(location));
@@ -175,14 +184,14 @@ public class ControllerExercise {
 			
 				ControllerExercise ce = loader.getController(); 
 				ControllerExercise.currentExercise = ex;
-				ce.setText(ex.getText());
-				ce.setExerciseInfoPR();
-				ce.setNValuesPRExercise();
+				ce.setText(ex.getText()); // caricamento testo dentro codeContainer
+				ce.setExerciseInfoPR(); // caricamento info "livello" ed "esercizio"
+				ce.setNValuesPRExercise(); // caricamento valori di n nella scena
 				ControllerUtils.switchScene((Node) event.getSource(), controllerRoot);
 			}
-			else { //esercizi da svolgere finiti
-				switchToDashboardScene(event);
-				ControllerUtils.showAlertWindow("PREVEDI RISULTATO completato", "Hai terminato gli esercizi da svolgere");
+			else { // esercizi da svolgere finiti
+				switchToDashboardScene(event); // torna alla Dashboard
+				ControllerUtils.showAlertWindow("PREVEDI RISULTATO completato", "Hai terminato gli esercizi da svolgere"); // mostra finestra di alert
 			}
 
 		}
@@ -191,9 +200,5 @@ public class ControllerExercise {
 		}
 	}
 }
-
-
-
-
 
 

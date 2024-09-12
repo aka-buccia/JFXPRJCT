@@ -1,6 +1,6 @@
 package application.java.dashboard;
 
-//classe con soli metodi statici per salvare a tempo di esecuzione i dati dell'utente che accede
+// classe con soli metodi statici per salvare a tempo di esecuzione i dati dell'utente che accede
 public class UserScraper {
 	private static int idUtente = 0;
 	private static String username = null;
@@ -30,15 +30,7 @@ public class UserScraper {
 		return cognome;
 	}
 	
-	public static String printInfo() {
-		return "USER INFO:" + "\n" +
-				"id utente: " + getIdUtente() + "\n" +  
-				"username: " + getUsername() + "\n" +  
-				"nome: " + getNome() + "\n" + 
-				"cognome: " + getCognome();
-	}
-	
-	//metodo per svuotare i dati, viene chiamato al momento del logout dell'utente
+	// metodo per svuotare i dati, viene chiamato al momento del logout dell'utente
 	public static void removeInfo() {
 		idUtente = 0;
 		username = null;
@@ -46,5 +38,7 @@ public class UserScraper {
 		cognome = null;
 	}
 }
+
+
 
 
