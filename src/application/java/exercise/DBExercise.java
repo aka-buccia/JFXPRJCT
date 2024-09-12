@@ -17,14 +17,14 @@ import application.java.general.DBUtils;
 public class DBExercise {
 	private final static String location = "jdbc:sqlite:database.db";
 	
-	
 	public static Exercise loadEx(int tipologia) {
-		try (Connection connection = DBUtils.connect(location)) {
+		try (Connection connection = DBUtils.connect(location)) { // connessione con il database
 			
 			if (connection == null)
 				return null;
 			
 			int idUtente = UserScraper.getIdUtente();
+			// creazione di un arraylist contenente tutti gli esercizi della tipologia passata come parametro
 			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Esercizi WHERE tipologia = ?", tipologia);
 			discardExercise(connection, exerciseList, idUtente);
 			
@@ -45,9 +45,9 @@ public class DBExercise {
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(statement);
 		preparedStatement.setInt(1, number);
-		ResultSet resultSet = preparedStatement.executeQuery();
+		ResultSet resultSet = preparedStatement.executeQuery(); // esecuzione della query
 		
-		while(resultSet.next()) {
+		while (resultSet.next()) { // creazione un nuovo oggetto Exercise per ogni esercizio presente in resultSet
 			Exercise ex = new Exercise(
 					resultSet.getInt("idEsercizio"),
 					resultSet.getInt("grado"),
@@ -70,14 +70,15 @@ public class DBExercise {
 		preparedStatement.setInt(1, idUtente);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
-		while(resultSet.next()) {
-			idSet.add(resultSet.getInt("idEsercizio")); 
+		while (resultSet.next()) {
+			idSet.add(resultSet.getInt("idEsercizio")); // aggiunta dell'idEsercizio dell'esercizio svolto in idSet
 		}
 		
+		// rimozione da exerciseList di ogni esercizio il cui id è presente in idSet
 		exerciseList.removeIf(ex -> idSet.contains(ex.getIdEsercizio()));
 	}
 	
-	public static boolean updateCompletedEx(int idEsercizio) {
+	public static boolean updateCompletedEx(int idEsercizio) { // aggiornamento di EserciziSvolti all'interno del database
 		int idUtente = UserScraper.getIdUtente();
 		PreparedStatement psInsert = null;
 		
@@ -99,6 +100,7 @@ public class DBExercise {
 		}	
 	}
 }
+
 
 
 

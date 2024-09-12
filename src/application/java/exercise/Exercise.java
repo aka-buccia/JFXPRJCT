@@ -57,7 +57,7 @@ public class Exercise {
 		return this.n2;
 	}
 	
-	public String getText() {
+	public String getText() { // salvataggio dentro la variabile text del codice contenuto nel file dell'esercizio
 		File f = new File(this.path);
 		String text = "";
 		
@@ -82,11 +82,18 @@ public class Exercise {
 		String s = "[" + 
 				this.idEsercizio + ", " +
 				this.tipologia + ", " +
-				this.grado+ ", " +
+				this.grado + ", " +
 				this.numero + ", " +
 				this.path + "]";
 		
 		return s;
 	}
-	
 }
+
+
+
+
+
+
+
+
