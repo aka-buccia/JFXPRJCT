@@ -13,12 +13,14 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerDashboard {
-	//inizializza quattro variabili private statiche per salvare a tempo di esecuzione lo stato di avanzamento dell'utente negli esercizi
+	
+	//due arraylist statiche per salvare a tempo di esecuzione esercizi svolti e esercizi totali di ogni tipologia
 	//il numero di esercizi totali per ogni tipologia nei due array viene inizializzato arbitrariamente ad un numero diverso da 0 per evitare errori di divisione per 0 
-	private static int [] FEresult = {0, 1}; //array che contiene numero di esercizi svolti e totali Trova Errore 
-	private static int [] PRresult = {0, 1}; //array che contiene numero di esercizi svolti e totali Prevedi Risultato
-	private static int FElevel = 1; //livello di difficoltà raggiunto in Trova Errore
-	private static int PRlevel = 1; //livello di difficoltà raggiunto in Prevedi Risultato
+	private static int [] FEresult = {0, 1}; 
+	private static int [] PRresult = {0, 1}; 
+	//due interi statici per salvare a tempo di esecuzione il livello raggiunto dall'utente in ogni tipologia
+	private static int FElevel = 1; 
+	private static int PRlevel = 1; 
 	
 	@FXML
 	private Label welcomeTextDashboard;
@@ -65,16 +67,16 @@ public class ControllerDashboard {
 	
 	//metodo per impostare le scritte della scena Dashboard all'apertura
 	public void setWelcomeText() {
-		welcomeTextDashboard.setText("Ciao " + UserScraper.getUsername() + "!"); //saluto con nome dell'utente
-		levelFELabel.setText("LIVELLO: " + String.valueOf(FElevel)); //livello raggiunto dell'esercizio Trova Errore
-		levelPRLabel.setText("LIVELLO: " + String.valueOf(PRlevel)); //livello raggiunto dell'esercizio Prevedi Risultato
-		progressFELabel.setText(String.valueOf(FEresult[0] * 100 / FEresult[1]) + "%");  //percentuale di esercizi completati Trova Errore
-		progressPRLabel.setText(String.valueOf(PRresult[0] * 100 / PRresult[1]) + "%");  //perceltuale di esercizio completati Prevedi Risultato
-		FEProgressBar.setProgress((double)FEresult[0] / FEresult[1]); //barra progressi esercizi Trova Errore
-		PRProgressBar.setProgress((double)PRresult[0] / PRresult[1]); //barra progressi esercizi Prevedi Risultato
+		welcomeTextDashboard.setText("Ciao " + UserScraper.getUsername() + "!"); 
+		levelFELabel.setText("LIVELLO: " + String.valueOf(FElevel)); 
+		levelPRLabel.setText("LIVELLO: " + String.valueOf(PRlevel)); 
+		progressFELabel.setText(String.valueOf(FEresult[0] * 100 / FEresult[1]) + "%");  
+		progressPRLabel.setText(String.valueOf(PRresult[0] * 100 / PRresult[1]) + "%");  
+		FEProgressBar.setProgress((double)FEresult[0] / FEresult[1]); 
+		PRProgressBar.setProgress((double)PRresult[0] / PRresult[1]); 
 	}
 	
-	//metodo per aggiornare i dati da mostrare con il metodo setWelcomeText
+	//metodo per aggiornare FEresult, PRresult, FElevel e PRlevel
 	public void updateDashboardData() {
 		FElevel = DBDashboard.loadProgress(1, FEresult, FElevel); //aggiorna numero esercizi svolti e esercizi totali Trova Errore
 		PRlevel = DBDashboard.loadProgress(2, PRresult, PRlevel); //aggiorna numero esercizi svolti e esercizi totali Prevedi Risultato
@@ -148,10 +150,10 @@ public class ControllerDashboard {
 		updateProgressBar(); //carica barra progressiva esercizi svolti di qualsiasi tipo
 	}
 	
-	//metodo per mostrare barra progressiva nella scena UserInfo
+	//metodo per mostrare barra progressivae numero esercizi svolti sul totale nella scena UserInfo
 	public void updateProgressBar() {
-		int totalCompleted = FEresult[0] + PRresult[0]; //totale esercizi svolti di ogni tipologia
-		int totalEx = FEresult[1] + PRresult[1]; //totale esercizi di ogni tipologia
+		int totalCompleted = FEresult[0] + PRresult[0]; 
+		int totalEx = FEresult[1] + PRresult[1]; 
 		percentageUserInfo.setText(totalCompleted + " su " + totalEx); //mostra testo con numero esercizi svolti sul totale
 		progressBarUserInfo.setProgress((double)totalCompleted / totalEx);  //mostra barra progressiva
 	}
