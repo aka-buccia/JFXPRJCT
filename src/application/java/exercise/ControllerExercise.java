@@ -101,50 +101,40 @@ public class ControllerExercise {
 		n2TextPR.setText("Risultato con n = " + ControllerExercise.currentExercise.getN2());
 	}
 	
+	public void checkResponse(String userResponse1, String userResponse2, String dbResponse1, String dbResponse2, Label resultMessageLabel, Button nextBtn, Button respondBtn) {
+		if (userResponse1.equals(dbResponse1) && userResponse2.equals(dbResponse2)) { // esercizio giusto
+			// aggiungere esercizio svolto nel database in "Esercizi svolti"
+			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio())) {
+				// cambiare testo e colore testo in verde di "resultMessageLabelFE"
+				resultMessageLabel.setText("ESATTO");
+				resultMessageLabel.setStyle("-fx-text-fill: #a3be8c");
+				nextBtn.setDisable(false); // abilita il bottone AVANTI	
+				respondBtn.setDisable(true); // disabilita il bottone RISPONDI
+			}
+		}
+		else { // esercizio sbagliato
+			// cambiare testo e colore testo in rosso di "resultMessageLabel"
+			resultMessageLabel.setText("SBAGLIATO");
+			resultMessageLabel.setStyle("-fx-text-fill: #bf616a");
+		}
+	}
+	
 	public void checkResponseFEExercise(ActionEvent event) {
 		String userResponse1 = numberResponseFE.getText().trim();
 		String userResponse2 = codeResponseFE.getText().trim();
 		String dbResponse1 = ControllerExercise.currentExercise.getRisposta1().trim();
 		String dbResponse2 = ControllerExercise.currentExercise.getRisposta2().trim();
 		
-		if (userResponse1.equals(dbResponse1) && userResponse2.equals(dbResponse2)) { // esercizio giusto
-			// aggiungere esercizio svolto nel database in "Esercizi svolti"
-			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio())) {
-				// cambiare testo e colore testo in verde di "resultMessageLabelFE"
-				resultMessageLabelFE.setText("ESATTO");
-				resultMessageLabelFE.setStyle("-fx-text-fill: #a3be8c");
-				nextBtn.setDisable(false);  //abilita il bottone AVANTI	
-				respondBtn.setDisable(true);  //disabilita il bottone RISPONDI
-			}
-		}
-		else { // esercizio sbagliato
-			// cambiare testo e colore testo in rosso di "resultMessageLabel"
-			resultMessageLabelFE.setText("SBAGLIATO");
-			resultMessageLabelFE.setStyle("-fx-text-fill: #bf616a");
-		}
+		checkResponse(userResponse1, userResponse2, dbResponse1, dbResponse2, resultMessageLabelFE, nextBtn, respondBtn);
 	}
 	
 	public void checkResponsePRExercise(ActionEvent event) {
-		int userResponse1 = Integer.parseInt(numberResponsePR1.getText().trim());
-		int userResponse2 = Integer.parseInt(numberResponsePR2.getText().trim());
-		int dbResponse1 = Integer.parseInt(ControllerExercise.currentExercise.getRisposta1());
-		int dbResponse2 = Integer.parseInt(ControllerExercise.currentExercise.getRisposta2());
+		String userResponse1 = numberResponsePR1.getText().trim();
+		String userResponse2 = numberResponsePR2.getText().trim();
+		String dbResponse1 = ControllerExercise.currentExercise.getRisposta1().trim();
+		String dbResponse2 = ControllerExercise.currentExercise.getRisposta2().trim();
 		
-		if (userResponse1 == dbResponse1 && userResponse2 == dbResponse2) { // esercizio giusto
-			// aggiungere esercizio svolto nel database in "Esercizi svolti"
-			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio())) {
-				// cambiare testo e colore testo in verde di "resultMessageLabelFE"
-				resultMessageLabelPR.setText("ESATTO");
-				resultMessageLabelPR.setStyle("-fx-text-fill: #a3be8c");
-				nextBtn.setDisable(false);  //abilita il bottone AVANTI	
-				respondBtn.setDisable(true);  //disabilita il bottone RISPONDI
-			}
-		}
-		else { // esercizio sbagliato
-			// cambiare testo e colore testo in rosso di "resultMessageLabel"
-			resultMessageLabelPR.setText("SBAGLIATO");
-			resultMessageLabelPR.setStyle("-fx-text-fill: #bf616a");
-		}
+		checkResponse(userResponse1, userResponse2, dbResponse1, dbResponse2, resultMessageLabelPR, nextBtn, respondBtn);
 	}
 	
 	public void switchToFindErrorScene(ActionEvent event) {
