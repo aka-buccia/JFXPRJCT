@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class DBAccess {
-	private final static String location = "jdbc:sqlite:database.db";  //indirizzo database sqlite locale
+	private final static String location = "jdbc:sqlite:src/application/resources/general/database.db";  //indirizzo database sqlite locale
 
 	//metodo per verifica dati di login
 	public static boolean loginUser(ActionEvent event, Label errorMessage, ArrayList<TextField> data){

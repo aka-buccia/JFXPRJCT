@@ -15,7 +15,7 @@ import application.java.general.DBUtils;
 
 
 public class DBExercise {
-	private final static String location = "jdbc:sqlite:database.db";
+	private final static String location = "jdbc:sqlite:src/application/resources/general/database.db";
 	
 	// metodo per caricare l'esercizio in base alla tipologia
 	public static Exercise loadEx(int type) {
