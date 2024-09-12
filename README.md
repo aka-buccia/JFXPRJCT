@@ -22,7 +22,7 @@ Per ogni cartella è presente un controller, che connette backend e frontend, e 
 - **EserciziSvolti** che riflette l'associazione M:N Utente ha svolto Esercizio, in ogni record è presente idUtente e idEsercizio 
   
 ## Librerie esterne
-Per l'esecuzione dell'applicazione è richiesta l'installazione di tre pacchetti JAR:
+Per l'esecuzione dell'applicazione è richiesta l'installazione di tre librerie esterne:
 - _javafx_ per le componenti grafiche
 - _slf4j-api_ e _slf4j-nop_ per il sistema di logging
 - _sqlite-jdbc_ per la connessione al database
