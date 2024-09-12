@@ -63,7 +63,7 @@ public class ControllerAccess {
 		
 			ControllerDashboard cd = loader.getController(); // recupera l'istanza del controller associato alla DashboardScene
 			cd.updateDashboardData(); //chiama il metodo del controller per aggiornare i dati relativi alla dashboard
-			cd.setWelcomeText(); //chiama il metodo del controller per caricare i dati nella dashboard
+			cd.setWelcomeText(); //chiama il metodo del controller per caricare i dati nella Dashboard
 		
 			ControllerUtils.switchScene((Node) event.getSource(), dashboardRoot); //cambia scena
 		}
