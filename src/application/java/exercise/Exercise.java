@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// classe per salvare le informazioni degli esercizi
 public class Exercise {
 	private int idEsercizio;
 	private int grado;
@@ -57,7 +58,8 @@ public class Exercise {
 		return this.n2;
 	}
 	
-	public String getText() { // salvataggio dentro la variabile text del codice contenuto nel file dell'esercizio
+	// metodo per salvare dentro la variabile text il codice contenuto nel file dell'esercizio
+	public String getText() { 
 		File f = new File(this.path);
 		String text = "";
 		
@@ -76,24 +78,7 @@ public class Exercise {
 		
 		return text;
 	}
-	
-	@Override
-	public String toString() {
-		String s = "[" + 
-				this.idEsercizio + ", " +
-				this.tipologia + ", " +
-				this.grado + ", " +
-				this.numero + ", " +
-				this.path + "]";
-		
-		return s;
-	}
 }
-
-
-
-
-
 
 
 
