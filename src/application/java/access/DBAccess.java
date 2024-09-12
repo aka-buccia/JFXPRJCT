@@ -16,45 +16,49 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class DBAccess {
-	private final static String location = "jdbc:sqlite:database.db";
+	private final static String location = "jdbc:sqlite:database.db";  //indirizzo database sqlite locale
 
+	//metodo per verifica dati di login
 	public static boolean loginUser(ActionEvent event, Label errorMessage, ArrayList<TextField> data){
-		String username = data.get(0).getText();
-		String password = data.get(1).getText();
+		String username = data.get(0).getText(); //estrapola username 
+		String password = data.get(1).getText(); //estrapola password
 		
 
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
 		
-		try (Connection connection = DBUtils.connect(location)) {
+		try (Connection connection = DBUtils.connect(location)) {  //stabilisce una connessione con il database
 			
 			if (connection == null)
 				return false; //se non è stata stabilita una connessione interrompe l'esecuzione del login
 			
 			
+			//preparazione query al database per ottenere tutti i record di Utenti con username combaciante a quello inserito
 			preparedStatement = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
 			preparedStatement.setString(1, username);
-			resultSet = preparedStatement.executeQuery();
+			resultSet = preparedStatement.executeQuery(); //insieme dei risultati della query
 			
-			if (!resultSet.isBeforeFirst()) { // se non è nel database
-				System.out.println("Utente non trovato nel database!");
-				GraphicalAnswer.alertMessage(data, errorMessage, "Username o password errati");
-				return false;
+			
+			// se non vi sono record lo username non è nel database
+			if (!resultSet.isBeforeFirst()) { 
+				GraphicalAnswer.alertMessage(data, errorMessage, "Username o password errati");  //segnala errore nei dati di login
+				return false; //interrompe l'esecuzione del login
 			}
-			else { // compariamo i dati se esiste l'username
-				while (resultSet.next()) {
-					String retrievedPassword = resultSet.getString("password");
+			else { //ci sono dei record contenenti username
+				
+				//ciclo sui record di risultato (che dovrebbero essere uno solo poichè username è campo univoco) per controllare se la password del record combacia con quella inserita
+				while (resultSet.next()) { 
+					String retrievedPassword = resultSet.getString("password"); //estrapola la password dal record
 					if (retrievedPassword.equals(password)) {
-						UserScraper.scraper(resultSet.getInt("idUtente"), username, resultSet.getString("nome"), resultSet.getString("cognome"));
-						return true;
+						UserScraper.scraper(resultSet.getInt("idUtente"), username, resultSet.getString("nome"), resultSet.getString("cognome")); //salva i dati dell'utente entrato
+						return true; //login andato a buon fine
 					}
 					else {
-						System.out.println("La password non coincide!");
-						GraphicalAnswer.alertMessage(data, errorMessage, "Username o password errati");
+						GraphicalAnswer.alertMessage(data, errorMessage, "Username o password errati"); //segnala errore nei dati di login
 					}
 				}
-				return false;
+				return false;  //login fallito
 			}
 		}
 		catch (SQLException e) {
@@ -64,7 +68,9 @@ public class DBAccess {
 		}
 	}
 	
+	//metodo per registrazione nuovo utente
 	public static boolean signUpUser(ActionEvent event, Label errorMessage, ArrayList<TextField> data) {
+		//estrapola username, password, nome e cognome dai TextField
 		String username = data.get(0).getText();
 		String password = data.get(1).getText();
 		String name = data.get(2).getText();
@@ -74,29 +80,30 @@ public class DBAccess {
 		PreparedStatement psCheckUserExists = null;
 		ResultSet resultSet = null;
 		
-		try (Connection connection = DBUtils.connect(location)) {
+		try (Connection connection = DBUtils.connect(location)) {  //stabilisce una connessione con il database 
 			
 			if (connection == null)
-				return false; //se non è stata stabilita una connessione interrompe l'esecuzione del signup
+				return false; //se non è stata stabilita una connessione interrompe la registrazione del nuovo utente
 			
+			//preparazione query al database per ottenere tutti i record di Utenti con username combaciante a quello inserito
 			psCheckUserExists = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
 			psCheckUserExists.setString(1, username);
-			resultSet = psCheckUserExists.executeQuery();
+			resultSet = psCheckUserExists.executeQuery(); //insieme dei risultati della query
 			
-			// username già usato da un'altro utente
+			// se la query produce risultati username è già stato usato da un'altro utente
 			if (resultSet.isBeforeFirst()) {  
-				System.out.println("Questo username è già stato scelto");
-				GraphicalAnswer.alertMessage(new ArrayList<TextField>(data.subList(0, 1)), errorMessage, "username già scelto");
-				return false;
+				GraphicalAnswer.alertMessage(new ArrayList<TextField>(data.subList(0, 1)), errorMessage, "username già scelto");  //segnala che lo username è già stato scelto
+				return false;  //interrompe la registrazione del nuovo utente
 			}
 			else {
+				//inserisce nel database un nuovo record contenente i dati inseriti
 				psInsert = connection.prepareStatement("INSERT INTO Utenti (username, password, nome, cognome) VALUES (?, ?, ?, ?)");
 				psInsert.setString(1, username);
 				psInsert.setString(2, password);
 				psInsert.setString(3, name);
 				psInsert.setString(4, surname);
 				psInsert.executeUpdate();
-				return true;
+				return true;  //registrazione nuovo utente andata a buon fine
 			}
 		}
 		catch (SQLException e) {
