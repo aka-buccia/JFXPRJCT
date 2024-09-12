@@ -34,7 +34,7 @@ public class DBAccess {
 				return false; //se non è stata stabilita una connessione interrompe l'esecuzione del login
 			
 			
-			//preparazione query al database per ottenere tutti i record di Utenti con username combaciante a quello inserito
+			//query al database per ottenere tutti i record di Utenti con username combaciante a quello inserito
 			preparedStatement = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
 			preparedStatement.setString(1, username);
 			resultSet = preparedStatement.executeQuery(); //insieme dei risultati della query
@@ -61,7 +61,7 @@ public class DBAccess {
 				return false;  //login fallito
 			}
 		}
-		catch (SQLException e) {
+		catch (SQLException e) { //errori nello stabilire la connessione o nell'effettuare le query
 			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante verifica dati");
 			DBUtils.showDBError(e);
 			return false;
@@ -85,7 +85,7 @@ public class DBAccess {
 			if (connection == null)
 				return false; //se non è stata stabilita una connessione interrompe la registrazione del nuovo utente
 			
-			//preparazione query al database per ottenere tutti i record di Utenti con username combaciante a quello inserito
+			//query al database per ottenere tutti i record di Utenti con username combaciante a quello inserito
 			psCheckUserExists = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
 			psCheckUserExists.setString(1, username);
 			resultSet = psCheckUserExists.executeQuery(); //insieme dei risultati della query
@@ -106,7 +106,7 @@ public class DBAccess {
 				return true;  //registrazione nuovo utente andata a buon fine
 			}
 		}
-		catch (SQLException e) {
+		catch (SQLException e) {  //errori nello stabilire la connessione o nell'effettuare le query
 			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore DB durante registrazione dati");
 			DBUtils.showDBError(e);
 			return false;
