@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class DBAccess {
-	private final static String location = "jdbc:sqlite:database.db";  //indirizzo database sqlite locale
+	private final static String location = "jdbc:sqlite:src/application/resources/general/database.db";  //indirizzo database sqlite locale
 
 	//metodo per verifica dati di login
 	public static boolean loginUser(ActionEvent event, Label errorMessage, ArrayList<TextField> data){
@@ -35,7 +35,7 @@ public class DBAccess {
 			
 			
 			//query al database per ottenere tutti i record di Utenti con username combaciante a quello inserito
-			preparedStatement = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
+			preparedStatement = connection.prepareStatement("SELECT * FROM Users WHERE username = ?");
 			preparedStatement.setString(1, username);
 			resultSet = preparedStatement.executeQuery(); //insieme dei risultati della query
 			
@@ -51,7 +51,7 @@ public class DBAccess {
 				while (resultSet.next()) { 
 					String retrievedPassword = resultSet.getString("password"); //estrapola la password dal record
 					if (retrievedPassword.equals(password)) {
-						UserScraper.scraper(resultSet.getInt("idUtente"), username, resultSet.getString("nome"), resultSet.getString("cognome")); //salva i dati dell'utente entrato
+						UserScraper.scraper(resultSet.getInt("idUser"), username, resultSet.getString("name"), resultSet.getString("surname")); //salva i dati dell'utente entrato
 						return true; //login andato a buon fine
 					}
 					else {
@@ -86,7 +86,7 @@ public class DBAccess {
 				return false; //se non è stata stabilita una connessione interrompe la registrazione del nuovo utente
 			
 			//query al database per ottenere tutti i record di Utenti con username combaciante a quello inserito
-			psCheckUserExists = connection.prepareStatement("SELECT * FROM Utenti WHERE username = ?");
+			psCheckUserExists = connection.prepareStatement("SELECT * FROM Users WHERE username = ?");
 			psCheckUserExists.setString(1, username);
 			resultSet = psCheckUserExists.executeQuery(); //insieme dei risultati della query
 			
@@ -97,7 +97,7 @@ public class DBAccess {
 			}
 			else {
 				//inserisce nel database un nuovo record contenente i dati inseriti
-				psInsert = connection.prepareStatement("INSERT INTO Utenti (username, password, nome, cognome) VALUES (?, ?, ?, ?)");
+				psInsert = connection.prepareStatement("INSERT INTO Users (username, password, name, surname) VALUES (?, ?, ?, ?)");
 				psInsert.setString(1, username);
 				psInsert.setString(2, password);
 				psInsert.setString(3, name);

@@ -15,18 +15,18 @@ import application.java.general.DBUtils;
 
 
 public class DBExercise {
-	private final static String location = "jdbc:sqlite:database.db";
+	private final static String location = "jdbc:sqlite:src/application/resources/general/database.db";
 	
 	// metodo per caricare l'esercizio in base alla tipologia
-	public static Exercise loadEx(int tipologia) {
+	public static Exercise loadEx(int type) {
 		try (Connection connection = DBUtils.connect(location)) { // connessione con il database
 			
 			if (connection == null)
 				return null; // connessione fallita
 			
-			int idUtente = UserScraper.getIdUtente();
+			int idUtente = UserScraper.getIdUser();
 			// creazione di un arraylist contenente tutti gli esercizi della tipologia passata come parametro
-			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Esercizi WHERE tipologia = ?", tipologia);
+			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Exercises WHERE type = ?", type);
 			discardExercise(connection, exerciseList, idUtente);
 			
 			if (exerciseList.isEmpty())
@@ -51,13 +51,13 @@ public class DBExercise {
 		
 		while (resultSet.next()) { // creazione un nuovo oggetto Exercise per ogni esercizio presente in resultSet
 			Exercise ex = new Exercise(
-					resultSet.getInt("idEsercizio"),
-					resultSet.getInt("grado"),
-					resultSet.getInt("tipologia"),
-					resultSet.getInt("numero"),
-					resultSet.getString("PathTesto"),
-					resultSet.getString("risposta1"),
-					resultSet.getString("risposta2"),
+					resultSet.getInt("idExercise"),
+					resultSet.getInt("level"),
+					resultSet.getInt("type"),
+					resultSet.getInt("number"),
+					resultSet.getString("TextPath"),
+					resultSet.getString("answer1"),
+					resultSet.getString("answer2"),
 					resultSet.getInt("N1"),
 					resultSet.getInt("N2"));
 			exerciseList.add(ex);
@@ -67,23 +67,23 @@ public class DBExercise {
 	}
 	
 	// metodo per memorizzare gli id degli esercizi svolti dall'utente in un set
-	public static void discardExercise(Connection connection, ArrayList<Exercise> exerciseList, int idUtente) throws SQLException {
+	public static void discardExercise(Connection connection, ArrayList<Exercise> exerciseList, int idUser) throws SQLException {
 		TreeSet<Integer> idSet = new TreeSet<Integer>();
 		// preparazione della query per ottenere tutti gli esercizi svolti dall'utente con l'idUtente passato come parametro
-		PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM EserciziSvolti WHERE idUtente = ?");
-		preparedStatement.setInt(1, idUtente); // imposta il parametro idUtente nella query
+		PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM DoneExercises WHERE idUser = ?");
+		preparedStatement.setInt(1, idUser); // imposta il parametro idUtente nella query
 		ResultSet resultSet = preparedStatement.executeQuery(); // esecuzione della query
 		
 		while (resultSet.next()) {
-			idSet.add(resultSet.getInt("idEsercizio")); // aggiunta dell'idEsercizio dell'esercizio svolto in idSet
+			idSet.add(resultSet.getInt("idExercise")); // aggiunta dell'idEsercizio dell'esercizio svolto in idSet
 		}
 		
 		// rimozione da exerciseList di ogni esercizio il cui id è presente in idSet
-		exerciseList.removeIf(ex -> idSet.contains(ex.getIdEsercizio()));
+		exerciseList.removeIf(ex -> idSet.contains(ex.getIdExercise()));
 	}
 	
-	public static boolean updateCompletedEx(int idEsercizio) { // aggiornamento di EserciziSvolti all'interno del database
-		int idUtente = UserScraper.getIdUtente(); // ottiene l'id dell'utente 
+	public static boolean updateCompletedEx(int idExercise) { // aggiornamento di EserciziSvolti all'interno del database
+		int idUser = UserScraper.getIdUser(); // ottiene l'id dell'utente 
 		PreparedStatement psInsert = null;
 		
 		try (Connection connection = DBUtils.connect(location)) { // tentativo di connessione al database
@@ -91,9 +91,9 @@ public class DBExercise {
 				return false; // connessione fallita
 			
 			// preparazione della query per ottenere tutti gli esercizi svolti dall'utente con l'idUtente passato come parametro
-			psInsert = connection.prepareStatement("INSERT INTO EserciziSvolti (idEsercizio, idUtente) VALUES (?, ?)");
-			psInsert.setInt(1, idEsercizio); // imposta il parametro idEsercizio nella query
-			psInsert.setInt(2, idUtente); // imposta il parametro idUtente nella query
+			psInsert = connection.prepareStatement("INSERT INTO DoneExercises (idExercise, idUser) VALUES (?, ?)");
+			psInsert.setInt(1, idExercise); // imposta il parametro idEsercizio nella query
+			psInsert.setInt(2, idUser); // imposta il parametro idUtente nella query
 			psInsert.executeUpdate(); // inserimento dati in EserciziSvolti
 			
 			return true;

@@ -89,14 +89,14 @@ public class ControllerExercise {
 	
 	// metodo per aggiornare le informazioni (grado e numero) dell'esercizio corrente nella scena FindError
 	public void setExerciseInfoFE() {
-		levelNumExFE.setText("Livello: " + ControllerExercise.currentExercise.getGrado());
-		numExFE.setText("Esercizio: " + ControllerExercise.currentExercise.getNumero());
+		levelNumExFE.setText("Livello: " + ControllerExercise.currentExercise.getLevel());
+		numExFE.setText("Esercizio: " + ControllerExercise.currentExercise.getNumber());
 	}
 	
 	// metodo per aggiornare le informazioni (grado e numero) dell'esercizio corrente nella scena PredictResult
 	public void setExerciseInfoPR() {
-		levelNumExPR.setText("Livello: " + ControllerExercise.currentExercise.getGrado());
-		numExPR.setText("Esercizio: " + ControllerExercise.currentExercise.getNumero());
+		levelNumExPR.setText("Livello: " + ControllerExercise.currentExercise.getLevel());
+		numExPR.setText("Esercizio: " + ControllerExercise.currentExercise.getNumber());
 	}
 	
 	// metodo per modificare i valori di n nella scena PredictResult
@@ -109,7 +109,7 @@ public class ControllerExercise {
 	public void checkResponse(String userResponse1, String userResponse2, String dbResponse1, String dbResponse2, Label resultMessageLabel, Button nextBtn, Button respondBtn) {
 		if (userResponse1.equals(dbResponse1) && userResponse2.equals(dbResponse2)) { // esercizio giusto
 			// aggiungere esercizio svolto nel database in "Esercizi svolti"
-			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdEsercizio())) {
+			if (DBExercise.updateCompletedEx(ControllerExercise.currentExercise.getIdExercise())) {
 				// cambiare testo e colore testo in verde di "resultMessageLabelFE"
 				resultMessageLabel.setText("ESATTO");
 				resultMessageLabel.setStyle("-fx-text-fill: #a3be8c");
@@ -128,8 +128,8 @@ public class ControllerExercise {
 	public void checkResponseFEExercise(ActionEvent event) {
 		String userResponse1 = numberResponseFE.getText().trim();
 		String userResponse2 = codeResponseFE.getText().trim();
-		String dbResponse1 = ControllerExercise.currentExercise.getRisposta1().trim();
-		String dbResponse2 = ControllerExercise.currentExercise.getRisposta2().trim();
+		String dbResponse1 = ControllerExercise.currentExercise.getAnswer1().trim();
+		String dbResponse2 = ControllerExercise.currentExercise.getAnswer2().trim();
 		
 		checkResponse(userResponse1, userResponse2, dbResponse1, dbResponse2, resultMessageLabelFE, nextBtn, respondBtn);
 	}
@@ -138,8 +138,8 @@ public class ControllerExercise {
 	public void checkResponsePRExercise(ActionEvent event) {
 		String userResponse1 = numberResponsePR1.getText().trim();
 		String userResponse2 = numberResponsePR2.getText().trim();
-		String dbResponse1 = ControllerExercise.currentExercise.getRisposta1().trim();
-		String dbResponse2 = ControllerExercise.currentExercise.getRisposta2().trim();
+		String dbResponse1 = ControllerExercise.currentExercise.getAnswer1().trim();
+		String dbResponse2 = ControllerExercise.currentExercise.getAnswer2().trim();
 		
 		checkResponse(userResponse1, userResponse2, dbResponse1, dbResponse2, resultMessageLabelPR, nextBtn, respondBtn);
 	}
