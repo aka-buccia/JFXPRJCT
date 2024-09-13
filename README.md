@@ -17,9 +17,9 @@ Per ogni cartella è presente un controller, che connette backend e frontend, e 
 
 ## Struttura database
 È un database relazionale SQlite locale serverless con tre tabelle:
-- **Utenti** contenente nei record gli utente che si registrano, con chiave primaria _idUtente_
-- **Esercizi** contenente nei record gli esercizi, con chiave primaria _idEsercizio_
-- **EserciziSvolti** che riflette l'associazione M:N Utente ha svolto Esercizio, in ogni record è presente idUtente e idEsercizio 
+- **Users** contenente nei record gli utenti che si registrano, con chiave primaria _idUser_
+- **Exercises** contenente nei record gli esercizi, con chiave primaria _idExercise_
+- **DoneExercises** che riflette l'associazione M:N Utente ha svolto Esercizio, in ogni record è presente idUser e idExercise
   
 ## Librerie esterne
 Per l'esecuzione dell'applicazione è richiesta l'installazione di tre librerie esterne:
