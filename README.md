@@ -8,6 +8,7 @@ L'obiettivo finale è creare un'applicazione multiutente per l'apprendimento e l
 # Funzionamento
 
 ## Utilizzo
+![schema jfxprjct](https://github.com/user-attachments/assets/645cc5fc-2a82-451f-98f8-e7e04f50f45e)
 
 ## Struttura progetto
 Il progetto è strutturato in due macropacchetti, _resources_ contenente tutte le risorse (immagini, file, scene) e _java_ contenente i file java da compilare. 
