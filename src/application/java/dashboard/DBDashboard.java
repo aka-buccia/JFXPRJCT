@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import application.java.general.DBUtils;
 
 public class DBDashboard {
-	private final static String location = "jdbc:sqlite:src/application/resources/general/database.db"; //indirizzo database sqlite locale
+	private final static String location = "jdbc:sqlite:database.db"; //indirizzo database sqlite locale
 	
 	//metodo per ottenere il numero di esercizi svolti dall'utente
 	public static int loadProgress(int type, int [] progress, int level) {
