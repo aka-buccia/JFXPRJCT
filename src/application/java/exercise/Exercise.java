@@ -69,6 +69,8 @@ public class Exercise {
 				String line;
 				int i = 1;
 				while ((line = reader.readLine()) != null) {
+					if (i < 10)
+						text += " "; //allineamento della numerazione delle righe
 					text += i + " " + line + "\n";
 					i++;
 				}
