@@ -1,9 +1,7 @@
 package application.java.exercise;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -58,27 +56,33 @@ public class Exercise {
 	public int getN2() {
 		return this.n2;
 	}
-	
-	// metodo per salvare dentro la variabile text il codice contenuto nel file dell'esercizio
-	public String getText() { 
-		File f = new File(this.path);
+
+	public String getText() {
 		String text = "";
 		
-		try {
-			Scanner scan = new Scanner(f);
-			int i = 1;
-			while (scan.hasNextLine()) {
-				text += i + " " +  scan.nextLine() + "\n";
-				i ++;
+		// Usa getResourceAsStream per ottenere un InputStream e leggere il file anche dentro al jar
+		try (InputStream inputStream = getClass().getResourceAsStream(this.path)) {
+			//Se il file è stato trovato procede con la lettura 
+			if (inputStream != null){
+				BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+				
+				String line;
+				int i = 1;
+				while ((line = reader.readLine()) != null) {
+					text += i + " " + line + "\n";
+					i++;
+				}
 			}
-			scan.close();
-		}
-		catch (IOException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + "Errore File durante lettura testo" + "\nMessaggio di errore: " + e.getMessage());
+			else
+				Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + " File " + this.path + " non trovato");
+		} catch (IOException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + " Errore File durante lettura testo" + "\nMessaggio di errore: " + e.getMessage());
 		}
 		
 		return text;
 	}
+
+	
 }
 
 
