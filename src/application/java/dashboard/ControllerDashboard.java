@@ -92,6 +92,8 @@ public class ControllerDashboard {
 	//torna alla scena di Login
 	public void logout(MouseEvent event){
 		UserScraper.removeInfo(); //cancella dati utente salvati a tempo di esecuzione
+		FElevel = 1;
+		PRlevel = 1;
 		ControllerUtils.loadFXML(event, "/application/resources/access/fxml/LoginScene.fxml"); //cambia scena
 	}
 	
