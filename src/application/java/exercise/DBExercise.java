@@ -24,10 +24,10 @@ public class DBExercise {
 			if (connection == null)
 				return null; // connessione fallita
 			
-			int idUtente = UserScraper.getIdUser();
+			int idUser = UserScraper.getIdUser();
 			// creazione di un arraylist contenente tutti gli esercizi della tipologia passata come parametro
 			ArrayList<Exercise> exerciseList = extractExercise(connection, "SELECT * FROM Exercises WHERE type = ?", type);
-			discardExercise(connection, exerciseList, idUtente);
+			discardExercise(connection, exerciseList, idUser);
 			
 			if (exerciseList.isEmpty())
 				return null;  // tutti gli esercizi sono stati svolti
